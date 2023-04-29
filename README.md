@@ -1,4 +1,4 @@
-# Scala 프로그래밍 (for Java 프로그래머)
+# 2023년 hatemogi.com
 
 ## mdBook 설치
 
@@ -20,3 +20,10 @@
 ```bash
 > mdbook serve
 ```
+
+## S3 배포
+
+```bash
+> ./deploy.sh
+```
+
