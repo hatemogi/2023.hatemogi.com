@@ -1,0 +1,17 @@
+[book]
+authors = ["Daehyun Kim"]
+language = "ko"
+multilingual = false
+src = "src"
+title = "hatemogi.com"
+
+[output.html]
+additional-css = ["custom.css"]
+mathjax-support = true
+no-section-label = true
+# git-repository-url = "https://github.com/hatemogi/2023.hatemogi.com"
+# git-repository-icon = "fa-github"
+# site-url = "https://hatemogi.com/"
+
+[output.html.search]
+enable = false

@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=JetBrains+Mono&family=Noto+Sans+KR:wght@500&family=Noto+Serif+KR&display=swap');
+
+h1.menu-title {
+  font-size: 2rem;
+}
+
+.header {
+  font-family: 'JetBrains Mono', 'Noto Sans KR', sans-serif;
+}
+
+body {
+  font-size: 1.8rem;
+}
+
+:root {
+  --mono-font: 'JetBrains Mono', 'Noto Serif KR';
+  font-family: 'Gowun Dodum', serif;
+}
+
+strong {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+:not(pre)>code.hljs {
+  border-radius: 3px;
+  background-color: var(--quote-bg);
+}
+
+pre code.hljs {
+  border-radius: 5px;
+}
