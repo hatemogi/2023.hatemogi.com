@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html lang="ko" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>김대현 소개 - hatemogi.com</title>
+
+
+        <!-- Custom HTML head -->
+        <meta property="og:title" content="hatemogi.com 개인홈" />
+        <meta property="og:description" content="백엔드 개발자 김대현의 개인 웹사이트" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://hatemogi.com/" />
+        <meta property="og:image" content="https://hatemogi.com/img/hatemogi.svg" />
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">소개</li><li class="chapter-item expanded "><a href="intro/intro.html" class="active">김대현 소개</a></li><li class="chapter-item expanded "><div>코세라 수료증 모음</div></li><li class="chapter-item expanded affix "><li class="part-title">2023년 글</li><li class="chapter-item expanded "><a href="2023/0428-scalabook.html">스칼라 미니북 공개</a></li><li class="chapter-item expanded affix "><li class="part-title">2022년 글</li><li class="chapter-item expanded "><a href="2022/0825-salary-developer.html">근로 소득 개발자</a></li><li class="chapter-item expanded "><a href="2022/0722-developer-rank.html">개발자 직급 체계, 그리고 시니어 개발자란?</a></li><li class="chapter-item expanded "><a href="2022/0801-amazon-sqs.html">마이크로서비스에 Amazon SQS 활용하기</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- Google tag (gtag.js) -->
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-DS17HTQ8PY"></script>
+                <script>
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag() { dataLayer.push(arguments); }
+                  gtag('js', new Date());
+                  gtag('config', 'G-DS17HTQ8PY');
+                </script>                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title">hatemogi.com</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="백엔드-엔지니어-김대현"><a class="header" href="#백엔드-엔지니어-김대현">백엔드 엔지니어 김대현</a></h1>
+<h2 id="소개"><a class="header" href="#소개">소개</a></h2>
+<p>안녕하세요. 백엔드 개발자 김대현입니다! 👋</p>
+<p>이제까지, 카카오(다음), NHN, 라인플러스에서 일했고, 현재는 <a href="https://constacts.com">컨스택츠</a>라는 작은 스타트업에서 Haskell이라는 함수형 프로그래밍 언어로 백엔드 시스템을 구축하고 있습니다.</p>
+<p>제주도🏝 바닷가에서 한적하게 쉬며 커피☕️ 마시는 것을 좋아합니다.</p>
+<p><a href="https://hatemogi.medium.com">Medium</a>에 개발 관련한 글을 적기도 하고, <a href="https://youtube.com/c/hatemogi101">YouTube</a>에도 개발 관련 영상을 올리고 있어요.</p>
+<p>제 관심 분야를 적으면, 앞으로 공유할 글들에 대한 방향성을 가늠하시기 좋을 것 같습니다.</p>
+<hr />
+<h2 id="함수형-프로그래밍"><a class="header" href="#함수형-프로그래밍">함수형 프로그래밍</a></h2>
+<p>제 관심 분야 중 가장 먼저 꼽고 싶은 것은, 함수형 프로그래밍입니다. 현재 대부분의 주요 프로그래밍 언어는 &quot;명령형 프로그래밍&quot; 스타일입니다만, 함수형 프로그래밍의 장점들이 꽤 녹아들고 있는 것 같습니다.</p>
+<h3 id="함수형-프로그래밍-언어--1-clojure"><a class="header" href="#함수형-프로그래밍-언어--1-clojure">함수형 프로그래밍 언어 | (1) Clojure</a></h3>
+<p><a href="https://link.coupang.com/a/s8JaL">'해커와 화가'</a>라는 책을 읽고, LISP라는 <strong>함수형 프로그래밍</strong> 언어에 관심을 갖게 되었습니다. 그러다 JVM이 널리 쓰이는 현업 환경에서 쓰기 좋은 <a href="https://clojure.org">클로저(Clojure)</a>를 접하게 되었고, 그 매력적이고 강력한 언어에 빠져들었습니다. 이제껏 배운 언어 중, 리스프 계열 언어들이 가장 우아하다 생각합니다만, 현업 환경의 다수의 개발자들에게 리스프의 모양새는 꽤나 (충격적)이기 때문에, 규모 있는 회사에서 적용해 쓰기에는 부담이 있어 아쉬웠지요.</p>
+<pre><code class="language-clojure">(defroutes 라우터
+  (GET &quot;/&quot; [] 핸들러)
+  (POST &quot;/echo-name&quot; [name]
+    (str &quot;안녕하세요, &quot; name &quot;님!&quot;))
+  (GET &quot;/index.html&quot; _
+    (html [:main
+           [:section
+            [:h1 &quot;안녕하세요&quot;]
+            [:div &quot;클로저 웹서비스 데모&quot;]]]))
+  (route/not-found &quot;찾을 수 없습니다&quot;))
+</code></pre>
+<p>(clojure + compojure)를 이용해 HTTP 서비스를 구성한 예제입니다. 리스프 계통 언어에 익숙하신 분들에게는 아주 자연스러운 코드일 텐데요, 대부분의 개발자들은, 다른 언어에서보다 많아 보이는 괄호 쌍()으로 인해 거부감을 느끼는 것 같습니다. 익숙해지면, 저 간결한 괄호식들이 참 우아해 보인다는 걸, 믿으실지 모르겠습니다.</p>
+<h3 id="함수형-프로그래밍-언어--2-scala"><a class="header" href="#함수형-프로그래밍-언어--2-scala">함수형 프로그래밍 언어 | (2) Scala</a></h3>
+<p>그러다가, LINE 광고개발본부에 입사했는데, 이미 본부 내 몇몇 팀에서 <a href="https://spark.apache.org/">스파크(Spark)</a>를 이용하며 <a href="https://www.scala-lang.org/">스칼라(Scala)</a> 코드베이스로 개발을 하고 있었습니다. 이에 용기를 얻어, 제가 진행하게 된 신규 프로젝트를 스칼라로 하겠다 보고드렸고, 공식적으로 스칼라 함수형 프로그래밍으로 현업 서비스를 개발해 일본과 대만에 오픈했습니다.</p>
+<p>게다가 스칼라로 함수형 프로그래밍을 하려는 개발자 분들이 여럿 저희 팀에 합류해 주셔서, 별다른 외압(?) 없이 스칼라 함수형 프로그래밍을 잘할 수 있게 되어 감사했습니다. 아무리 함수형 프로그래밍이 좋다한들, 충원이 되지 않으면 무슨 소용이 있겠습니까?</p>
+<pre><code class="language-scala">trait Semigroup[A] {
+  def combine(x: A, y: A): A
+}
+
+trait Monoid[A] extends Semigroup[A] {
+  def empty: A
+}
+
+implicit val intAdditionMonoid: Monoid[Int] = new Monoid[Int] {
+  def empty: Int = 0
+  def combine(x: Int, y: Int): Int = x + y
+}
+
+def combineAll[A: Monoid](as: List[A]): A =
+  as.foldLeft(Monoid[A].empty)(Monoid[A].combine)
+
+combineAll(List(1, 2, 3)) // res3: Int = 6
+</code></pre>
+<p>스칼라 코드의 모양을 소개하기 위해, <a href="https://typelevel.org/cats/typeclasses/monoid.html">Cats라는 라이브러리의 Monoid 설명서</a>에 나와있는 예제를 가져와봤습니다. 그래도 스칼라는, 일반적인 명령형 프로그래밍 언어와 겉모습이 비슷하기에, 그리고 스파크라는 프레임워크 덕분에, 업무 환경에 도입해 쓰기에 부담이 적은 것 같습니다.</p>
+<h3 id="라인개발실록-인터뷰"><a class="header" href="#라인개발실록-인터뷰">라인개발실록 인터뷰</a></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/H6JxxWL6bJI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>당시 저희 팀에서 함수형 프로그래밍을 하고 있단 소식에, 인터뷰까지 진행하게 되었습니다. 진행자 민우님이 잘 이끌어 주셔서 (제게는) 재미있는 영상이 남았습니다. 언젠가 좀 더 본격적으로 함수형 프로그래밍을 소개하는 영상을 남기고 싶네요.</p>
+<h2 id="함수형-프로그래밍-언어--3-haskell"><a class="header" href="#함수형-프로그래밍-언어--3-haskell">함수형 프로그래밍 언어 | (3) Haskell</a></h2>
+<p>클로저와 스칼라는 함수형 프로그래밍 언어로 분류할 수 있습니다. 한편, 함수형 프로그래밍의 끝판에는 &quot;순수&quot; 함수형 프로그래밍 언어인 <a href="https://www.haskell.org/">하스켈(haskell)</a>이 있습니다. 어떻게 제게 이런 행운이 흘러드는지, 하스켈마저도 업무용으로 쓸 수 있게 되었습니다.</p>
+<p>2022년 소개를 적는 현재, 컨스택츠라는 스타트업에서 신규 백엔드 시스템을 하스켈로 구축하고 있습니다. 아마도 국내에서 유일하게 하스켈을 실무에 활용하는 회사가 아닐까 합니다. 그래서 저희는, 농담 섞어서, 국내 하스켈 개발자 Top 10 중 3명이 근무 중인 회사라고 허세를 부리고 다닙니다. <strong>국내에 실무 하스켈 개발자가 열 명이 안될 거</strong>라는 매우 합리적인 추측 때문에 가능한 농담이죠.</p>
+<pre><code class="language-haskell">quickSort :: Ord a =&gt; [a] -&gt; [a]
+quickSort [] = []
+quickSort (x:xs) =
+  quickSort smaller ++ [x] ++ quickSort larger
+  where
+    (smaller, larger) = partition (&lt;= x) xs
+
+--- &gt;&gt;&gt; take 11 $ quickSort [1..30000000]
+-- [1,2,3,4,5,6,7,8,9,10]
+</code></pre>
+<p>퀵소트 알고리즘을 구현한 하스켈 코드를 가져와봤습니다. 첫줄에 타입 선언이 있고, 이어서, 빈 리스트와 그렇지 않은 리스트에 대한 함수 본문이 나와있습니다. 퀵소트는 주어진 리스트에서 피벗 요소를 기준으로 작은 요소들과 큰 요소들의 리스트로 나눠서 재귀(recursion)로 구현할 수 있는데요, 지금 말로 설명한 부분이, 코드에 그대로 직관적으로 반영되어 멋진 것 같습니다.</p>
+<p>하스켈은 엄격한 정적 타입 시스템을 갖춘 순수 함수형 프로그래밍 언어입니다. 순수 함수형 언어는, 함수 내에서 부수효과를 일으킬 수 없기에, 무언가 효과를 일으키기 위해서는 효과자체를 문맥에 담아 표현하고, 그 문맥을 다루기 편하게 하기 위해, 수학적 이론을 바탕으로 한 모나드(Monad)를 적극 활용합니다.</p>
+<p>하스켈에 대해서도 차차 소개할 수 있게되기를 기대해봅니다.</p>
+<hr />
+<h2 id="사이드-프로젝트"><a class="header" href="#사이드-프로젝트">사이드 프로젝트</a></h2>
+<p>다음으로 꼽을만한 관심 분야는, 때때로 진행하는 사이드 프로젝트입니다. 결과물이 공개적으로 잘 드러나는 프로젝트를 하려고, 프론트엔드 개발도 기웃거릴 때가 있습니다. 아무래도 본업은 백엔드 개발자이기 때문에, 프론트엔드 개발자 분들이 보시기에는, 어설픈 작업물일 가능성이 높습니다만, 그래도 재밌게 개발하고 있습니다. 틈틈히 연습해두니까, 백엔드 개발자로서, 간혹 필요한 웹화면을 만들기에 좋습니다. 구축한 시스템의 웹 관리 페이지를 만들 때도 유용합니다.</p>
+<h3 id="프론트엔드-프로그래밍--1-elm"><a class="header" href="#프론트엔드-프로그래밍--1-elm">프론트엔드 프로그래밍 | (1) Elm</a></h3>
+<p>프론트엔드 개발에 좋은, <a href="https://elm-lang.org">Elm</a>이라는 함수형 프로그래밍 언어가 있습니다. 하스켈과 마찬가지로 순수 함수형 프로그래밍 언어이고, 언어 기능이 간략해서 배우기 쉽고, 웹에 특화돼 있어서, 곧바로 웹 개발을 하기에 좋습니다. 아쉽게도, 쓰는 사람이 많지는 않기 때문에, 학습 자료를 찾아보기에는 아쉬운 점이 많은 것 같습니다.</p>
+<pre><code class="language-Elm">update : Msg -&gt; Model -&gt; ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        LinkClicked urlRequest -&gt;
+            case urlRequest of
+                Browser.Internal url -&gt;
+                    ( model, Nav.pushUrl model.key (Url.toString url) )
+
+                Browser.External href -&gt;
+                    ( model, Nav.load href )
+
+        UrlChanged url -&gt;
+            ( { model | url = url, route = urlToRoute url }, Cmd.none )
+
+        UpdateProjectFilter f -&gt;
+            ( { model | projectFilter = f }, Cmd.none )
+</code></pre>
+<p>제 개인 홈에 이용한 Elm코드의 일부를 가져와 보았습니다. 하스켈과 비슷하게 타입 선언을 먼저 두고, 커링도 활용하며, 패턴 매칭으로 메시지를 받아서 처리하는 코드입니다. 저같은 아마츄어가 프론트엔드 개발을 하려할 때, 꽤 든든한 힘을 입어 개발할 수 있어서 좋은데요, 다른 분들의 관심은 적은 언어라는 아쉬움이 있네요. 개인 단독 프로젝트를 진행할 때 이따금 사용할 것 같습니다.</p>
+<h3 id="프론트엔드-프로그래밍--2-typescript"><a class="header" href="#프론트엔드-프로그래밍--2-typescript">프론트엔드 프로그래밍 | (2) TypeScript</a></h3>
+<p>아마도, 제가 프론트엔드 개발을 조금 더 기웃거린다면, <a href="https://www.typescriptlang.org">타입스크립트(TypeScript)</a>를 많이 활용할 것 같습니다. 이제 정적 타입 언어가 더 친숙해지기도 했고, 타입스크립트를 활용하는 사람은, 제가 사용하는 마이너 언어들에 비해 대단히 많기 때문에, 많은 분들과 소통하기에는 타입스크립트가 가장 적절하지 않나 생각하고 있습니다.</p>
+<pre><code class="language-typescript">function reorderFace(from: (n: number) =&gt; number): FaceFunc {
+  return (face: Face) =&gt; {
+    const target = face.slice()
+    face.forEach((x, n) =&gt; target[from(n)] = x)
+    return target
+  }
+}
+
+const clockwiseF = (x: number) =&gt; (7 * x + 6) % 10
+const counterclockwiseF = (x: number) =&gt; (3 * x + 2) % 10
+const halfTurnF = (x: number) =&gt; 8 - x
+
+const clockwise = reorderFace(clockwiseF)
+const counterclockwise = reorderFace(counterclockwiseF)
+const halfTurn = reorderFace(halfTurnF)
+</code></pre>
+<p>최근 작업 중인, 사이드 프로젝트의 코드 일부를 가져와 보았습니다. 자바스크립트(JavaScript)와 거의 같은데, 중간중간 타입을 선언하는 점이 큰 차이점입니다. 제가 쓰는 글에서 코드로 무언가를 설명해야 할 때, 타입스크립트를 주로 써봐야겠다고 생각하고 있습니다.</p>
+<h2 id="반갑습니다"><a class="header" href="#반갑습니다">반갑습니다</a></h2>
+<p>이상, 함수형 프로그래밍과 사이드 프로젝트라는 두가지 관심사를 말씀드리면서, 장황한 소개를 적어보았습니다. 글로나마 다른 개발자분들과 서로 좋은 긍정적 힘 주고받으며 지내면 좋겠습니다.언젠가 오프라인에서 만나면 더 반가울 것 같습니다.</p>
+<blockquote>
+<p>2022년 7월 18일 작성</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next" href="2023/0428-scalabook.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next" href="2023/0428-scalabook.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+<html lang="ko" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>hatemogi.com</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        <meta property="og:title" content="hatemogi.com 개인홈" />
+        <meta property="og:description" content="백엔드 개발자 김대현의 개인 웹사이트" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://hatemogi.com/" />
+        <meta property="og:image" content="https://hatemogi.com/img/hatemogi.svg" />
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="custom.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">소개</li><li class="chapter-item expanded "><a href="intro/intro.html">김대현 소개</a></li><li class="chapter-item expanded "><div>코세라 수료증 모음</div></li><li class="chapter-item expanded affix "><li class="part-title">2023년 글</li><li class="chapter-item expanded "><a href="2023/0428-scalabook.html">스칼라 미니북 공개</a></li><li class="chapter-item expanded affix "><li class="part-title">2022년 글</li><li class="chapter-item expanded "><a href="2022/0825-salary-developer.html">근로 소득 개발자</a></li><li class="chapter-item expanded "><a href="2022/0722-developer-rank.html">개발자 직급 체계, 그리고 시니어 개발자란?</a></li><li class="chapter-item expanded "><a href="2022/0801-amazon-sqs.html">마이크로서비스에 Amazon SQS 활용하기</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- Google tag (gtag.js) -->
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-DS17HTQ8PY"></script>
+                <script>
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag() { dataLayer.push(arguments); }
+                  gtag('js', new Date());
+                  gtag('config', 'G-DS17HTQ8PY');
+                </script>                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title">hatemogi.com</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="백엔드-엔지니어-김대현"><a class="header" href="#백엔드-엔지니어-김대현">백엔드 엔지니어 김대현</a></h1>
+<h2 id="소개"><a class="header" href="#소개">소개</a></h2>
+<p>안녕하세요. 백엔드 개발자 김대현입니다! 👋</p>
+<p>이제까지, 카카오(다음), NHN, 라인플러스에서 일했고, 현재는 <a href="https://constacts.com">컨스택츠</a>라는 작은 스타트업에서 Haskell이라는 함수형 프로그래밍 언어로 백엔드 시스템을 구축하고 있습니다.</p>
+<p>제주도🏝 바닷가에서 한적하게 쉬며 커피☕️ 마시는 것을 좋아합니다.</p>
+<p><a href="https://hatemogi.medium.com">Medium</a>에 개발 관련한 글을 적기도 하고, <a href="https://youtube.com/c/hatemogi101">YouTube</a>에도 개발 관련 영상을 올리고 있어요.</p>
+<p>제 관심 분야를 적으면, 앞으로 공유할 글들에 대한 방향성을 가늠하시기 좋을 것 같습니다.</p>
+<hr />
+<h2 id="함수형-프로그래밍"><a class="header" href="#함수형-프로그래밍">함수형 프로그래밍</a></h2>
+<p>제 관심 분야 중 가장 먼저 꼽고 싶은 것은, 함수형 프로그래밍입니다. 현재 대부분의 주요 프로그래밍 언어는 &quot;명령형 프로그래밍&quot; 스타일입니다만, 함수형 프로그래밍의 장점들이 꽤 녹아들고 있는 것 같습니다.</p>
+<h3 id="함수형-프로그래밍-언어--1-clojure"><a class="header" href="#함수형-프로그래밍-언어--1-clojure">함수형 프로그래밍 언어 | (1) Clojure</a></h3>
+<p><a href="https://link.coupang.com/a/s8JaL">'해커와 화가'</a>라는 책을 읽고, LISP라는 <strong>함수형 프로그래밍</strong> 언어에 관심을 갖게 되었습니다. 그러다 JVM이 널리 쓰이는 현업 환경에서 쓰기 좋은 <a href="https://clojure.org">클로저(Clojure)</a>를 접하게 되었고, 그 매력적이고 강력한 언어에 빠져들었습니다. 이제껏 배운 언어 중, 리스프 계열 언어들이 가장 우아하다 생각합니다만, 현업 환경의 다수의 개발자들에게 리스프의 모양새는 꽤나 (충격적)이기 때문에, 규모 있는 회사에서 적용해 쓰기에는 부담이 있어 아쉬웠지요.</p>
+<pre><code class="language-clojure">(defroutes 라우터
+  (GET &quot;/&quot; [] 핸들러)
+  (POST &quot;/echo-name&quot; [name]
+    (str &quot;안녕하세요, &quot; name &quot;님!&quot;))
+  (GET &quot;/index.html&quot; _
+    (html [:main
+           [:section
+            [:h1 &quot;안녕하세요&quot;]
+            [:div &quot;클로저 웹서비스 데모&quot;]]]))
+  (route/not-found &quot;찾을 수 없습니다&quot;))
+</code></pre>
+<p>(clojure + compojure)를 이용해 HTTP 서비스를 구성한 예제입니다. 리스프 계통 언어에 익숙하신 분들에게는 아주 자연스러운 코드일 텐데요, 대부분의 개발자들은, 다른 언어에서보다 많아 보이는 괄호 쌍()으로 인해 거부감을 느끼는 것 같습니다. 익숙해지면, 저 간결한 괄호식들이 참 우아해 보인다는 걸, 믿으실지 모르겠습니다.</p>
+<h3 id="함수형-프로그래밍-언어--2-scala"><a class="header" href="#함수형-프로그래밍-언어--2-scala">함수형 프로그래밍 언어 | (2) Scala</a></h3>
+<p>그러다가, LINE 광고개발본부에 입사했는데, 이미 본부 내 몇몇 팀에서 <a href="https://spark.apache.org/">스파크(Spark)</a>를 이용하며 <a href="https://www.scala-lang.org/">스칼라(Scala)</a> 코드베이스로 개발을 하고 있었습니다. 이에 용기를 얻어, 제가 진행하게 된 신규 프로젝트를 스칼라로 하겠다 보고드렸고, 공식적으로 스칼라 함수형 프로그래밍으로 현업 서비스를 개발해 일본과 대만에 오픈했습니다.</p>
+<p>게다가 스칼라로 함수형 프로그래밍을 하려는 개발자 분들이 여럿 저희 팀에 합류해 주셔서, 별다른 외압(?) 없이 스칼라 함수형 프로그래밍을 잘할 수 있게 되어 감사했습니다. 아무리 함수형 프로그래밍이 좋다한들, 충원이 되지 않으면 무슨 소용이 있겠습니까?</p>
+<pre><code class="language-scala">trait Semigroup[A] {
+  def combine(x: A, y: A): A
+}
+
+trait Monoid[A] extends Semigroup[A] {
+  def empty: A
+}
+
+implicit val intAdditionMonoid: Monoid[Int] = new Monoid[Int] {
+  def empty: Int = 0
+  def combine(x: Int, y: Int): Int = x + y
+}
+
+def combineAll[A: Monoid](as: List[A]): A =
+  as.foldLeft(Monoid[A].empty)(Monoid[A].combine)
+
+combineAll(List(1, 2, 3)) // res3: Int = 6
+</code></pre>
+<p>스칼라 코드의 모양을 소개하기 위해, <a href="https://typelevel.org/cats/typeclasses/monoid.html">Cats라는 라이브러리의 Monoid 설명서</a>에 나와있는 예제를 가져와봤습니다. 그래도 스칼라는, 일반적인 명령형 프로그래밍 언어와 겉모습이 비슷하기에, 그리고 스파크라는 프레임워크 덕분에, 업무 환경에 도입해 쓰기에 부담이 적은 것 같습니다.</p>
+<h3 id="라인개발실록-인터뷰"><a class="header" href="#라인개발실록-인터뷰">라인개발실록 인터뷰</a></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/H6JxxWL6bJI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>당시 저희 팀에서 함수형 프로그래밍을 하고 있단 소식에, 인터뷰까지 진행하게 되었습니다. 진행자 민우님이 잘 이끌어 주셔서 (제게는) 재미있는 영상이 남았습니다. 언젠가 좀 더 본격적으로 함수형 프로그래밍을 소개하는 영상을 남기고 싶네요.</p>
+<h2 id="함수형-프로그래밍-언어--3-haskell"><a class="header" href="#함수형-프로그래밍-언어--3-haskell">함수형 프로그래밍 언어 | (3) Haskell</a></h2>
+<p>클로저와 스칼라는 함수형 프로그래밍 언어로 분류할 수 있습니다. 한편, 함수형 프로그래밍의 끝판에는 &quot;순수&quot; 함수형 프로그래밍 언어인 <a href="https://www.haskell.org/">하스켈(haskell)</a>이 있습니다. 어떻게 제게 이런 행운이 흘러드는지, 하스켈마저도 업무용으로 쓸 수 있게 되었습니다.</p>
+<p>2022년 소개를 적는 현재, 컨스택츠라는 스타트업에서 신규 백엔드 시스템을 하스켈로 구축하고 있습니다. 아마도 국내에서 유일하게 하스켈을 실무에 활용하는 회사가 아닐까 합니다. 그래서 저희는, 농담 섞어서, 국내 하스켈 개발자 Top 10 중 3명이 근무 중인 회사라고 허세를 부리고 다닙니다. <strong>국내에 실무 하스켈 개발자가 열 명이 안될 거</strong>라는 매우 합리적인 추측 때문에 가능한 농담이죠.</p>
+<pre><code class="language-haskell">quickSort :: Ord a =&gt; [a] -&gt; [a]
+quickSort [] = []
+quickSort (x:xs) =
+  quickSort smaller ++ [x] ++ quickSort larger
+  where
+    (smaller, larger) = partition (&lt;= x) xs
+
+--- &gt;&gt;&gt; take 11 $ quickSort [1..30000000]
+-- [1,2,3,4,5,6,7,8,9,10]
+</code></pre>
+<p>퀵소트 알고리즘을 구현한 하스켈 코드를 가져와봤습니다. 첫줄에 타입 선언이 있고, 이어서, 빈 리스트와 그렇지 않은 리스트에 대한 함수 본문이 나와있습니다. 퀵소트는 주어진 리스트에서 피벗 요소를 기준으로 작은 요소들과 큰 요소들의 리스트로 나눠서 재귀(recursion)로 구현할 수 있는데요, 지금 말로 설명한 부분이, 코드에 그대로 직관적으로 반영되어 멋진 것 같습니다.</p>
+<p>하스켈은 엄격한 정적 타입 시스템을 갖춘 순수 함수형 프로그래밍 언어입니다. 순수 함수형 언어는, 함수 내에서 부수효과를 일으킬 수 없기에, 무언가 효과를 일으키기 위해서는 효과자체를 문맥에 담아 표현하고, 그 문맥을 다루기 편하게 하기 위해, 수학적 이론을 바탕으로 한 모나드(Monad)를 적극 활용합니다.</p>
+<p>하스켈에 대해서도 차차 소개할 수 있게되기를 기대해봅니다.</p>
+<hr />
+<h2 id="사이드-프로젝트"><a class="header" href="#사이드-프로젝트">사이드 프로젝트</a></h2>
+<p>다음으로 꼽을만한 관심 분야는, 때때로 진행하는 사이드 프로젝트입니다. 결과물이 공개적으로 잘 드러나는 프로젝트를 하려고, 프론트엔드 개발도 기웃거릴 때가 있습니다. 아무래도 본업은 백엔드 개발자이기 때문에, 프론트엔드 개발자 분들이 보시기에는, 어설픈 작업물일 가능성이 높습니다만, 그래도 재밌게 개발하고 있습니다. 틈틈히 연습해두니까, 백엔드 개발자로서, 간혹 필요한 웹화면을 만들기에 좋습니다. 구축한 시스템의 웹 관리 페이지를 만들 때도 유용합니다.</p>
+<h3 id="프론트엔드-프로그래밍--1-elm"><a class="header" href="#프론트엔드-프로그래밍--1-elm">프론트엔드 프로그래밍 | (1) Elm</a></h3>
+<p>프론트엔드 개발에 좋은, <a href="https://elm-lang.org">Elm</a>이라는 함수형 프로그래밍 언어가 있습니다. 하스켈과 마찬가지로 순수 함수형 프로그래밍 언어이고, 언어 기능이 간략해서 배우기 쉽고, 웹에 특화돼 있어서, 곧바로 웹 개발을 하기에 좋습니다. 아쉽게도, 쓰는 사람이 많지는 않기 때문에, 학습 자료를 찾아보기에는 아쉬운 점이 많은 것 같습니다.</p>
+<pre><code class="language-Elm">update : Msg -&gt; Model -&gt; ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        LinkClicked urlRequest -&gt;
+            case urlRequest of
+                Browser.Internal url -&gt;
+                    ( model, Nav.pushUrl model.key (Url.toString url) )
+
+                Browser.External href -&gt;
+                    ( model, Nav.load href )
+
+        UrlChanged url -&gt;
+            ( { model | url = url, route = urlToRoute url }, Cmd.none )
+
+        UpdateProjectFilter f -&gt;
+            ( { model | projectFilter = f }, Cmd.none )
+</code></pre>
+<p>제 개인 홈에 이용한 Elm코드의 일부를 가져와 보았습니다. 하스켈과 비슷하게 타입 선언을 먼저 두고, 커링도 활용하며, 패턴 매칭으로 메시지를 받아서 처리하는 코드입니다. 저같은 아마츄어가 프론트엔드 개발을 하려할 때, 꽤 든든한 힘을 입어 개발할 수 있어서 좋은데요, 다른 분들의 관심은 적은 언어라는 아쉬움이 있네요. 개인 단독 프로젝트를 진행할 때 이따금 사용할 것 같습니다.</p>
+<h3 id="프론트엔드-프로그래밍--2-typescript"><a class="header" href="#프론트엔드-프로그래밍--2-typescript">프론트엔드 프로그래밍 | (2) TypeScript</a></h3>
+<p>아마도, 제가 프론트엔드 개발을 조금 더 기웃거린다면, <a href="https://www.typescriptlang.org">타입스크립트(TypeScript)</a>를 많이 활용할 것 같습니다. 이제 정적 타입 언어가 더 친숙해지기도 했고, 타입스크립트를 활용하는 사람은, 제가 사용하는 마이너 언어들에 비해 대단히 많기 때문에, 많은 분들과 소통하기에는 타입스크립트가 가장 적절하지 않나 생각하고 있습니다.</p>
+<pre><code class="language-typescript">function reorderFace(from: (n: number) =&gt; number): FaceFunc {
+  return (face: Face) =&gt; {
+    const target = face.slice()
+    face.forEach((x, n) =&gt; target[from(n)] = x)
+    return target
+  }
+}
+
+const clockwiseF = (x: number) =&gt; (7 * x + 6) % 10
+const counterclockwiseF = (x: number) =&gt; (3 * x + 2) % 10
+const halfTurnF = (x: number) =&gt; 8 - x
+
+const clockwise = reorderFace(clockwiseF)
+const counterclockwise = reorderFace(counterclockwiseF)
+const halfTurn = reorderFace(halfTurnF)
+</code></pre>
+<p>최근 작업 중인, 사이드 프로젝트의 코드 일부를 가져와 보았습니다. 자바스크립트(JavaScript)와 거의 같은데, 중간중간 타입을 선언하는 점이 큰 차이점입니다. 제가 쓰는 글에서 코드로 무언가를 설명해야 할 때, 타입스크립트를 주로 써봐야겠다고 생각하고 있습니다.</p>
+<h2 id="반갑습니다"><a class="header" href="#반갑습니다">반갑습니다</a></h2>
+<p>이상, 함수형 프로그래밍과 사이드 프로젝트라는 두가지 관심사를 말씀드리면서, 장황한 소개를 적어보았습니다. 글로나마 다른 개발자분들과 서로 좋은 긍정적 힘 주고받으며 지내면 좋겠습니다.언젠가 오프라인에서 만나면 더 반가울 것 같습니다.</p>
+<blockquote>
+<p>2022년 7월 18일 작성</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="스칼라-미니북-공개"><a class="header" href="#스칼라-미니북-공개">스칼라 미니북 공개</a></h1>
+<p><img src="https://scalabook.hatemogi.com/img/scalabook.png" alt="" /></p>
+<p>함수형 프로그래밍에 관심을 두다, 클로저, 스칼라, 하스켈을 차례로 업무에 활용하고 있습니다. 셋 다 널리 쓰이는 함수형 프로그래밍 언어인데, 셋이 생각보다 많이 다릅니다.</p>
+<p>다 매력적이지만, 현대 백엔드 개발에서는 그중 가장 스칼라가 실용적이라는 생각을 하고 있습니다. 하스켈은 too much인 것 같습니다.</p>
+<p>스칼라 정도면 함수형 프로그래밍도 꽤 본격적으로 할 수 있으면서, 현업 환경을 떠나지 않고도 실제 활용이 가능하다고 봅니다.</p>
+<p>그런 생각에 이어, 기존 자바 개발자들을 대상으로 스칼라를 소개하는 미니 웹북을 만들었어요.</p>
+<p>보시는 분들은, 워낙 간단하고 짧아서 쉽게 읽으실 수 있을 텐데요, 저로서는 인생 첫 책이기도 하고, 게으른 성격에 뭔가 길게 가져가다가 마무리한 점에서 꽤 뿌듯합니다.</p>
+<p>스칼라에 흥미가 있으시다면, 일독 부탁드리겠습니다.</p>
+<p>감사합니다.</p>
+<blockquote>
+<p>온라인 무료 미니북 주소</p>
+<ul>
+<li><a href="https://scalabook.hatemogi.com/">https://scalabook.hatemogi.com/</a></li>
+</ul>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="근로-소득-개발자"><a class="header" href="#근로-소득-개발자">근로 소득 개발자</a></h1>
+<p>출근길에, 은행에서 카톡이 왔습니다. 급여가 입금되었다는 반가운 알림이었습니다. 월급이 매달 입금되는 것이 근로자 입장에서 가장 중요한 일이겠습니다. 중요하고 감사한 일인데, 매달 따박따박 입금되는 것이 당연해지고, 당연해지고 나면 그 밖에도 다른 욕심들이 자라나기 마련입니다.</p>
+<p>예를 들면, 나는 회사에서 얼마나 공헌하며, 인정받고 다니고 있는가, 나는 여기서 뭘 배우며 얼마나 성장하고 있나, 내가 원하는 일을 하고 있나, 회사는 나를 필요로 하는가, 또는 나는 어떻게 이 세상을 이롭게 바꾸고 있는가 등등등. 각자의 가치관에 따라 얼마든지 다를 수 있는 다 중요한 가치들이 있겠습니다.</p>
+<p>좋은 현상인지 나쁜 현상인지 모르겠습니다만, 오랜 기간 월급을 받다 보니, 그 가치들에 대한 관점이 제 삶에 있어서 중요한 부분으로 최소화되는 것 같습니다. 예를 들어, 배우며 성장하기 같은 주제는, 한창 열 일하는 개발자분들에게는 너무도 중요하고 관심 가는 가치이겠지만, 저 같은 노인네 뒷방 개발자들에게는 거의 관심이 없는 주제입니다. &quot;이제 와서 성장해봐야 얼마나 하겠어&quot;, &quot;성장한다 한들 얼마나 더 개발자로 일하겠어&quot; 같은 생각들이 더 강한 것일 수도 있고, 그냥 묵묵히 잘하다 보면 성장하는 거지, 성장을 목표로 용쓴다고 달라질 게 별로 없다는 걸 알기 때문이기도 하겠습니다. 초등학생 어린이들은 빨리 어른이 되고 싶다지만, 막상 어른 된 입장에서야 그 생각이 별로 안 들잖아요? 정작 아무 걱정 없이 신나게 노는 아이들이 부러울 따름입니다. 정작 그 아이들은 나름의 심각한 고민들이 많이 있고요. ㅎㅎ</p>
+<p>암튼, 결국 근로소득자 입장에서는, 내 지식 노동을 제공하고, 그 대가를 월급으로 받는 것이 핵심이겠습니다. 욕심을 더 부린다면, 그 지식 노동을 생산하는 과정에서, 월급 외에 다른 부산물들이 나나 회사에 더 발생하면 좋은 거죠. 예를 들면, 내 지식 노동의 품질이 더 올라가서, 잠재적으로 연봉이 오른다거나, 더 높은 급여의 회사로 이직이 쉬워진다거나 하는 등의 부산물요.</p>
+<p>뒷방 노인네답게, 오로지 &quot;돈돈돈&quot;을 적게 되었는데, 그렇다고, 월급만으로 기준을 최소화해버리면, 내 장기적인 커리어가 망가진다거나, 과도한 정신적 육체적 스트레스로 건강을 해친다거나 하는 부작용이 발생할 수도 있으니, 나름의 적절한 균형점을 찾아야 하겠습니다. 그 균형점이 정말 중요한 것 같아요. 너무 돈만 따져도 안되고, 그렇다고 너무 이상적인 목표에 대해 과도한 욕심을 부려도, 부작용이 클 테니까요.</p>
+<p>이런 마인드가 어떤가 생각해봤습니다. 이러니 저리니 해도 월급날 월급은 잘 들어왔고, 난 그 이상의 추가적인 부가 가치를 나에게나 회사에 만들어 냈으면 정말 잘한 거라고요. 반드시 그래야 하는 것은 아니지만, 그게 가능하다면 바람직한 옵션 정도로 여겨보면, 적어도 일단 마음은 편하지 않나 싶습니다.</p>
+<p>어떻게 생각하시나요? 지나치게 소박한 목표일까요? 한편, 뭐 그 모든 욕심이나 이상을 한 방에 날려 보내는 현실은, &quot;왜 내 월급은 왜 텅장을 스쳐가고 늘 부족한가&quot;라는 점이 문제겠습니다. 욕심에 비해 늘 부족하지만, 그래도 입금된 월급에 감사하며 마구 적어봤습니다. 이제 뭐 욕심을 줄여야죠. ㅋ</p>
+<blockquote>
+<p>작성일: 2022년 8월 25일</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="개발자-직급-체계-그리고-시니어-개발자란"><a class="header" href="#개발자-직급-체계-그리고-시니어-개발자란">개발자 직급 체계, 그리고 시니어 개발자란?</a></h1>
+<h2 id="나보고-시니어-개발자라고"><a class="header" href="#나보고-시니어-개발자라고">나보고 시니어 개발자라고?</a></h2>
+<p>한 7년 차쯤 되었을 때, 처음 시니어 개발자라고 불린 것 같습니다. 그때는 &quot;시니어 개발자&quot;라는 호칭 자체가 생소했고, 심지어 조금 불쾌하기까지 했어요. 나이도 들고 경력도 좀 되었는데, 마땅히 공식적인 직함 같은 게 없는 상황에, 애써 우대해 불러주고 싶을 때 쓰는 호칭 정도로 느껴졌습니다.</p>
+<p>게다가 제가 생각하는 시니어 개발자는 백발머리 성성한 그런 이미지를 떠올렸는데, 아직 30대 초반 청년(?)이었던 저한테 시니어라니?! 당시 제 주변 동료들은 팀장이 된다거나 승진을 한다거나 하는데, 저만 아직 말단 개발자니까, '뭔가 문제시되는 게 아닌가'하는 자격지심 같은 마음이 발동했나 봅니다. 삐딱하게 말이죠.</p>
+<h2 id="이젠-뭘로-보나-시니어-확정"><a class="header" href="#이젠-뭘로-보나-시니어-확정">이젠 뭘로 보나, 시니어 확정</a></h2>
+<p>그런데 요새는 왠지 시니어 개발자의 대우가 꽤 좋은 느낌입니다. 채용 시장에서는 물론이고, 개발자 커뮤니티에서도 &quot;시니어 개발자&quot;라는 부류의 사람들을 인정해주는 분위기랄까요? 이미지 자체가 좋아지니, 시니어라 불리는 것에 대해서 느꼈던 거부감이 호감으로 바뀔 지경입니다.</p>
+<p>어쨌건, 이제 누가 저보고 &quot;시니어 개발자&quot;라고 말해도, 저 스스로도 어색하지 않은 상황이 갖춰진 것 같습니다. 백발성성까지는 아니더라도, 흰머리도 많아진 건 확실하고요. 췟!</p>
+<h2 id="시니어-개발자의-기준"><a class="header" href="#시니어-개발자의-기준">시니어 개발자의 기준</a></h2>
+<p>주변에 &quot;시니어 개발자를 판단하는 기준이 무어냐?&quot;라고 물어보면, 대략 주관적으로는 판단이 가능한 것 같습니다만, 경계를 확실히 가르는 객관적 기준이 있는 것 같지는 않습니다. 각자 생각하는 기준이 다를 수 있기에, 회색 영역이 꽤 넓게 자리 잡는 것 같습니다.</p>
+<p>한편, 회사들마다 개발자 공개/비공개 레벨 제도가 있다거나, 아예 직급이나 직함이 그 역할을 대신하는 경우도 있는 것 같습니다. 예를 들어, L1부터 L7까지 있는데, 대략 L4부터 시니어라고 부른다거나 하는 식인 거죠.</p>
+<p>아니면, 아예 더 주관적으로, &quot;주변 개발자들에게 일을 시킬 수 있는 영향력이 있으면 시니어&quot;라고 한다거나, 아니면 &quot;본인 밥값을 충분히 하고 주변 개발자도 도와주면 시니어&quot;라고 한다는 의견도 들었습니다.</p>
+<p>이 주니어/시니어 개발자라는 기준이, 마치, 청년과 장년의 기준이 무어냐와 비슷한 느낌으로 모호한 것 같다고 생각하고 있습니다.</p>
+<h2 id="경험한-회사의-위계들"><a class="header" href="#경험한-회사의-위계들">경험한 회사의 위계들</a></h2>
+<h3 id="첫직장----사원-대리-과장-차장-부장-임원"><a class="header" href="#첫직장----사원-대리-과장-차장-부장-임원">첫직장 -- 사원, 대리, 과장, 차장, 부장, 임원...</a></h3>
+<p>오래전 처음 다녔던 회사에서는 전통적인 직급 제도가 있었습니다. 사원은 그냥 누구누구'씨'라는 호칭으로 불렀고, 대리부터 직급과 '님'자를 붙여서 불렀습니다.
+그러니까 저보고는 &quot;김대현씨&quot;라고 불렀는데, 이게 뭐, 한국어 문법적으로 따지자면 존댓말이자만, 사실상 하대죠. 그러다 대리가 되면, 윗사람은 '김대현 대리'라고 부르고, 사원들은 '김대현 대리님'이라고 부릅니다.</p>
+<p>동일 직급 내에서는 연봉 차이가 거의 없고, 다음 직급으로 승진을 하면 연봉 인상 폭이 좀 티가 나는 점이 인상적입니다. 사실 이런 회사에서는 주니어/시니어의 구분이 의미가 없고, 그냥 직급 자체가 위계를 드러냅니다.</p>
+<p>여기서 직급제는, 거의 호봉에 따라서, 3년 근속하고 나면, 내부 승진 심사를 거쳐, 다음 직급이 되는데, 3년 보다 먼저 되면, 대단히 이례적으로 우수한 경우인 거고, 그보다 늦어지면, 뭔가 안 좋은 평가를 받고 있는 거라, 보통의 경우에는 연차에 맞게 거의 정해진 직급으로 이동했던 것 같습니다.</p>
+<p>여기서는, 대략 대리에서 과장될까 말까 한 즈음이 '시니어 개발자'로 부를 수 있는 영역이 아니었을까 돌이켜봅니다.</p>
+<h3 id="daum----대표이사도-그냥-님일-뿐"><a class="header" href="#daum----대표이사도-그냥-님일-뿐">Daum -- 대표이사도 그냥 '님'일 뿐</a></h3>
+<p>Daum은 제 입사 당시 젊은 인터넷 기업으로, 서로 호칭을 누구누구'님'이라고 직급 없이 불렀습니다. 그러니까 당시 이재웅 대표이사님 시절인데, 막 입사한 신입사원도, 대표이사를 부를 때, &quot;재웅님&quot;이라고 부르는 거지요. (뭐, 다행인 점은, 대부분 부를 일이 없습니다). 지금이야 IT 업계에서 님 문화나 영어 호칭 문화가 꽤 일반적인 것 같습니다만, 당시에는 나름 파격이었죠.</p>
+<p>호칭 자체는 '님'으로 통일하긴 했는데, 인트라넷 프로필이나, 사내 메신저에서 대화할 때에 이름 옆에 직함을 붙여 표기합니다. 팀장이라거나, 본부장이라거나 유닛장이라거나 하는 식으로요.</p>
+<p>그래도 사내에서 온/오프라인으로 서로 부를 때는 '님'자로 끝입니다. 제가 팀장이라고 하더라도, 저희 팀원들은 저를 '대현님'이라고 부릅니다. 타이틀 중에 뭐 '개발리더'라는 요망한 것도 해보았는데, 뭐 별 차이점은 없었습니다.</p>
+<p>여담으로, 다음에서 오래 근무를 하다 보니, 보통 회사 명함에 있는 흔한 직급이 없어서, 어색한 경우도 있었습니다. 예를 들면, 친척 어르신들은, &quot;아니 왜 10년이나 다녔는데 아직도 사원이냐? 우리 대현이 승진을 못해서 어떻게 하냐?&quot; 이런 걱정을 해주시는 거죠. &quot;저희 회사는 직급 제도가 없이 다 님으로 부릅니다&quot;라고 말씀드리면, &quot;회사가 무슨 동호회냐? 님으로 부르게?&quot;라고 말씀하시거나, 아니면 '승진 못한 게 민망해서 둘러대나 보다'라고 생각하시는 경우도 있었을 것 같습니다.</p>
+<p>사내에서는 님 문화로 충분한데, 대외적으로는 직함이라도 있는 것이 대우가 달라지는 체감이 들기도 합니다. 하다못해 은행 대출을 받을 때에도, 팀장 직함을 하나 달고 있으면, 한도가 더 나오는 식인 거죠.</p>
+<p>제가 다니던 시절의 다음에서 개발팀장들은 실무 개발은 거의 하지 않았기 때문에, (팀장 == 시니어 개발자)라고 부르기에는 연결이 좀 어렵기는 합니다. 개발자 출신 시니어인 것은 맞지만, 이제는 개발자라고 부르기 어려운 업무를 주로 했습니다.</p>
+<h3 id="다음-카카오----영어-이름을-지으라고"><a class="header" href="#다음-카카오----영어-이름을-지으라고">다음 카카오 -- 영어 이름을 지으라고?</a></h3>
+<p>Daum에서 퇴사할 즈음, 카카오와 합병되었습니다. 실제야 어쨌든, 대외적으로는 다음이 카카오를 인수한 모양새였기 때문에, 회사 이름에도 처음에 &quot;다음&quot;이 붙어있기는 했습니다만, 호칭제도는 본 카카오에서 쓰던 대로 영어 이름을 쓰기로 합니다. 카카오에서는 님 호칭으로는 부족하고, 아예 영어식으로 해야 더 수평적인 문화가 장려된다고 여겼나 봅니다.</p>
+<p>지금은 어떤지 모르겠으나, 당시 카카오는, 팀장이나 파트장 등이 실무 개발을 꽤 많이 했다고 들었기 때문에, 여기서부터는 대략 타이틀 있는 사람이 시니어 개발자라고 여기면 될 것 같습니다. 물론, 타이틀 없는 사람 중에서도 시니어 개발자로 부를 만한 사람도 많이 있었겠죠.</p>
+<h3 id="nhn----호오라-직급-제도가-있네"><a class="header" href="#nhn----호오라-직급-제도가-있네">NHN -- 호오라, 직급 제도가 있네?</a></h3>
+<p>NHN의 경우에는, 의외로 직급 제도가 있었습니다. 사원, 선임, 책임, 수석, 이사 등으로요. 용어의 차이만 있을 뿐, 대략 사원-대리-과장-부장 트리와 비슷한 것 같습니다. 저는 수석으로 근무를 했는데, 이게 거기서는 나름 높은 직급이라 특혜와 대우 같은 게 적잖이 있었습니다.</p>
+<p>그래도 NHN은, 경력 연차를 기반으로 하기는 하지만, 능력 평가와 업적 평가를 통해, 연차와 딱 매칭시키지는 않는, 나름 유연한 평가를 했던 점이 인상적이었습니다. 승진 심사위원회 같은 걸 열어서, 추천 대상자의 업적을 여러 상위자가 모여서 평가를 합니다. 심지어 대상자의 최근 몇 년 간 산출 결과 문서와, 사내 깃헙 저장소 소스 코드 커밋 내역까지 다 보고 평가를 합니다.</p>
+<p>이 과정은, 경력 많은 상위 직급자들 여럿이 모여 어느 정도 객관성을 부여한 합의를 바탕으로 개발적인 성과와 능력을 평가한 기준이 반영되는 거라, 사내에서 책임부터는 '시니어 개발자'다라고 여겨도 될 것 같습니다.</p>
+<p>어찌 보면, 이렇게 팀장 같은 직함보다는 이런 승진 직급체계가, 시니어 개발자를 구분할 수 있는 기준에 가까울 것 같다는 생각을 해봤습니다.</p>
+<h3 id="line----다시-복귀한-님문화"><a class="header" href="#line----다시-복귀한-님문화">LINE+ -- 다시 복귀한 '님'문화</a></h3>
+<p>LINE+도, Daum처럼 님 호칭을 씁니다. 저야, Daum에서 경험했기 때문에 익숙했죠. 팀장은 Lead라고 부르고, 차상위 조직장, 그러니까 2차 조직장도 Lead라고 부르고 있는데요, 아마 네이버도 마찬가지인 것 같습니다. &quot;책임리더&quot;라는 타이틀도 있는데, 아마 꽤 높은 타이틀인가 봅니다. 어쨌건 다음과 마찬가지로, 내부에서 서로 부를 때는 타이틀 빼고, 그냥 님이라고 부릅니다.</p>
+<p>입사 당시 나머지는 다 님이라 부르고, 일본에 자주 오가는, 대표이사님만 &quot;신상&quot;이라고 일본식 호칭으로 부르더라고요. 라인 본사는 일본에 있는데, 일본에서, 직급을 빼고 누구누구&quot;씨&quot;라고 부르는 걸 파격적으로 장려한 모양입니다. &quot;-상&quot;이라는 게, 우리로 치면 정확히 &quot;-씨&quot;랑 매칭되는 건데, 사장님을 &quot;-씨&quot;라고 부른 거죠, &quot;신씨&quot;라고. 일본에서는 공식적인 호칭에서는 이름이 아니라, 성을 부릅니다.</p>
+<p>암튼, 그러다가, 공개적으로 드러나지 않는, 내부적인 개발자 등급 제도를 만든다던데, 어떻게 진행됐는지는 모르겠습니다. 아마 미국 FAANG 같은 회사에서 한다는 개발자 레벨 제도를 도입하려는 것 같습니다.</p>
+<p>도입하려는 레벨 제도는, 레벨마다 역할과 책임, 기대사항과 만족해야 할 기준들이 객관적이고 명확하기에, 레벨에 따라 시니어 개발자의 기준을 매핑할 수 있을 것 같습니다. 저 퇴사할 때까지는 도입되지 않았기 때문에 어떻게 진행됐는지는 잘 모르겠습니다.</p>
+<p>근데, 사실 듣기에 개발자 레벨이라는 게, 전통적인 직급 제도와 뭐가 다른지 모르겠어요. 그냥 대리, 선임, 책임 등에게, 구체적인 기대 사항만 능력과 성과 중심으로 적시해도 되는 게 아닌가, 왜 굳이 Level이고 숫자로 해야 하나 하는 꼰대적 의문이 들기는 했습니다.</p>
+<p>암튼, 능력과 성과를 객관적으로 평가하려는 시도는 응원하는 마음입니다. 단지 나이나 경력 기간만으로 평가한다거나, 아니면 조직장의 주관적 감을 위주로 평가하는 건 문제가 있다고 봅니다. (요새 어디 그런 조직이 있겠나 싶습니다만...)</p>
+<h2 id="그래서-시니어-개발자의-기준은"><a class="header" href="#그래서-시니어-개발자의-기준은">그래서, 시니어 개발자의 기준은?</a></h2>
+<p>사실 &quot;시니어 개발자&quot;에 대해 명시적으로 합의된 기준이 있지는 않은 것 같습니다.</p>
+<p>(1) 경력 기준으로 보자면, 대략 5년 차 넘어가면 주니어라고 부르면 실례가 될 것 같고, 그렇다고 시니어라고 부르기에는 애매할 수 있는 영역인 것 같습니다. 한 7년 차 넘어가면 대충 시니어라고 볼 수 있을 것 같기도 합니다.</p>
+<p>(2) 특정 회사에서, 나름의 직급이나 레벨 체계를 경험했다면, 대충 시니어 개발자 기준으로 연결지어도 될 것 같고, 이게 그나마 객관적인 기준이 될 것 같습니다.</p>
+<p>(3) 경험한 역할로 보자면, 작은 파트나 팀을 대표로 이끌어 개발을 하는 역할이라면 시니어라고 봐도 될 것 같습니다.</p>
+<h2 id="아쉬운-마무리"><a class="header" href="#아쉬운-마무리">아쉬운 마무리</a></h2>
+<p>한참을 고민해봐도 마땅한 결론이 쉽게 나는 것 같지는 않습니다. 사실 어쩌면, 시니어 개발자의 기준이 그렇게까지 중요하지는 않기 때문에, 대충 넘어가도 될 것을, 쓸데없이 많은 고민을 했던 건지도 모르겠습니다.</p>
+<p>암튼, 제가 다녔던 회사들의 직급과 호칭 체계는 그랬구나 정도로 참고하시면 재밌지 않을까 합니다.</p>
+<p>감사합니다.</p>
+<blockquote>
+<p>작성일: 2022년 7월 22일</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="마이크로-서비스에-amazon-sqs-메시지-큐-활용하기"><a class="header" href="#마이크로-서비스에-amazon-sqs-메시지-큐-활용하기">마이크로 서비스에 Amazon SQS 메시지 큐 활용하기</a></h1>
+<h2 id="amazon-sqs란"><a class="header" href="#amazon-sqs란">Amazon SQS란?</a></h2>
+<blockquote>
+<p>Amazon Simple Queue Service(SQS)는 마이크로 서비스, 분산 시스템 및 서버리스 애플리케이션을 쉽게 분리하고 확장할 수 있도록 지원하는 완전관리형 메시지 대기열 서비스입니다. SQS는 메시지 중심 미들웨어를 관리하고 운영하는 데 따른 복잡성과 오버헤드를 없애고 개발자가 차별화 작업에 집중할 수 있도록 지원합니다. SQS를 사용하면 메시지 손실 위험을 감수하거나 다른 서비스를 가동할 필요 없이 소프트웨어 구성 요소 간에 모든 볼륨의 메시지를 전송, 저장 및 수신할 수 있습니다. AWS 관리 콘솔, 명령줄 인터페이스 또는 원하는 SDK, 3가지 간단한 명령을 사용하여 몇 분 만에 SQS를 시작할 수 있습니다.</p>
+</blockquote>
+<p>공식 홈(<a href="https://aws.amazon.com/ko/sqs">https://aws.amazon.com/ko/sqs</a>)에 있는 설명입니다. 말이 조금 어렵게 느껴지지만, 정확하게 적혀 있습니다. 이하, 친절한 설명 덧붙여보겠습니다.</p>
+<h2 id="메시지-큐----mq"><a class="header" href="#메시지-큐----mq">메시지 큐 -- MQ</a></h2>
+<p>Amazon SQS는 AWS에서 운영해주는 메시지 큐 서비스입니다. 메시지 큐 서비스(또는 메시지 브로커)는, 소프트웨어 시스템 사이에 메시지를 주고받을 수 있는 믿을만한 우체국 시스템이라고 볼 수 있습니다.</p>
+<p>핸드폰 통화 연결과, 카카오톡 메시지 연결의 차이로 비유해봐도 될 것 같습니다. 핸드폰 통화 연결은, 즉각적인 대화를 할 수 있습니다만, 당연히도, 통화 당사자 두 명이 둘 다 깨어있고 대화에 집중해야 합니다. (대화에 집중 안 하는 상대도 많다는 점은 논외로 합시다) 한 명이라도 잠든 상태라면 통화 연결이 되지 않을 테고, 대화 진행이 되지 않겠죠.</p>
+<p>카카오톡 메시지의 경우에는, 한 명이 운전 중이거나 하는 이유로 잠시 연결이 되지 않더라도, 메시지를 보낸 사람이 메시지를 보내고 다른 일을 하고 있을 수 있고, 받은 사람은 운전을 다 하고 나서, 메시지를 확인한 다음 응답할 수 있습니다.</p>
+<p>마이크로 서비스 사이에 메시지 전달을 이어주는 카카오톡이 메시지 큐라고 보면 이해하기 쉬울 것 같습니다. 메시지 큐는 일반적으로 장애에 대한 내성이 (대단히) 높고, 메시지를 안전하게 저장해서 유실되지 않게 보장해 주곤 합니다. 일단 성공적으로 메시지를 큐에 넣었다면, (거의) 반드시 수신자에게 전달된다고 믿을 수 있습니다.</p>
+<h2 id="마이크로-서비스끼리-직접-통신"><a class="header" href="#마이크로-서비스끼리-직접-통신">마이크로 서비스끼리 직접 통신</a></h2>
+<p><img src="2022/img/sqs-direct-message.png" alt="" /></p>
+<p>백엔드 마이크로 서비스 A와 B가 통신을 해야 하는 상황에, 보통의 네트워크 통신을 한다면, 즉각적으로 결과를 확인해가며 동기식(synchronous)으로 통신할 수 있습니다만, 대신 A나 B 둘 중 하나만 문제 상황을 만나더라도 전체 시스템이 실패하는 문제가 있습니다.</p>
+<p>위 그림에서 보자면, 서비스 B에 장애가 발생하면, 해당 메시지를 주고받아야 했던 상황 전체가, 시스템 차원에서 실패한 꼴이 됩니다. 서비스 A는 문제없이 정상이었는데도 말이죠. A 입장에서는 억울한 상황입니다.</p>
+<h2 id="메시지-큐를-활용한-간접-통신"><a class="header" href="#메시지-큐를-활용한-간접-통신">메시지 큐를 활용한 간접 통신</a></h2>
+<p><img src="2022/img/sqs-queue-message.png" alt="" /></p>
+<p>마이크로 서비스 사이 중간에 메시지 큐 서비스를 활용해 통신하면, 메시지 송수신 채널을 유연하게 연결할 수 있습니다. 중간에 메시지 브로커가 <strong>안전하고 유연한 버퍼</strong> 역할을 해주어서, 메시지를 발송하는 쪽에서는 메시지 수신부가 정상적인지 아닌지 큰 걱정 없이 메시지를 보내고 다른 일을 할 수 있습니다.</p>
+<p>마이크로 서비스 B에서 일시적인 문제가 발생했다고 하더라도, 마이크로 서비스 A에서는 정상적으로 메시지를 브로커에 보낼 수 있고, B입장에서는, 다시 정상 작동하는 시점에 메시지를 가져올 수 있습니다. 잠깐의 장애 상황에 대해서 대응할 수 있는 여력이 생긴 거죠.</p>
+<p>참고로, 메시지 브로커 서비스는, 다중화 구성을 기본으로 장애 걱정 없이 믿을 만한 시스템으로 구축합니다. 브로커 시스템 일부에 장애가 발생하더라도, 브로커 시스템 전체로 보자면 정상 작동하도록 믿을 수 있는 높은 신뢰도를 바탕으로 운영됩니다. 각자 갖고 있는 스마트폰이 물에 빠지거나 문제가 생길지언정, 카카오톡 서버가 메시지를 유실했다고 생각하기 쉽지 않은 것처럼요.</p>
+<p>메시지를 보내는 쪽을 프로듀서(producer)라고 부르고, 받아서 사용하는 쪽을 컨슈머(consumer)라고 부릅니다.</p>
+<h2 id="amazon-sqs"><a class="header" href="#amazon-sqs">Amazon SQS</a></h2>
+<p><img src="2022/img/sqs-banner.png" alt="" /></p>
+<p>메시지 큐 시스템을 자체 인프라에 운영하던 시절에는 오픈 소스 프로젝트로 <a href="https://www.rabbitmq.com">RabbitMQ</a>가 널리 활용됐었는데요, 클라우드 환경으로 넘어가고, 게다가 AWS에서 책임지고 운영해주는 SQS 같은 브로커 시스템이 등장하면서, 훨씬 더 편리해진 것 같습니다. AWS에서 책임지고 믿을만하게 운영해주기 때문에, 우리는 브로커 운영 부담은 전혀 없이, 각자 개발하는 시스템에서 메시지만 보내고 받아도 되게 된 거죠.</p>
+<p><img src="2022/img/sqs-example.png" alt="" /></p>
+<p>SQS 시스템은 확장성이 매우 뛰어난 브로커 역할을 합니다. 예를 들어, 고객의 요청을 받은 ELB 로드밸런서가, 웹 서비스들로 부하를 분산시켜주고, 각각의 웹 서비스 인스턴스들이 각자 맘 편히 SQS 큐에 메시지를 쌓고, 뒷 단에서 메시지를 처리하는 마이크로 서비스가 묵묵히 자기 일을 하는 식으로 시스템을 구성 할 수 있습니다. DB값을 바꾸는 일처럼, 당장 즉각적인 처리를 반드시 해야 하는 일만 앞단에서 처리하고, 이어서 관련한 시간이 오래 걸리는 일들을 분리해서, 큐 뒷단에서 처리할 수 있겠습니다.</p>
+<h2 id="amazon-sqs의-상세-특징"><a class="header" href="#amazon-sqs의-상세-특징">Amazon SQS의 상세 특징</a></h2>
+<p>SQS가 메시지 브로커 시스템을 본격 활용하기에 앞서, 구체적인 특징들을 미리 살펴보겠습니다.</p>
+<h3 id="기본-특징"><a class="header" href="#기본-특징">기본 특징</a></h3>
+<ul>
+<li>각 메시지는 최대 256KB 크기입니다. S3에 메시지 본문을 담는 방식을 추가로 지원하기 때문에, 제한 없이 쓸 수도 있습니다.</li>
+<li>큐에 저장되는 메시지 건 수의 제한은 없습니다.</li>
+<li>다만 각각의 메시지는 최대 14일간 유지됩니다. 14일 이내에 메시지를 처리(consume) 해야 합니다.</li>
+</ul>
+<h3 id="두-가지-큐-종류----표준대기열-vs-fifo-대기열"><a class="header" href="#두-가지-큐-종류----표준대기열-vs-fifo-대기열">두 가지 큐 종류 -- 표준대기열 vs. FIFO 대기열</a></h3>
+<p>보통의 메시지 큐 시스템은, 기본적으로 최소 한번 전송(at least once delivery)을 약속합니다. 혹시 문제가 생기더라도, 최소한 한 번 이상 메시지를 전송해준다는 약속인데요, 그 말은, 같은 메시지가 두 번 이상 수신될 수도 있다는 뜻입니다. 여러 번 수신될 수도 있긴 해도, 어쨌건 유실되지는 않는다는 약속을 지킵니다. 표준대기열은, 이 &quot;최소 한번 전송&quot; 약속을 해주는 큐 시스템이고, FIFO 대기열을 선택하면, 정확히 한번(exactly once) 전송을 약속해 줍니다. 최소 한번 전송 방식에서, 중복 여부를 브로커가 확인해줘서 두 번째 중복 메시지부터는 버려주는 시스템인 셈입니다.</p>
+<ul>
+<li>At least once -- 최소 한 번 이상 메시지 전송을 약속</li>
+<li>Exactly once -- 정확히 딱 한 번 메시지 전송되는 것을 약속 (중복 메시지 제거해줌)</li>
+</ul>
+<p>언뜻 보면, 고민할 필요 없이 FIFO 대기열이 좋은 것 같습니다만, 세상에 공짜는 없겠죠? FIFO 대기열 시스템은, 표준 대기열 시스템에 비해서 확장성이 떨어지고, 비용이 약간 비쌉니다. 둘 다 아주 저렴한 수준이어서 비용은 문제가 되지 않을 것 같습니다만, 확장성에 문제가 드러날 수도 있겠습니다.</p>
+<p>표준 대기열 시스템은, 사실상 무한대의 처리량을 지원하고, FIFO 시스템은 초당 최대 300건의 메시지 API를 처리할 수 있습니다. 한 번의 API에 최대 10개 메시지를 한 번에 배치 처리할 수 있기 때문에, 매초 최대 3천 건 메시지를 처리할 수 있는 제한이 있는 셈입니다. 꽤 높은 처리량이기 때문에, 대부분의 소규모 시스템에서는 충분하겠습니다만, 규모가 커진다면, 이 제한이 문제가 될 수도 있겠습니다. 그리고, FIFO 시스템은, 메시지 전달 순서도 보장됩니다. 먼저 보낸 메시지가 먼저 수신됩니다. 물론, 수신부(consumer)가 하나여야 의미 있는 얘기가 되겠지만 말이죠.</p>
+<p>기능         표준대기열                  FIFO 대기열</p>
+<hr />
+<p>메시지 보장  최소 한번 (중복 수신 가능)  정확히 한번
+처리량       사실상 무제한               최대 3,000메시지/초
+비용         약 $0.4/백만건              약 $0.5/백만건
+순서보장     순서가 바뀔 수 있다         먼저 송신한 메시지가 먼저 수신된다</p>
+<h3 id="메시지-생명주기----lifecycle"><a class="header" href="#메시지-생명주기----lifecycle">메시지 생명주기 -- lifecycle</a></h3>
+<ol>
+<li>메시지 송신부(producer)가 SQS에 메시지 A를 보냅니다.</li>
+<li>SQS는 메시지A를 사본을 만들어 여러 곳에 안전하게 보관합니다. (유실 방지)</li>
+<li>수신부(consumer)가 SQS에서 메시지 A를 처리하고자 가져갑니다. (inflight 상태)</li>
+<li>SQS입장에서 수신부가 메시지A를 가져갔기 때문에, 큐에 메시지가 남아있기는 하지만, 다른 컨슈머가 메시지 A를 (또) 가져가지 않도록 일정시간동안(visibility timeout) 수신요청에 드러나지 않습니다.</li>
+<li>수신부(consumer)가 메시지를 정상 처리 완료했다면, 직접 SQS에 메시지A를 삭제하도록 요청합니다. (완료)</li>
+<li>만약 어떤 이유로 수신부(consumer)가 메시지를 삭제하지 않는다면, 일정 시간이 지나면, 메시지 A가 다시 수신 요청에 드러납니다. (재처리 가능)</li>
+</ol>
+<ul>
+<li>visibility timeout -- 기본 30초. 0초에서 12시간 사이 설정 가능. 기본은 큐에 설정. 메시지 개별 설정도 가능.</li>
+</ul>
+<h2 id="sqs-java-예제"><a class="header" href="#sqs-java-예제">SQS Java 예제</a></h2>
+<p>AWS SDK 예제 깃헙에, SQS 관련 예제도 잘 나와있습니다. 그중 일부 예제를 가져와 정리했습니다.</p>
+<p><a href="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs">https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs</a></p>
+<h3 id="gradle-의존성-설정"><a class="header" href="#gradle-의존성-설정">Gradle 의존성 설정</a></h3>
+<pre><code class="language-build.gradle">dependencies {
+  // ...다른 의존성 설정...
+	implementation platform('software.amazon.awssdk:bom:2.15.0')
+	implementation 'software.amazon.awssdk:sqs'
+}
+</code></pre>
+<p>AWS Java SDK 중, SQS 의존성을 추가합니다.</p>
+<h3 id="기본-import"><a class="header" href="#기본-import">기본 import</a></h3>
+<pre><code class="language-java">import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.sqs.SqsClient;
+import software.amazon.awssdk.services.sqs.model.*;
+</code></pre>
+<h3 id="sqs-클라이언트-준비"><a class="header" href="#sqs-클라이언트-준비">SQS 클라이언트 준비</a></h3>
+<pre><code class="language-java">SqsClient buildClient() {
+  return SqsClient.builder()
+    .region(Region.AP_NORTHEAST_2)
+    .credentialsProvider(ProfileCredentialsProvider.create())
+    .build();
+}
+</code></pre>
+<p>사용하고자 하는 리전을 지정하고, 적절한 자격증명 설정 방식을 선택합니다.</p>
+<h3 id="큐-url-얻기"><a class="header" href="#큐-url-얻기">큐 URL 얻기</a></h3>
+<pre><code class="language-java">String getQueueUrl(SqsClient sqsClient, String queueName) {
+  try {
+    GetQueueUrlResponse getQueueUrlResponse =
+      sqsClient.getQueueUrl(GetQueueUrlRequest.builder().queueName(queueName).build());
+    String queueUrl = getQueueUrlResponse.queueUrl();
+    return queueUrl;
+  } catch (SqsException e) {
+    System.err.println(e.awsErrorDetails().errorMessage());
+    System.exit(1);
+  }
+  return &quot;&quot;;
+}
+</code></pre>
+<p>AWS 콘솔이나, 별도 작업으로 만들어 둔 SQS 큐 이름을 기준으로, 큐 접근 URL을 구합니다.</p>
+<h3 id="큐에-메시지-보내기"><a class="header" href="#큐에-메시지-보내기">큐에 메시지 보내기</a></h3>
+<pre><code class="language-java">void sendMessage(SqsClient sqsClient, String queueUrl, String message) {
+  sqsClient.sendMessage(SendMessageRequest.builder()
+    .queueUrl(queueUrl)
+    .messageBody(message)
+    .build());
+}
+</code></pre>
+<p>메시지 송신 요청 객체를 만들어서, 큐 URL에 전송하는 코드입니다.</p>
+<h3 id="메시지-송신----produce"><a class="header" href="#메시지-송신----produce">메시지 송신 -- produce</a></h3>
+<pre><code class="language-java">void produce() {
+  SqsClient sqsClient = buildClient();
+  String queueUrl = getQueueUrl(sqsClient, &quot;testQueue&quot;);
+  sendMessage(sqsClient, queueUrl, &quot;Hello World!&quot;);
+  sqsClient.close();
+}
+</code></pre>
+<p>기본 흐름은, SQS클라이언트를 생성하고, 큐 URL을 구한 뒤, 메시지를 보내고, 클라이언트를 닫으면 됩니다.</p>
+<h3 id="메시지-수신----consume"><a class="header" href="#메시지-수신----consume">메시지 수신 -- consume</a></h3>
+<pre><code class="language-java">void consume(SqsClient sqsClient, String queueUrl) {
+  ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder()
+      .queueUrl(queueUrl)
+      .waitTimeSeconds(20)
+      .build();
+
+  ReceiveMessageResponse response = sqsClient.receiveMessage(receiveRequest);
+  List&lt;Message&gt; messages = response.messages();
+  messages.forEach(m -&gt; System.out.println(m.body()) );
+}
+</code></pre>
+<p>메시지 수신(consume)도 비슷합니다만, 여기서는, 최대 폴링(polling)시간으로 20초를 설정했습니다. 메시지 수신할 때, 한 번에 최대 10건의 메시지가 수신될 수 있기 때문에, <code>List&lt;Message&gt;</code> 타입으로 조회했고, 각각의 메시지들에 대해서, 하고 싶은 처리를 한 다음, SQS 큐에서 삭제(delete) 처리를 하도록 합니다.</p>
+<h2 id="다른-서비스-참고"><a class="header" href="#다른-서비스-참고">다른 서비스 참고</a></h2>
+<p>Amazon SQS는, produce-consume 방식의 메시지 송수신에 활용할 수 있고, Amazon SNS는 Pub/Sub 방식에 활용할 수 있습니다. Amazon Kinesis의 경우에는 스크리밍 방식으로 메시지를 송수신할 수 있습니다. 그리고, Apache Kafka의 경우에도 AWS에서 관리형 서비스로 제공하고 있으니, 서비스 요구 사항에 따라서 적절한 서비스를 골라 쓰면 되겠습니다.</p>
+<p>대부분의 경우에는, SQS와 SNS를 적절히 조립해서 활용하는 형태로 구성할 것 같습니다. 카프카나 키네시스까지 활용할 일은 흔치 않을 것 같습니다.</p>
+<p>이상, Amazon SQS 시스템에 대해 알아보았습니다.</p>
+<h2 id="참고자료"><a class="header" href="#참고자료">참고자료</a></h2>
+<ul>
+<li>Amazon SQS -- <a href="https://aws.amazon.com/ko/sqs/">https://aws.amazon.com/ko/sqs/</a></li>
+<li>Amzons SQS JAVA 예제 -- <a href="https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs">https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sqs</a></li>
+<li>SQS, SNS 설명 영상 -- <a href="https://youtu.be/UesxWuZMZqI">https://youtu.be/UesxWuZMZqI</a></li>
+<li>SQS, SNS, Lambda 설명 영상 -- <a href="https://youtu.be/8zysQqxgj0I">https://youtu.be/8zysQqxgj0I</a></li>
+</ul>
+<blockquote>
+<p>date: 2022년 8월 1일</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+    </body>
+</html>

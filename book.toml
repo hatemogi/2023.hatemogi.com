@@ -5,6 +5,9 @@ multilingual = false
 src = "src"
 title = "hatemogi.com"
 
+[build]
+build-dir = "docs"
+
 [output.html]
 additional-css = ["custom.css"]
 mathjax-support = true

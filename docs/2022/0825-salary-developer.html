@@ -1,0 +1,202 @@
+<!DOCTYPE HTML>
+<html lang="ko" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>근로 소득 개발자 - hatemogi.com</title>
+
+
+        <!-- Custom HTML head -->
+        <meta property="og:title" content="hatemogi.com 개인홈" />
+        <meta property="og:description" content="백엔드 개발자 김대현의 개인 웹사이트" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://hatemogi.com/" />
+        <meta property="og:image" content="https://hatemogi.com/img/hatemogi.svg" />
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">소개</li><li class="chapter-item expanded "><a href="../intro/intro.html">김대현 소개</a></li><li class="chapter-item expanded "><div>코세라 수료증 모음</div></li><li class="chapter-item expanded affix "><li class="part-title">2023년 글</li><li class="chapter-item expanded "><a href="../2023/0428-scalabook.html">스칼라 미니북 공개</a></li><li class="chapter-item expanded affix "><li class="part-title">2022년 글</li><li class="chapter-item expanded "><a href="../2022/0825-salary-developer.html" class="active">근로 소득 개발자</a></li><li class="chapter-item expanded "><a href="../2022/0722-developer-rank.html">개발자 직급 체계, 그리고 시니어 개발자란?</a></li><li class="chapter-item expanded "><a href="../2022/0801-amazon-sqs.html">마이크로서비스에 Amazon SQS 활용하기</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- Google tag (gtag.js) -->
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-DS17HTQ8PY"></script>
+                <script>
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag() { dataLayer.push(arguments); }
+                  gtag('js', new Date());
+                  gtag('config', 'G-DS17HTQ8PY');
+                </script>                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title">hatemogi.com</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="근로-소득-개발자"><a class="header" href="#근로-소득-개발자">근로 소득 개발자</a></h1>
+<p>출근길에, 은행에서 카톡이 왔습니다. 급여가 입금되었다는 반가운 알림이었습니다. 월급이 매달 입금되는 것이 근로자 입장에서 가장 중요한 일이겠습니다. 중요하고 감사한 일인데, 매달 따박따박 입금되는 것이 당연해지고, 당연해지고 나면 그 밖에도 다른 욕심들이 자라나기 마련입니다.</p>
+<p>예를 들면, 나는 회사에서 얼마나 공헌하며, 인정받고 다니고 있는가, 나는 여기서 뭘 배우며 얼마나 성장하고 있나, 내가 원하는 일을 하고 있나, 회사는 나를 필요로 하는가, 또는 나는 어떻게 이 세상을 이롭게 바꾸고 있는가 등등등. 각자의 가치관에 따라 얼마든지 다를 수 있는 다 중요한 가치들이 있겠습니다.</p>
+<p>좋은 현상인지 나쁜 현상인지 모르겠습니다만, 오랜 기간 월급을 받다 보니, 그 가치들에 대한 관점이 제 삶에 있어서 중요한 부분으로 최소화되는 것 같습니다. 예를 들어, 배우며 성장하기 같은 주제는, 한창 열 일하는 개발자분들에게는 너무도 중요하고 관심 가는 가치이겠지만, 저 같은 노인네 뒷방 개발자들에게는 거의 관심이 없는 주제입니다. &quot;이제 와서 성장해봐야 얼마나 하겠어&quot;, &quot;성장한다 한들 얼마나 더 개발자로 일하겠어&quot; 같은 생각들이 더 강한 것일 수도 있고, 그냥 묵묵히 잘하다 보면 성장하는 거지, 성장을 목표로 용쓴다고 달라질 게 별로 없다는 걸 알기 때문이기도 하겠습니다. 초등학생 어린이들은 빨리 어른이 되고 싶다지만, 막상 어른 된 입장에서야 그 생각이 별로 안 들잖아요? 정작 아무 걱정 없이 신나게 노는 아이들이 부러울 따름입니다. 정작 그 아이들은 나름의 심각한 고민들이 많이 있고요. ㅎㅎ</p>
+<p>암튼, 결국 근로소득자 입장에서는, 내 지식 노동을 제공하고, 그 대가를 월급으로 받는 것이 핵심이겠습니다. 욕심을 더 부린다면, 그 지식 노동을 생산하는 과정에서, 월급 외에 다른 부산물들이 나나 회사에 더 발생하면 좋은 거죠. 예를 들면, 내 지식 노동의 품질이 더 올라가서, 잠재적으로 연봉이 오른다거나, 더 높은 급여의 회사로 이직이 쉬워진다거나 하는 등의 부산물요.</p>
+<p>뒷방 노인네답게, 오로지 &quot;돈돈돈&quot;을 적게 되었는데, 그렇다고, 월급만으로 기준을 최소화해버리면, 내 장기적인 커리어가 망가진다거나, 과도한 정신적 육체적 스트레스로 건강을 해친다거나 하는 부작용이 발생할 수도 있으니, 나름의 적절한 균형점을 찾아야 하겠습니다. 그 균형점이 정말 중요한 것 같아요. 너무 돈만 따져도 안되고, 그렇다고 너무 이상적인 목표에 대해 과도한 욕심을 부려도, 부작용이 클 테니까요.</p>
+<p>이런 마인드가 어떤가 생각해봤습니다. 이러니 저리니 해도 월급날 월급은 잘 들어왔고, 난 그 이상의 추가적인 부가 가치를 나에게나 회사에 만들어 냈으면 정말 잘한 거라고요. 반드시 그래야 하는 것은 아니지만, 그게 가능하다면 바람직한 옵션 정도로 여겨보면, 적어도 일단 마음은 편하지 않나 싶습니다.</p>
+<p>어떻게 생각하시나요? 지나치게 소박한 목표일까요? 한편, 뭐 그 모든 욕심이나 이상을 한 방에 날려 보내는 현실은, &quot;왜 내 월급은 왜 텅장을 스쳐가고 늘 부족한가&quot;라는 점이 문제겠습니다. 욕심에 비해 늘 부족하지만, 그래도 입금된 월급에 감사하며 마구 적어봤습니다. 이제 뭐 욕심을 줄여야죠. ㅋ</p>
+<blockquote>
+<p>작성일: 2022년 8월 25일</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../2023/0428-scalabook.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../2022/0722-developer-rank.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../2023/0428-scalabook.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../2022/0722-developer-rank.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
