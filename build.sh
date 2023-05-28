@@ -3,5 +3,5 @@
 set -i 
 
 mdbook build
-cd docs && rpl -R '.md"' '.html"' *.html
+cd docs && rpl -Rx .html '.md"' '.html"' *
 
