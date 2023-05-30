@@ -8,14 +8,14 @@
 
 
         <!-- Custom HTML head -->
-        <meta property="og:title" content="hatemogi.com 개인홈" />
+        <meta property="og:title" content="hatemogi.com" />
         <meta property="og:description" content="백엔드 개발자 김대현의 개인 웹사이트" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://hatemogi.com/" />
+        <meta property="og:url" content="https://hatemogi.com/print.html" />
         <meta property="og:image" content="https://hatemogi.com/img/hatemogi.png" />
         <meta property="og:image:width" content="1024" />
         <meta property="og:image:height" content="1024" />
-        <meta name="description" content="">
+        <meta name="description" content="백엔드 개발자 김대현의 개인 웹사이트">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
@@ -41,6 +41,7 @@
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
@@ -78,10 +79,12 @@
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            var sidebar = null;
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
@@ -285,7 +288,7 @@ const halfTurn = reorderFace(halfTurnF)
 <p>지금 시장에서 널리 쓰이는 패러다임은 파이썬, 자바, 자바스크립트 등 주류 언어가 자리 잡고 있는 명령형 프로그래밍입니다. 함수형 프로그래밍 패러다임은, 각 주류 언어들 안에서 제한적으로 조금씩 쓰이는 수준이 기본 현실이겠습니다.</p>
 <h2 id="함수형-프로그래밍은-beta의-길을-갈까"><a class="header" href="#함수형-프로그래밍은-beta의-길을-갈까">함수형 프로그래밍은 BETA의 길을 갈까?</a></h2>
 <p>마음으로는 아니라고 믿고 싶지만, 현실적으로는 부인하기 어렵습니다. 하스켈, 클로저 같은 언어들은, 계속 비주류의 길을 가겠죠. 하스켈은 계속 학계에서나 쓰일 것 같고, 클로저는 아주 일부의 팔자 좋은 능력자들만 계속 쓰게 될 것 같습니다. 그마저도 해외에서나 가능할 테고요.</p>
-<p>그리고, 한 가지 더 말씀드리자만, 그 커뮤니티 사람들은 소수가 이용하는 현실에 큰 불만이 없습니다. 오히려 너무 초심자들이 많아지면, 그 무게가 너무 무거워지기도 하거든요. 쓸 사람만 쓰는 현실을 받아들이는 것 같습니다.</p>
+<p>그리고, 한 가지 더 말씀드리자면, 그 커뮤니티 사람들은 소수가 이용하는 현실에 큰 불만이 없습니다. 오히려 너무 초심자들이 많아지면, 그 무게가 너무 무거워지기도 하거든요. 쓸 사람만 쓰는 현실을 받아들이는 것 같습니다.</p>
 <p>아무튼, 함수형 프로그래밍 언어들에 있는 좋은 접근들이 다른 주류 언어에 긍정적 영향으로 전파되기야 하겠지만, 그 자체로 주류 언어가 된다? 그런 일은 없을 겁니다. 하스켈이 주류가 된다는 말은, 에스페란토가 만국 공용어가 될 거다라는 주장과 비슷한 수준이지 않을까 합니다.</p>
 <p>그래도 BETA처럼 아예 없어지지는 않을 겁니다. 앞으로도 소수의 비주류로 지속되며, 주류 언어에 영향을 끼치며 나아가겠죠.</p>
 <h2 id="적자생존"><a class="header" href="#적자생존">적자생존</a></h2>
@@ -598,5 +601,6 @@ import software.amazon.awssdk.services.sqs.model.*;
         });
         </script>
 
+    </div>
     </body>
 </html>
