@@ -3,9 +3,10 @@
 
 # 소개
   - [김대현 소개](intro/intro.md)
-  - [온라인 강의](intro/courses.md)
+  <!-- - [온라인 강의](intro/courses.md) -->
 
 # 2023년 글
+  - [Elm으로 만든 탁구 점수판 앱](2023/0920-elm-pingpong.md)
   - [AWS에 Rust로 수익 알리미 만든 이야기](2023/0811-serverless-notification.md)
   - [프로 함수형 프로그래머, 괜찮은가?](2023/0526-profp-ok.md)
   - [스칼라 미니북 공개](2023/0428-scalabook.md)
