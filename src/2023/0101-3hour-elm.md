@@ -13,9 +13,9 @@
 순수 함수형 프로그래밍 언어이면서도, 문법이 대단히 간단합니다.
 이번에는, 공식 가이드 문서 전체를 다시 공부하며, 영상으로 남겨보았습니다. 무려 3시간짜리 영상을 다 봐주실 분은 거의 없겠지만, 그래도 Elm을 공부하시려는 분들에게는 조금이나마 도움이 됐으면 좋겠다는 바람입니다.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5eaH-lxKUZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ydh3SKNlfjo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<https://youtu.be/5eaH-lxKUZA>
+<https://youtu.be/ydh3SKNlfjo>
 
 감사합니다.
 
