@@ -29,3 +29,18 @@ strong {
 pre code.hljs {
   border-radius: 5px;
 }
+
+
+a.button {
+  background-color: blue;
+  padding: 1rem;
+  color: white;
+  border-radius: 3px;
+}
+
+a.button:link,
+a.button:hover,
+a.button:active {
+  text-decoration: none;
+  color: white;
+}

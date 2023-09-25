@@ -6,7 +6,7 @@
   <!-- - [온라인 강의](intro/courses.md) -->
 
 # 2023년 글
-  - [Elm으로 만든 탁구 점수판 앱](2023/0920-elm-pingpong.md)
+  <!-- - [Elm으로 만든 탁구 점수판 앱](2023/0920-elm-pingpong.md) -->
   - [AWS에 Rust로 수익 알리미 만든 이야기](2023/0811-serverless-notification.md)
   - [프로 함수형 프로그래머, 괜찮은가?](2023/0526-profp-ok.md)
   - [스칼라 미니북 공개](2023/0428-scalabook.md)
@@ -17,9 +17,10 @@
   - [개발자 직급 체계, 그리고 시니어 개발자란?](2022/0722-developer-rank.md)
   - [마이크로서비스에 Amazon SQS 활용하기](2022/0801-amazon-sqs.md)
 
-<!-- # 온라인 강의
+# 온라인 강의
   - [바쁜 자바 개발자를 위한 스칼라 맛보기](course/scala-for-java-developers.md)
-  - [코틀린](course/kotlin-examples.md) -->
+  - [예제로 뿌수는 코틀린 Kotlin 76제](course/kotlin-examples.md)
+  - [우아한 고성능 프로그래밍 언어 Rust 입문 및 활용](course/rust-practical-guid.md)
 
 # 달리기
-  - [2023년 9월, 2년간 1600K를 달렸다](running/2023-09-19.md)
+  - [2023년 9월, 2년간 1700K를 달렸다](running/2023-09-19.md)
