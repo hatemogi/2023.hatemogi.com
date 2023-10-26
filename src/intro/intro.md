@@ -150,7 +150,10 @@ const counterclockwise = reorderFace(counterclockwiseF)
 const halfTurn = reorderFace(halfTurnF)
 ```
 
-최근 작업 중인, 사이드 프로젝트의 코드 일부를 가져와 보았습니다. 자바스크립트(JavaScript)와 거의 같은데, 중간중간 타입을 선언하는 점이 큰 차이점입니다. 제가 쓰는 글에서 코드로 무언가를 설명해야 할 때, 타입스크립트를 주로 써봐야겠다고 생각하고 있습니다.
+최근 작업 중인, 사이드 프로젝트의 코드 일부를 가져와 보았습니다. 자바스크립트(JavaScript)와 거의 같은데, 중간중간 타입을 선언하는 점이 큰 차이점입니다. 제가 쓰는 글에서 코드로 무언가를 설명해야 할 때, 타입스크립트를 주로 써봐야겠다고 생각하고 있습니다. 참고로, 방금 언급한 사이드 프로젝트는 아래 주소에서 확인 가능합니다.
+
+* 소스 - <https://github.com/hatemogi/rurucube>
+* 데모 - <https://hatemogi.github.io/rurucube>
 
 ## 반갑습니다
 

@@ -14,4 +14,4 @@
 
 ---
 
-<a href="https://inf.run/LPYW" class="button">인프런 강의로 이동</a>
+<a href="https://inf.run/LPYW" class="button">인프런 강의 페이지로 이동</a>
