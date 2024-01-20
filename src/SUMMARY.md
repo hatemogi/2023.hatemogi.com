@@ -5,6 +5,10 @@
   - [김대현 소개](intro/intro.md)
   <!-- - [온라인 강의](intro/courses.md) -->
 
+# 2024년 글
+
+  - [행복한 개발자가 되는 길 (1)](2024/0120-acceptance.md)
+
 # 2023년 글
   <!-- - [Elm으로 만든 탁구 점수판 앱](2023/0920-elm-pingpong.md) -->
   - [달리기에서 배우는 괜찮은 개발자 되는 법](2023/1207-running-developer.md)
