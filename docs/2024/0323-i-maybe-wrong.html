@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html lang="ko" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>행복한 개발자가 되는 길 (2) - hatemogi.com</title>
+
+
+        <!-- Custom HTML head -->
+        <meta property="og:title" content="행복한 개발자가 되는 길 (2) - hatemogi.com" />
+        <meta property="og:description" content="백엔드 개발자 김대현의 개인 웹사이트" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://hatemogi.com/2024/0323-i-maybe-wrong.html" />
+        <meta property="og:image" content="https://hatemogi.com/img/hatemogi.png" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+        <meta name="description" content="백엔드 개발자 김대현의 개인 웹사이트">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../custom.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">소개</li><li class="chapter-item expanded "><a href="../intro/intro.html">김대현 소개</a></li><li class="chapter-item expanded affix "><li class="part-title">2024년 글</li><li class="chapter-item expanded "><a href="../2024/0323-i-maybe-wrong.html" class="active">행복한 개발자가 되는 길 (2)</a></li><li class="chapter-item expanded "><a href="../2024/0120-acceptance.html">행복한 개발자가 되는 길 (1)</a></li><li class="chapter-item expanded affix "><li class="part-title">2023년 글</li><li class="chapter-item expanded "><a href="../2023/1207-running-developer.html">달리기에서 배우는 괜찮은 개발자 되는 법</a></li><li class="chapter-item expanded "><a href="../2023/0811-serverless-notification.html">AWS에 Rust로 수익 알리미 만든 이야기</a></li><li class="chapter-item expanded "><a href="../2023/0526-profp-ok.html">프로 함수형 프로그래머, 괜찮은가?</a></li><li class="chapter-item expanded "><a href="../2023/0428-scalabook.html">스칼라 미니북 공개</a></li><li class="chapter-item expanded "><a href="../2023/0101-3hour-elm.html">3시간 만에 다 배우는 Elm 가이드 영상</a></li><li class="chapter-item expanded affix "><li class="part-title">2022년 글</li><li class="chapter-item expanded "><a href="../2022/0825-salary-developer.html">근로 소득 개발자</a></li><li class="chapter-item expanded "><a href="../2022/0722-developer-rank.html">개발자 직급 체계, 그리고 시니어 개발자란?</a></li><li class="chapter-item expanded "><a href="../2022/0801-amazon-sqs.html">마이크로서비스에 Amazon SQS 활용하기</a></li><li class="chapter-item expanded affix "><li class="part-title">온라인 강의</li><li class="chapter-item expanded "><a href="../course/scala-for-java-developers.html">바쁜 자바 개발자를 위한 스칼라 맛보기</a></li><li class="chapter-item expanded "><a href="../course/kotlin-examples.html">예제로 뿌수는 코틀린 Kotlin 76제</a></li><li class="chapter-item expanded "><a href="../course/rust-practical-guid.html">우아한 고성능 프로그래밍 언어 Rust 입문 및 활용</a></li><li class="chapter-item expanded affix "><li class="part-title">달리기</li><li class="chapter-item expanded "><a href="../running/2023-09-19.html">2023년 9월, 2년간 1700K를 달렸다</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- Google tag (gtag.js) -->
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-DS17HTQ8PY"></script>
+                <script>
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag() { dataLayer.push(arguments); }
+                  gtag('js', new Date());
+                  gtag('config', 'G-DS17HTQ8PY');
+                </script>                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                    </div>
+
+                    <h1 class="menu-title">hatemogi.com</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="행복한-개발자가-되는-길-2--i-may-be-wrong"><a class="header" href="#행복한-개발자가-되는-길-2--i-may-be-wrong">행복한 개발자가 되는 길 (2) — I may be wrong</a></h1>
+<p>지난 글에 호응이 과분하여, 더 용기를 내어 같은 주제의 글을 쓰기로 했습니다. 마침, 지난 글을 올린 즈음에, 가까운 주변 개발자 한 분의 하소연을 듣게 되었는데, 그 불편한 심리 상태의 원인이 꽤 공통적이라는 점에서 다음 주제가 바로 떠올랐어요. 불편한 심리 상태에 빠져있는 당장의 상황에서는 이런 의견을 드려도 들리지 않기 때문에 바로 전달드리기는 어려웠습니다. 아니, 사실 이런 의견은 누구도 듣기 싫어할 것 같습니다. 이렇게 글로 적어뒀는데, 무심히 읽게 되어 공감이 드는 부분이 있다면 다행인 정도이겠습니다.</p>
+<h2 id="내가-맞다는-환상"><a class="header" href="#내가-맞다는-환상">내가 맞다는 환상</a></h2>
+<p>어쩌면 본능의 영역인 거 같기도 하고, 아니면 학창 시절 시험 문제에 정답을 적어내야 하는 교육 과정에 따른 악습인 것 같기도 합니다. 어떤 원인인지는 모르겠지만, 우리 대부분은 &quot;내가 맞다&quot;라는 환상에 사로잡혀 있는 것 같습니다. 때로는, 내가 틀린 걸 쿨하게 인정하고 넘어가기도 하지만, 이건 미처 내가 관심 갖지 않았던 무지한 영역에서일 뿐이고, 잘 안다고 생각하는 자신 있는 부분에서는 틀린 걸 인정할 수 없습니다. 틀린 걸 인정하지 못하는 것은 물론이고, 남이 조금이라도 틀린 표현을 하면 바로 지적을 해서 바로잡아주고 싶어 하지요. 내가 자신 있는 부분인데 날 틀렸다고 지적한다? 그럼 맞서 싸워서 내가 맞고 남이 틀리다는 걸 인정하게끔 하려고 합니다. 생판 모르는 사람과도 말이죠.</p>
+<p>시험을 볼 때나, 일을 할 때나 어떤 중요한 부분에 있어서는 이런 자세가 중요할지도 모르겠습니다. 하지만, 나머지 일상 대부분에서는 이 맞고 틀리고가 그다지 중요하지 않습니다. 이것도 맞고 저것도 맞을 수도 있고, 취향의 차이일 뿐, 맞고 틀리고의 문제가 아닌 경우도 많습니다.</p>
+<p>&quot;내가 맞다&quot;는 환상은, &quot;남이 틀리다&quot;라는 환상으로 이어지고, 반대로 &quot;남이 맞다&quot;면 &quot;내가 틀리는&quot; 고통으로 이어지기도 하는데요, 왜 굳이 내가 꼭 맞아야 합니까? 틀린 지식을 갖고 있으면 죽어나가는 생존의 문제에 놓여있기라도 한 것처럼요.</p>
+<h2 id="내가-틀릴-수도-있습니다"><a class="header" href="#내가-틀릴-수도-있습니다">내가 틀릴 수도 있습니다</a></h2>
+<p><img src="/2024/img/maybe-wrong.jpeg" alt="" /></p>
+<p>겸손한 마음으로 &quot;내가 틀릴 수도 있다&quot;라고 표현하는 수준을 뛰어 넘어서, &quot;틀려도 된다&quot;라는 용기를 내야 합니다. 내가 틀릴 수도 있다는 가능성을 열어두면, 다른 의견에 대해 열리고 배우기 편해지고, 마음이 불편한 지점도 대폭 사라지며, 싸울 일도 줄어듭니다.</p>
+<p>&quot;틀려도 된다&quot;라는 생각에서 큰 해방감이 이어집니다. 개발자가 뭐 평생 시험을 보는 상태에 있는 건 아니잖아요. 물론 때로는 맞고 틀리는 문제가 상당히 중요한 걸 무시하자는 게 아닙니다. 그렇지 않은 영역에서 쓸데없는 고민을 부릴 필요가 없다는 점을 말씀드리는 거예요.</p>
+<p>지금, 제 의견이 어떤 점에서 틀렸는지를 지적하고 싶으신가요? 이미 그것이 &quot;당신이 맞고&quot;, &quot;제가 틀리기&quot; 때문에 그런 생각이 드는 겁니다. 이미 &quot;내게 맞는 의견이 있는데, 저 사람이 날 틀렸다고 말하네?&quot;라는 흐름인 겁니다.</p>
+<p>전 지금 제 글의 내용이 틀려도 되고, 당신의 내용이 맞다고 생각합니다. 이 자체로 너무 편안해요.</p>
+<h2 id="각자의-세상에서"><a class="header" href="#각자의-세상에서">각자의 세상에서</a></h2>
+<p>우리 모두 한 세상에서 살고 있지만, 다 나름의 관점에서 세상을 바라봅니다. 사실상 각자의 세계가 너무 다른 상태인 거죠. 이 세상과 세상이 만나서 얘기하다 보면, 세계관이 달라서 빚어지는 충돌들이 있습니다. 긍정적 충돌일 때도 있고 소모적인 부정적 충돌일 때도 있습니다.</p>
+<p>각자 내 세계와 그들의 세계가 다름을 인정하고, 서로의 세계를 일치시키려는 불필요한 시도를 포기할 때에 엄청난 에너지가 절약되는 것 같습니다.</p>
+<h2 id="모두가-사랑으로-하나의-세상"><a class="header" href="#모두가-사랑으로-하나의-세상">모두가 사랑으로 하나의 세상</a></h2>
+<p>위대한 스승들은 이 세상이 사랑으로 가득 찬 하나의 세상이라고 하더군요. 언젠가 깨닫게 된다면 그런 통합의 세상에 눈을 뜰지도 모르겠지만, 아직 현실 세계에서 그저 조금 마음 편한 자세를 유지하는 정도로는 각자의 세상을 인정하고 내 세상에서는 이게 맞고, 당신 세상에서는 그게 맞다, 그리고 그걸 꼭 일치시킬 필요는 없다는 점만으로도 충분한 효과가 있다고 생각해요.</p>
+<h2 id="그래서-어쩌라고-2"><a class="header" href="#그래서-어쩌라고-2">그래서 어쩌라고? (2)</a></h2>
+<p>내 의견이 맞다는 주장을 하고 싶거나, 타인의 의견이 틀렸다고 말하고 싶은 순간에, 해당 의견을 말하지 않습니다. 그 의견을 말하고 싶어 하는 본인 스스로를 바라보고 인식합니다. 이 의견을 표출해서 내가 얻는 이득은 무언지 따져봅니다. 과연 내가 맞아야 하는지 고민해 보고, 맞다고 할지라도 상대방이 틀린 걸 인정함으로써 얻게 되는 공통의 이익은 무엇인지 따져봅니다. 그 사이 잠깐의 호흡을 하는 것만으로도 큰 이익이 체감될 것입니다.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../intro/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../2024/0120-acceptance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../intro/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../2024/0120-acceptance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
