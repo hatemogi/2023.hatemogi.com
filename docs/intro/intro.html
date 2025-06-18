@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="ko" class="sidebar-visible no-js light">
+<html lang="ko" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -16,7 +16,7 @@
         <meta property="og:image:height" content="1024" />
         <meta name="description" content="백엔드 개발자 김대현의 개인 웹사이트">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="shortcut icon" href="../favicon.png">
         <link rel="stylesheet" href="../css/variables.css">
@@ -29,28 +29,42 @@
         <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="../custom.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
     </head>
     <body>
-        <!-- Provide site root to javascript -->
-        <script>
-            var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -64,33 +78,42 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">소개</li><li class="chapter-item expanded "><a href="../intro/intro.html" class="active">김대현 소개</a></li><li class="chapter-item expanded affix "><li class="part-title">2024년 글</li><li class="chapter-item expanded "><a href="../2024/0323-i-maybe-wrong.html">행복한 개발자가 되는 길 (2)</a></li><li class="chapter-item expanded "><a href="../2024/0120-acceptance.html">행복한 개발자가 되는 길 (1)</a></li><li class="chapter-item expanded affix "><li class="part-title">2023년 글</li><li class="chapter-item expanded "><a href="../2023/1207-running-developer.html">달리기에서 배우는 괜찮은 개발자 되는 법</a></li><li class="chapter-item expanded "><a href="../2023/0811-serverless-notification.html">AWS에 Rust로 수익 알리미 만든 이야기</a></li><li class="chapter-item expanded "><a href="../2023/0526-profp-ok.html">프로 함수형 프로그래머, 괜찮은가?</a></li><li class="chapter-item expanded "><a href="../2023/0428-scalabook.html">스칼라 미니북 공개</a></li><li class="chapter-item expanded "><a href="../2023/0101-3hour-elm.html">3시간 만에 다 배우는 Elm 가이드 영상</a></li><li class="chapter-item expanded affix "><li class="part-title">2022년 글</li><li class="chapter-item expanded "><a href="../2022/0825-salary-developer.html">근로 소득 개발자</a></li><li class="chapter-item expanded "><a href="../2022/0722-developer-rank.html">개발자 직급 체계, 그리고 시니어 개발자란?</a></li><li class="chapter-item expanded "><a href="../2022/0801-amazon-sqs.html">마이크로서비스에 Amazon SQS 활용하기</a></li><li class="chapter-item expanded affix "><li class="part-title">온라인 강의</li><li class="chapter-item expanded "><a href="../course/scala-for-java-developers.html">바쁜 자바 개발자를 위한 스칼라 맛보기</a></li><li class="chapter-item expanded "><a href="../course/kotlin-examples.html">예제로 뿌수는 코틀린 Kotlin 76제</a></li><li class="chapter-item expanded "><a href="../course/rust-practical-guid.html">우아한 고성능 프로그래밍 언어 Rust 입문 및 활용</a></li><li class="chapter-item expanded affix "><li class="part-title">달리기</li><li class="chapter-item expanded "><a href="../running/2023-09-19.html">2023년 9월, 2년간 1700K를 달렸다</a></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -104,15 +127,16 @@
                   gtag('js', new Date());
                   gtag('config', 'G-DS17HTQ8PY');
                 </script>                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
@@ -152,19 +176,19 @@
 <p>제 관심 분야를 적으면, 앞으로 공유할 글들에 대한 방향성을 가늠하시기 좋을 것 같습니다.</p>
 <hr />
 <h2 id="함수형-프로그래밍"><a class="header" href="#함수형-프로그래밍">함수형 프로그래밍</a></h2>
-<p>제 관심 분야 중 가장 먼저 꼽고 싶은 것은, 함수형 프로그래밍입니다. 현재 대부분의 주요 프로그래밍 언어는 &quot;명령형 프로그래밍&quot; 스타일입니다만, 함수형 프로그래밍의 장점들이 꽤 녹아들고 있는 것 같습니다.</p>
+<p>제 관심 분야 중 가장 먼저 꼽고 싶은 것은, 함수형 프로그래밍입니다. 현재 대부분의 주요 프로그래밍 언어는 "명령형 프로그래밍" 스타일입니다만, 함수형 프로그래밍의 장점들이 꽤 녹아들고 있는 것 같습니다.</p>
 <h3 id="함수형-프로그래밍-언어--1-clojure"><a class="header" href="#함수형-프로그래밍-언어--1-clojure">함수형 프로그래밍 언어 | (1) Clojure</a></h3>
 <p><a href="https://link.coupang.com/a/s8JaL">'해커와 화가'</a>라는 책을 읽고, LISP라는 <strong>함수형 프로그래밍</strong> 언어에 관심을 갖게 되었습니다. 그러다 JVM이 널리 쓰이는 현업 환경에서 쓰기 좋은 <a href="https://clojure.org">클로저(Clojure)</a>를 접하게 되었고, 그 매력적이고 강력한 언어에 빠져들었습니다. 이제껏 배운 언어 중, 리스프 계열 언어들이 가장 우아하다 생각합니다만, 현업 환경의 다수의 개발자들에게 리스프의 모양새는 꽤나 (충격적)이기 때문에, 규모 있는 회사에서 적용해 쓰기에는 부담이 있어 아쉬웠지요.</p>
 <pre><code class="language-clojure">(defroutes 라우터
-  (GET &quot;/&quot; [] 핸들러)
-  (POST &quot;/echo-name&quot; [name]
-    (str &quot;안녕하세요, &quot; name &quot;님!&quot;))
-  (GET &quot;/index.html&quot; _
+  (GET "/" [] 핸들러)
+  (POST "/echo-name" [name]
+    (str "안녕하세요, " name "님!"))
+  (GET "/index.html" _
     (html [:main
            [:section
-            [:h1 &quot;안녕하세요&quot;]
-            [:div &quot;클로저 웹서비스 데모&quot;]]]))
-  (route/not-found &quot;찾을 수 없습니다&quot;))
+            [:h1 "안녕하세요"]
+            [:div "클로저 웹서비스 데모"]]]))
+  (route/not-found "찾을 수 없습니다"))
 </code></pre>
 <p>(clojure + compojure)를 이용해 HTTP 서비스를 구성한 예제입니다. 리스프 계통 언어에 익숙하신 분들에게는 아주 자연스러운 코드일 텐데요, 대부분의 개발자들은, 다른 언어에서보다 많아 보이는 괄호 쌍()으로 인해 거부감을 느끼는 것 같습니다. 익숙해지면, 저 간결한 괄호식들이 참 우아해 보인다는 걸, 믿으실지 모르겠습니다.</p>
 <h3 id="함수형-프로그래밍-언어--2-scala"><a class="header" href="#함수형-프로그래밍-언어--2-scala">함수형 프로그래밍 언어 | (2) Scala</a></h3>
@@ -193,7 +217,7 @@ combineAll(List(1, 2, 3)) // res3: Int = 6
 <iframe width="560" height="315" src="https://www.youtube.com/embed/H6JxxWL6bJI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>당시 저희 팀에서 함수형 프로그래밍을 하고 있단 소식에, 인터뷰까지 진행하게 되었습니다. 진행자 민우님이 잘 이끌어 주셔서 (제게는) 재미있는 영상이 남았습니다. 언젠가 좀 더 본격적으로 함수형 프로그래밍을 소개하는 영상을 남기고 싶네요.</p>
 <h2 id="함수형-프로그래밍-언어--3-haskell"><a class="header" href="#함수형-프로그래밍-언어--3-haskell">함수형 프로그래밍 언어 | (3) Haskell</a></h2>
-<p>클로저와 스칼라는 함수형 프로그래밍 언어로 분류할 수 있습니다. 한편, 함수형 프로그래밍의 끝판에는 &quot;순수&quot; 함수형 프로그래밍 언어인 <a href="https://www.haskell.org/">하스켈(haskell)</a>이 있습니다. 어떻게 제게 이런 행운이 흘러드는지, 하스켈마저도 업무용으로 쓸 수 있게 되었습니다.</p>
+<p>클로저와 스칼라는 함수형 프로그래밍 언어로 분류할 수 있습니다. 한편, 함수형 프로그래밍의 끝판에는 "순수" 함수형 프로그래밍 언어인 <a href="https://www.haskell.org/">하스켈(haskell)</a>이 있습니다. 어떻게 제게 이런 행운이 흘러드는지, 하스켈마저도 업무용으로 쓸 수 있게 되었습니다.</p>
 <p>2022년 소개를 적는 현재, 컨스택츠라는 스타트업에서 신규 백엔드 시스템을 하스켈로 구축하고 있습니다. 아마도 국내에서 유일하게 하스켈을 실무에 활용하는 회사가 아닐까 합니다. 그래서 저희는, 농담 섞어서, 국내 하스켈 개발자 Top 10 중 3명이 근무 중인 회사라고 허세를 부리고 다닙니다. <strong>국내에 실무 하스켈 개발자가 열 명이 안될 거</strong>라는 매우 합리적인 추측 때문에 가능한 농담이죠.</p>
 <pre><code class="language-haskell">quickSort :: Ord a =&gt; [a] -&gt; [a]
 quickSort [] = []
@@ -265,7 +289,7 @@ const halfTurn = reorderFace(halfTurnF)
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
-                            <a rel="next" href="../2024/0323-i-maybe-wrong.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../2024/0323-i-maybe-wrong.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -276,7 +300,7 @@ const halfTurn = reorderFace(halfTurnF)
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
-                    <a rel="next" href="../2024/0323-i-maybe-wrong.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../2024/0323-i-maybe-wrong.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -299,5 +323,6 @@ const halfTurn = reorderFace(halfTurnF)
         <!-- Custom JS scripts -->
 
 
+    </div>
     </body>
 </html>

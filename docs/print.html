@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
-<html lang="ko" class="sidebar-visible no-js light">
+<html lang="ko" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>hatemogi.com</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
 
 
         <!-- Custom HTML head -->
@@ -17,7 +17,7 @@
         <meta property="og:image:height" content="1024" />
         <meta name="description" content="백엔드 개발자 김대현의 개인 웹사이트">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="shortcut icon" href="favicon.png">
         <link rel="stylesheet" href="css/variables.css">
@@ -30,28 +30,42 @@
         <link rel="stylesheet" href="fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="custom.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
     </head>
     <body>
-        <!-- Provide site root to javascript -->
-        <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -65,33 +79,42 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">소개</li><li class="chapter-item expanded "><a href="intro/intro.html">김대현 소개</a></li><li class="chapter-item expanded affix "><li class="part-title">2024년 글</li><li class="chapter-item expanded "><a href="2024/0323-i-maybe-wrong.html">행복한 개발자가 되는 길 (2)</a></li><li class="chapter-item expanded "><a href="2024/0120-acceptance.html">행복한 개발자가 되는 길 (1)</a></li><li class="chapter-item expanded affix "><li class="part-title">2023년 글</li><li class="chapter-item expanded "><a href="2023/1207-running-developer.html">달리기에서 배우는 괜찮은 개발자 되는 법</a></li><li class="chapter-item expanded "><a href="2023/0811-serverless-notification.html">AWS에 Rust로 수익 알리미 만든 이야기</a></li><li class="chapter-item expanded "><a href="2023/0526-profp-ok.html">프로 함수형 프로그래머, 괜찮은가?</a></li><li class="chapter-item expanded "><a href="2023/0428-scalabook.html">스칼라 미니북 공개</a></li><li class="chapter-item expanded "><a href="2023/0101-3hour-elm.html">3시간 만에 다 배우는 Elm 가이드 영상</a></li><li class="chapter-item expanded affix "><li class="part-title">2022년 글</li><li class="chapter-item expanded "><a href="2022/0825-salary-developer.html">근로 소득 개발자</a></li><li class="chapter-item expanded "><a href="2022/0722-developer-rank.html">개발자 직급 체계, 그리고 시니어 개발자란?</a></li><li class="chapter-item expanded "><a href="2022/0801-amazon-sqs.html">마이크로서비스에 Amazon SQS 활용하기</a></li><li class="chapter-item expanded affix "><li class="part-title">온라인 강의</li><li class="chapter-item expanded "><a href="course/scala-for-java-developers.html">바쁜 자바 개발자를 위한 스칼라 맛보기</a></li><li class="chapter-item expanded "><a href="course/kotlin-examples.html">예제로 뿌수는 코틀린 Kotlin 76제</a></li><li class="chapter-item expanded "><a href="course/rust-practical-guid.html">우아한 고성능 프로그래밍 언어 Rust 입문 및 활용</a></li><li class="chapter-item expanded affix "><li class="part-title">달리기</li><li class="chapter-item expanded "><a href="running/2023-09-19.html">2023년 9월, 2년간 1700K를 달렸다</a></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -105,15 +128,16 @@
                   gtag('js', new Date());
                   gtag('config', 'G-DS17HTQ8PY');
                 </script>                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
@@ -153,19 +177,19 @@
 <p>제 관심 분야를 적으면, 앞으로 공유할 글들에 대한 방향성을 가늠하시기 좋을 것 같습니다.</p>
 <hr />
 <h2 id="함수형-프로그래밍"><a class="header" href="#함수형-프로그래밍">함수형 프로그래밍</a></h2>
-<p>제 관심 분야 중 가장 먼저 꼽고 싶은 것은, 함수형 프로그래밍입니다. 현재 대부분의 주요 프로그래밍 언어는 &quot;명령형 프로그래밍&quot; 스타일입니다만, 함수형 프로그래밍의 장점들이 꽤 녹아들고 있는 것 같습니다.</p>
+<p>제 관심 분야 중 가장 먼저 꼽고 싶은 것은, 함수형 프로그래밍입니다. 현재 대부분의 주요 프로그래밍 언어는 "명령형 프로그래밍" 스타일입니다만, 함수형 프로그래밍의 장점들이 꽤 녹아들고 있는 것 같습니다.</p>
 <h3 id="함수형-프로그래밍-언어--1-clojure"><a class="header" href="#함수형-프로그래밍-언어--1-clojure">함수형 프로그래밍 언어 | (1) Clojure</a></h3>
 <p><a href="https://link.coupang.com/a/s8JaL">'해커와 화가'</a>라는 책을 읽고, LISP라는 <strong>함수형 프로그래밍</strong> 언어에 관심을 갖게 되었습니다. 그러다 JVM이 널리 쓰이는 현업 환경에서 쓰기 좋은 <a href="https://clojure.org">클로저(Clojure)</a>를 접하게 되었고, 그 매력적이고 강력한 언어에 빠져들었습니다. 이제껏 배운 언어 중, 리스프 계열 언어들이 가장 우아하다 생각합니다만, 현업 환경의 다수의 개발자들에게 리스프의 모양새는 꽤나 (충격적)이기 때문에, 규모 있는 회사에서 적용해 쓰기에는 부담이 있어 아쉬웠지요.</p>
 <pre><code class="language-clojure">(defroutes 라우터
-  (GET &quot;/&quot; [] 핸들러)
-  (POST &quot;/echo-name&quot; [name]
-    (str &quot;안녕하세요, &quot; name &quot;님!&quot;))
-  (GET &quot;/index.html&quot; _
+  (GET "/" [] 핸들러)
+  (POST "/echo-name" [name]
+    (str "안녕하세요, " name "님!"))
+  (GET "/index.html" _
     (html [:main
            [:section
-            [:h1 &quot;안녕하세요&quot;]
-            [:div &quot;클로저 웹서비스 데모&quot;]]]))
-  (route/not-found &quot;찾을 수 없습니다&quot;))
+            [:h1 "안녕하세요"]
+            [:div "클로저 웹서비스 데모"]]]))
+  (route/not-found "찾을 수 없습니다"))
 </code></pre>
 <p>(clojure + compojure)를 이용해 HTTP 서비스를 구성한 예제입니다. 리스프 계통 언어에 익숙하신 분들에게는 아주 자연스러운 코드일 텐데요, 대부분의 개발자들은, 다른 언어에서보다 많아 보이는 괄호 쌍()으로 인해 거부감을 느끼는 것 같습니다. 익숙해지면, 저 간결한 괄호식들이 참 우아해 보인다는 걸, 믿으실지 모르겠습니다.</p>
 <h3 id="함수형-프로그래밍-언어--2-scala"><a class="header" href="#함수형-프로그래밍-언어--2-scala">함수형 프로그래밍 언어 | (2) Scala</a></h3>
@@ -194,7 +218,7 @@ combineAll(List(1, 2, 3)) // res3: Int = 6
 <iframe width="560" height="315" src="https://www.youtube.com/embed/H6JxxWL6bJI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>당시 저희 팀에서 함수형 프로그래밍을 하고 있단 소식에, 인터뷰까지 진행하게 되었습니다. 진행자 민우님이 잘 이끌어 주셔서 (제게는) 재미있는 영상이 남았습니다. 언젠가 좀 더 본격적으로 함수형 프로그래밍을 소개하는 영상을 남기고 싶네요.</p>
 <h2 id="함수형-프로그래밍-언어--3-haskell"><a class="header" href="#함수형-프로그래밍-언어--3-haskell">함수형 프로그래밍 언어 | (3) Haskell</a></h2>
-<p>클로저와 스칼라는 함수형 프로그래밍 언어로 분류할 수 있습니다. 한편, 함수형 프로그래밍의 끝판에는 &quot;순수&quot; 함수형 프로그래밍 언어인 <a href="https://www.haskell.org/">하스켈(haskell)</a>이 있습니다. 어떻게 제게 이런 행운이 흘러드는지, 하스켈마저도 업무용으로 쓸 수 있게 되었습니다.</p>
+<p>클로저와 스칼라는 함수형 프로그래밍 언어로 분류할 수 있습니다. 한편, 함수형 프로그래밍의 끝판에는 "순수" 함수형 프로그래밍 언어인 <a href="https://www.haskell.org/">하스켈(haskell)</a>이 있습니다. 어떻게 제게 이런 행운이 흘러드는지, 하스켈마저도 업무용으로 쓸 수 있게 되었습니다.</p>
 <p>2022년 소개를 적는 현재, 컨스택츠라는 스타트업에서 신규 백엔드 시스템을 하스켈로 구축하고 있습니다. 아마도 국내에서 유일하게 하스켈을 실무에 활용하는 회사가 아닐까 합니다. 그래서 저희는, 농담 섞어서, 국내 하스켈 개발자 Top 10 중 3명이 근무 중인 회사라고 허세를 부리고 다닙니다. <strong>국내에 실무 하스켈 개발자가 열 명이 안될 거</strong>라는 매우 합리적인 추측 때문에 가능한 농담이죠.</p>
 <pre><code class="language-haskell">quickSort :: Ord a =&gt; [a] -&gt; [a]
 quickSort [] = []
@@ -263,14 +287,15 @@ const halfTurn = reorderFace(halfTurnF)
 <div style="break-before: page; page-break-before: always;"></div><h1 id="행복한-개발자가-되는-길-2--i-may-be-wrong"><a class="header" href="#행복한-개발자가-되는-길-2--i-may-be-wrong">행복한 개발자가 되는 길 (2) — I may be wrong</a></h1>
 <p>지난 글에 호응이 과분하여, 더 용기를 내어 같은 주제의 글을 쓰기로 했습니다. 마침, 지난 글을 올린 즈음에, 가까운 주변 개발자 한 분의 하소연을 듣게 되었는데, 그 불편한 심리 상태의 원인이 꽤 공통적이라는 점에서 다음 주제가 바로 떠올랐어요. 불편한 심리 상태에 빠져있는 당장의 상황에서는 이런 의견을 드려도 들리지 않기 때문에 바로 전달드리기는 어려웠습니다. 아니, 사실 이런 의견은 누구도 듣기 싫어할 것 같습니다. 이렇게 글로 적어뒀는데, 무심히 읽게 되어 공감이 드는 부분이 있다면 다행인 정도이겠습니다.</p>
 <h2 id="내가-맞다는-환상"><a class="header" href="#내가-맞다는-환상">내가 맞다는 환상</a></h2>
-<p>어쩌면 본능의 영역인 거 같기도 하고, 아니면 학창 시절 시험 문제에 정답을 적어내야 하는 교육 과정에 따른 악습인 것 같기도 합니다. 어떤 원인인지는 모르겠지만, 우리 대부분은 &quot;내가 맞다&quot;라는 환상에 사로잡혀 있는 것 같습니다. 때로는, 내가 틀린 걸 쿨하게 인정하고 넘어가기도 하지만, 이건 미처 내가 관심 갖지 않았던 무지한 영역에서일 뿐이고, 잘 안다고 생각하는 자신 있는 부분에서는 틀린 걸 인정할 수 없습니다. 틀린 걸 인정하지 못하는 것은 물론이고, 남이 조금이라도 틀린 표현을 하면 바로 지적을 해서 바로잡아주고 싶어 하지요. 내가 자신 있는 부분인데 날 틀렸다고 지적한다? 그럼 맞서 싸워서 내가 맞고 남이 틀리다는 걸 인정하게끔 하려고 합니다. 생판 모르는 사람과도 말이죠.</p>
+<p>어쩌면 본능의 영역인 거 같기도 하고, 아니면 학창 시절 시험 문제에 정답을 적어내야 하는 교육 과정에 따른 악습인 것 같기도 합니다. 어떤 원인인지는 모르겠지만, 우리 대부분은 "내가 맞다"라는 환상에 사로잡혀 있는 것 같습니다. 때로는, 내가 틀린 걸 쿨하게 인정하고 넘어가기도 하지만, 이건 미처 내가 관심 갖지 않았던 무지한 영역에서일 뿐이고, 잘 안다고 생각하는 자신 있는 부분에서는 틀린 걸 인정할 수 없습니다. 틀린 걸 인정하지 못하는 것은 물론이고, 남이 조금이라도 틀린 표현을 하면 바로 지적을 해서 바로잡아주고 싶어 하지요. 내가 자신 있는 부분인데 날 틀렸다고 지적한다? 그럼 맞서 싸워서 내가 맞고 남이 틀리다는 걸 인정하게끔 하려고 합니다. 생판 모르는 사람과도 말이죠.</p>
 <p>시험을 볼 때나, 일을 할 때나 어떤 중요한 부분에 있어서는 이런 자세가 중요할지도 모르겠습니다. 하지만, 나머지 일상 대부분에서는 이 맞고 틀리고가 그다지 중요하지 않습니다. 이것도 맞고 저것도 맞을 수도 있고, 취향의 차이일 뿐, 맞고 틀리고의 문제가 아닌 경우도 많습니다.</p>
-<p>&quot;내가 맞다&quot;는 환상은, &quot;남이 틀리다&quot;라는 환상으로 이어지고, 반대로 &quot;남이 맞다&quot;면 &quot;내가 틀리는&quot; 고통으로 이어지기도 하는데요, 왜 굳이 내가 꼭 맞아야 합니까? 틀린 지식을 갖고 있으면 죽어나가는 생존의 문제에 놓여있기라도 한 것처럼요.</p>
+<p>"내가 맞다"는 환상은, "남이 틀리다"라는 환상으로 이어지고, 반대로 "남이 맞다"면 "내가 틀리는" 고통으로 이어지기도 하는데요, 왜 굳이 내가 꼭 맞아야 합니까? 틀린 지식을 갖고 있으면 죽어나가는 생존의 문제에 놓여있기라도 한 것처럼요.</p>
 <h2 id="내가-틀릴-수도-있습니다"><a class="header" href="#내가-틀릴-수도-있습니다">내가 틀릴 수도 있습니다</a></h2>
 <p><img src="2024//2024/img/maybe-wrong.jpeg" alt="" /></p>
-<p>겸손한 마음으로 &quot;내가 틀릴 수도 있다&quot;라고 표현하는 수준을 뛰어 넘어서, &quot;틀려도 된다&quot;라는 용기를 내야 합니다. 내가 틀릴 수도 있다는 가능성을 열어두면, 다른 의견에 대해 열리고 배우기 편해지고, 마음이 불편한 지점도 대폭 사라지며, 싸울 일도 줄어듭니다.</p>
-<p>&quot;틀려도 된다&quot;라는 생각에서 큰 해방감이 이어집니다. 개발자가 뭐 평생 시험을 보는 상태에 있는 건 아니잖아요. 물론 때로는 맞고 틀리는 문제가 상당히 중요한 걸 무시하자는 게 아닙니다. 그렇지 않은 영역에서 쓸데없는 고민을 부릴 필요가 없다는 점을 말씀드리는 거예요.</p>
-<p>지금, 제 의견이 어떤 점에서 틀렸는지를 지적하고 싶으신가요? 이미 그것이 &quot;당신이 맞고&quot;, &quot;제가 틀리기&quot; 때문에 그런 생각이 드는 겁니다. 이미 &quot;내게 맞는 의견이 있는데, 저 사람이 날 틀렸다고 말하네?&quot;라는 흐름인 겁니다.</p>
+<p>겸손한 마음으로 "내가 틀릴 수도 있다"라고 표현하는 수준을 뛰어 넘어서, "틀려도 된다"라는 용기를 내야 합니다. 내가 틀릴 수도 있다는 가능성을 열어두면, 다른 의견에 대해 열리고 배우기 편해지고, 마음이 불편한 지점도 대폭 사라지며, 싸울 일도 줄어듭니다.</p>
+<p>내가 틀려도 된다면, 상대 역시 틀려도 되며, 설령 상대가 명백히 틀리다고 할지라도 인정할 수 있습니다. 나에게도 관대하고, 타인에게도 관대해지면 되는 거죠. 틀린 걸 알게 됐을 때, 겸허히 배우면 됩니다. 굳이 정정할 필요가 없다면 안 해도 됩니다. 틀려도 되는 거니까요.</p>
+<p>"틀려도 된다"라는 생각에서 큰 해방감이 이어집니다. 개발자가 뭐 평생 시험을 보는 상태에 있는 건 아니잖아요. 물론 때로는 맞고 틀리는 문제가 상당히 중요한 걸 무시하자는 게 아닙니다. 그렇지 않은 영역에서 쓸데없는 고민을 부릴 필요가 없다는 점을 말씀드리는 거예요.</p>
+<p>지금, 제 의견이 어떤 점에서 틀렸는지를 지적하고 싶으신가요? 이미 그것이 "당신이 맞고", "제가 틀리기" 때문에 그런 생각이 드는 겁니다. 이미 "내게 맞는 의견이 있는데, 저 사람이 날 틀렸다고 말하네?"라는 흐름인 겁니다.</p>
 <p>전 지금 제 글의 내용이 틀려도 되고, 당신의 내용이 맞다고 생각합니다. 이 자체로 너무 편안해요.</p>
 <h2 id="각자의-세상에서"><a class="header" href="#각자의-세상에서">각자의 세상에서</a></h2>
 <p>우리 모두 한 세상에서 살고 있지만, 다 나름의 관점에서 세상을 바라봅니다. 사실상 각자의 세계가 너무 다른 상태인 거죠. 이 세상과 세상이 만나서 얘기하다 보면, 세계관이 달라서 빚어지는 충돌들이 있습니다. 긍정적 충돌일 때도 있고 소모적인 부정적 충돌일 때도 있습니다.</p>
@@ -301,7 +326,7 @@ const halfTurn = reorderFace(halfTurnF)
 <p>암튼, 행복해지려면 돈을 얼만큼 벌어야 하고, 건강은 어떻게 되어야 하고, 내 몸무게는 어떻게 되어야 하며, 아이 공부는 어떻게 했으면 좋겠고, 이런 지극히 정상적인 고민들의 관점이 대폭 흔들리는 상황입니다.</p>
 <p>스스로는 어떻게 바뀌어갈지 흥미로운 상황입니다. 이미 뭔가 많이 바뀐 것 같아서 재밌고요. 그게 뭔지 모르겠습니다만 말이죠. 헛헛.</p>
 <h2 id="그래서-뭘-하라는-거야"><a class="header" href="#그래서-뭘-하라는-거야">그래서 뭘 하라는 거야?</a></h2>
-<p>굳이 말해보자면, 꼭 그래야 하는 것은 아니지만 &quot;숨쉬기 운동&quot; 경험 추천드려 봅니다! 이미 명상이 잘 되시는 분들은 불필요할 것 같지만, 평소 명상에 관심이 있었는데 잡생각이 많이 끼어들어서 집중하기 힘들었던 분들에게 좋다고 생각해요.</p>
+<p>굳이 말해보자면, 꼭 그래야 하는 것은 아니지만 "숨쉬기 운동" 경험 추천드려 봅니다! 이미 명상이 잘 되시는 분들은 불필요할 것 같지만, 평소 명상에 관심이 있었는데 잡생각이 많이 끼어들어서 집중하기 힘들었던 분들에게 좋다고 생각해요.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="달리기에서-배우는-괜찮은-개발자-되는-법"><a class="header" href="#달리기에서-배우는-괜찮은-개발자-되는-법">달리기에서 배우는 괜찮은 개발자 되는 법</a></h1>
 <p>안녕하세요, 저는 오랜 경력의 백엔드 개발자입니다. 개발과는 별개로 건강을 위한 취미로 달리기를 시작한지 2년이 좀 넘었습니다. 달리기로 치자면 3년차 주니어 러너인 셈이지요. 가만히 보니까 제가 달리기를 하면서 배우고 있는 점들이 개발자 커리어에도 비슷하게 통할 것 같은 부분이 꽤 있더라구요. 그래서, 개발자 경력을 돌이켜봤을 때, 3년차 이하 개발자분들에게 도움이 될지도 모르는 팁을 공유해보려 합니다.</p>
 <h2 id="충분한-시간이-필요합니다"><a class="header" href="#충분한-시간이-필요합니다">충분한 시간이 필요합니다</a></h2>
@@ -395,8 +420,8 @@ const halfTurn = reorderFace(halfTurnF)
 <h3 id="신규-데이터-확인"><a class="header" href="#신규-데이터-확인">신규 데이터 확인</a></h3>
 <p>조회하고자 하는 비공식 API는 최근순서로 N건의 판매건수를 조회할 수 있었습니다.</p>
 <pre><code class="language-json">[
-  {&quot;amount&quot;: 10000, &quot;at&quot;: &quot;2023-08-11T02:30:00Z&quot;},
-  {&quot;amount&quot;: 11000, &quot;at&quot;: &quot;2023-08-10T12:00:00Z&quot;}
+  {"amount": 10000, "at": "2023-08-11T02:30:00Z"},
+  {"amount": 11000, "at": "2023-08-10T12:00:00Z"}
 ]
 </code></pre>
 <p>이런 식으로 판매 실적이 담겨있었는데, 아쉽게도 PK 값으로 추정되는 건 따로 보이지는 않았습니다. 아쉬운 대로 몇 가지 고유해 보이는 값들을 조합해서 해쉬값을 만들어서 임의의 PK값을 만들어서 쓰기로 했습니다. 해당 데이터를 AWS DynamoDB 테이블에 넣어두고, 나름의 방식으로 생성한 PK값을 기준으로 기존 데이터인지 신규 데이터인지 파악하도록 합니다. 이미 기록된 판매실적이라면 무시하면 되겠죠.</p>
@@ -442,12 +467,12 @@ const halfTurn = reorderFace(halfTurnF)
 <p>함수형 프로그래밍 언어로 대표 격인 세 가지 언어를, 직업적으로 해본 경험을 주제로, 올해 8월 인프콘 콘퍼런스에서 발표하기로 했습니다. 흔히, 콘퍼런스에서 발표하는 내용은 뭔가를 이렇게 이렇게 잘했다고 공유하는 것이 보통인 것 같은데, 아쉽게도 잘했다고 자랑하기는 어려울 것 같습니다.</p>
 <p>그렇다고 실패담이라고 하기는 아쉬우니 경험담 수준에서 최대한 밝게 다뤄보려고 합니다. 재밌는 발표가 될 수 있기를 기대합니다.</p>
 <h2 id="스칼라-기초-강의-제작"><a class="header" href="#스칼라-기초-강의-제작">스칼라 기초 강의 제작</a></h2>
-<p>며칠 전, &quot;자바 개발자를 위한 스칼라&quot;라는 온라인 강의 영상을 만들어서, 인프런에 등록했습니다. 검수과정이 잘 끝나면, 6월 초부터는 구매가 가능할 것 같습니다. 과연 몇 분이나 구매해서 들어주실지 모르겠지만, 아마도 구매수가 많지는 않을 것 같습니다. 강의의 가치 판단은 미뤄보더라도, 일단 &quot;스칼라&quot;에 대한 사람들의 관심이 많지 않을 테니 구매량에 대한 고민을 크게 할 수는 없을 것 같습니다.</p>
+<p>며칠 전, "자바 개발자를 위한 스칼라"라는 온라인 강의 영상을 만들어서, 인프런에 등록했습니다. 검수과정이 잘 끝나면, 6월 초부터는 구매가 가능할 것 같습니다. 과연 몇 분이나 구매해서 들어주실지 모르겠지만, 아마도 구매수가 많지는 않을 것 같습니다. 강의의 가치 판단은 미뤄보더라도, 일단 "스칼라"에 대한 사람들의 관심이 많지 않을 테니 구매량에 대한 고민을 크게 할 수는 없을 것 같습니다.</p>
 <p>수요는 많지 않겠지만, 그래도 관심 있는 주제에 대해 강의를 하나 다 만들 수 있어서 스스로 기특하다 칭찬하고 있습니다. 차차 더 유용한 강의를 만들 수 있는 계단 하나 쌓은 거죠.</p>
 <h2 id="다음-강의-주제를-고민하던-중"><a class="header" href="#다음-강의-주제를-고민하던-중">다음 강의 주제를 고민하던 중...</a></h2>
 <p>강의 제작을 더 진지하게 도전해 보려고 이런저런 고민을 해봤습니다. 첫 강의가 아직 공개되기도 전입니다만, 곧바로 다음 강의를 만들 준비를 시작했습니다.</p>
-<p>딱 떠오른 것은 &quot;속성 기반 테스팅&quot;이었고, 이를 주제로 스칼라, 자바, 자바스크립트 등에서 각 언어에서 널리 쓰이는 속성 기반 테스팅 라이브러리를 소개하고 쓰는 법을 공유하는 강의를 만들면 유용하겠다는 생각이 든 거죠.</p>
-<p>그런데 잠깐! &quot;속성 기반 테스팅&quot;이라는 주제 자체가 너무 생소하다는 점에서 주춤하게 되었습니다. 사람들에게 관심 있는 주제를 강의로 만들어야, 수익성이 있을 테고, 제게 수익이 중요한 상황이니, 응당 &quot;관심 있는 주제&quot;를 공략해야 하겠습니다. &quot;속성 기반 테스팅&quot;이 수익성이 있을까요? 의외로 수익성이 있을 수도 있겠지만, 아마 기본은 저조한 수준일 겁니다.</p>
+<p>딱 떠오른 것은 "속성 기반 테스팅"이었고, 이를 주제로 스칼라, 자바, 자바스크립트 등에서 각 언어에서 널리 쓰이는 속성 기반 테스팅 라이브러리를 소개하고 쓰는 법을 공유하는 강의를 만들면 유용하겠다는 생각이 든 거죠.</p>
+<p>그런데 잠깐! "속성 기반 테스팅"이라는 주제 자체가 너무 생소하다는 점에서 주춤하게 되었습니다. 사람들에게 관심 있는 주제를 강의로 만들어야, 수익성이 있을 테고, 제게 수익이 중요한 상황이니, 응당 "관심 있는 주제"를 공략해야 하겠습니다. "속성 기반 테스팅"이 수익성이 있을까요? 의외로 수익성이 있을 수도 있겠지만, 아마 기본은 저조한 수준일 겁니다.</p>
 <p>내가 하고 싶은 강의가 곧 사람들에게 관심 있는 주제라면 좋겠지만, 그렇지 않다면, 수익성은 크게 고민하지 말고, 자아만족이나 사회공헌의 느낌으로 가져가야 하겠죠. 지금 제가 거창하게 사회공헌을 논할 상황이냐? 아쉽게도 그렇지 못한 것 같습니다. 경제적 독립을 이뤄냈고, 은퇴 비슷한 걸 한 상황이라면 모르겠지만 말입니다.</p>
 <h2 id="beta-vs-vhs-교훈"><a class="header" href="#beta-vs-vhs-교훈">BETA vs. VHS 교훈</a></h2>
 <p>오래전에 비디오테이프라는 매체가 있던 시절에, 소니에서 베타라는 비디오테이프 규격을 내놓았고, 경쟁 규격으로 VHS라는 게 있었다 합니다. (어릴 때 저희 집에 베타 비디오 플레이어가 있었던 것 같지만, 그걸 얘기하면 제 나이가 너무 드러나므로, 일단 은근슬쩍 넘어갑시다)</p>
@@ -466,11 +491,11 @@ const halfTurn = reorderFace(halfTurnF)
 <p>아마도 개인 프로젝트의 영역에서는 계속 스칼라나, Elm 같은 함수형 프로그래밍 언어들을 더 쓸 것 같습니다. 혼자 만들어도 되는 범위에 있어서는 분명 훨씬 나은 점이 도드라진다는 믿음이 있습니다.</p>
 <p>하지만, 여러 인원이 모여서 함께 일해야 하는 환경이라면, 함수형 프로그래머를 구하는 것 자체가 어려운 일이므로, 취미나 개인 프로젝트 사이, 좀 더 넓힌다면, 뜻 맞는 몇 명이 소규모로 모여서 작고 탄탄한 프로젝트를 진행할 때는 요긴하고 감사히 쓰기야 하겠죠.</p>
 <h2 id="그래서-함수형-프로그래밍-경험을-후회하는가"><a class="header" href="#그래서-함수형-프로그래밍-경험을-후회하는가">그래서 함수형 프로그래밍 경험을 후회하는가?</a></h2>
-<p>아마, 저는 또 비슷한 선택을 할 수 있더라도 비슷한 과정을 거치게 될 것 같습니다. 한편으로는, 그 세 가지 함수형 프로그래밍 언어를 직업적으로 활용할 수 있었던 현실에 감사하고 있습니다. 뭔가 새로운 언어를 배울 때 흔한 걸림돌 중 하나가, &quot;어디 써먹을 일이 없어서 잘 배우기가 어렵다&quot;는 점인데, 전 실용의 영역에서 나름 실전적으로 배울 수 있었던 거죠.</p>
+<p>아마, 저는 또 비슷한 선택을 할 수 있더라도 비슷한 과정을 거치게 될 것 같습니다. 한편으로는, 그 세 가지 함수형 프로그래밍 언어를 직업적으로 활용할 수 있었던 현실에 감사하고 있습니다. 뭔가 새로운 언어를 배울 때 흔한 걸림돌 중 하나가, "어디 써먹을 일이 없어서 잘 배우기가 어렵다"는 점인데, 전 실용의 영역에서 나름 실전적으로 배울 수 있었던 거죠.</p>
 <p>마음 한 편에서는, 그저 취미나 학습, 그리고 기호의 영역에서 순수하게(?) 공부로 접근했으면 어땠을까 하는 생각을 하기도 합니다. 직업 개발은 남들 다 쓰는 주류로 하고 말이죠. 취미로 글을 쓴다거나, 강의를 만든다거나 하는 정도는, 개인 시간에 틈틈이 진행하면 좋을 것 같습니다.</p>
 <p>아무리 좋은 기술이라고 해도, 동료들이 쓰지 않는다면, 그 의미가 급격히 줄어드니까 말이죠. 어쩌면 그렇게 좋은 기술이 아닐지도 모르고요.</p>
 <h2 id="마무리"><a class="header" href="#마무리">마무리</a></h2>
-<p>그래서, 혹시 함수형 프로그래밍 언어에 관심이 많으신 분들께 응원의 말씀을 남긴다면, &quot;계속 취미나 지적 호기심의 영역에서 학습하는 것&quot;도 충분이 의미가 있다 말씀드려보겠습니다.</p>
+<p>그래서, 혹시 함수형 프로그래밍 언어에 관심이 많으신 분들께 응원의 말씀을 남긴다면, "계속 취미나 지적 호기심의 영역에서 학습하는 것"도 충분이 의미가 있다 말씀드려보겠습니다.</p>
 <p>스스로도, 계속 공부와 실험의 영역, 개인 프로젝트에서의 실용은 계속해 나아갈 테고요.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="스칼라-미니북-공개"><a class="header" href="#스칼라-미니북-공개">스칼라 미니북 공개</a></h1>
 <p><img src="https://scalabook.hatemogi.com/img/scalabook.png" alt="" /></p>
@@ -505,42 +530,42 @@ const halfTurn = reorderFace(halfTurnF)
 <div style="break-before: page; page-break-before: always;"></div><h1 id="근로-소득-개발자"><a class="header" href="#근로-소득-개발자">근로 소득 개발자</a></h1>
 <p>출근길에, 은행에서 카톡이 왔습니다. 급여가 입금되었다는 반가운 알림이었습니다. 월급이 매달 입금되는 것이 근로자 입장에서 가장 중요한 일이겠습니다. 중요하고 감사한 일인데, 매달 따박따박 입금되는 것이 당연해지고, 당연해지고 나면 그 밖에도 다른 욕심들이 자라나기 마련입니다.</p>
 <p>예를 들면, 나는 회사에서 얼마나 공헌하며, 인정받고 다니고 있는가, 나는 여기서 뭘 배우며 얼마나 성장하고 있나, 내가 원하는 일을 하고 있나, 회사는 나를 필요로 하는가, 또는 나는 어떻게 이 세상을 이롭게 바꾸고 있는가 등등등. 각자의 가치관에 따라 얼마든지 다를 수 있는 다 중요한 가치들이 있겠습니다.</p>
-<p>좋은 현상인지 나쁜 현상인지 모르겠습니다만, 오랜 기간 월급을 받다 보니, 그 가치들에 대한 관점이 제 삶에 있어서 중요한 부분으로 최소화되는 것 같습니다. 예를 들어, 배우며 성장하기 같은 주제는, 한창 열 일하는 개발자분들에게는 너무도 중요하고 관심 가는 가치이겠지만, 저 같은 노인네 뒷방 개발자들에게는 거의 관심이 없는 주제입니다. &quot;이제 와서 성장해봐야 얼마나 하겠어&quot;, &quot;성장한다 한들 얼마나 더 개발자로 일하겠어&quot; 같은 생각들이 더 강한 것일 수도 있고, 그냥 묵묵히 잘하다 보면 성장하는 거지, 성장을 목표로 용쓴다고 달라질 게 별로 없다는 걸 알기 때문이기도 하겠습니다. 초등학생 어린이들은 빨리 어른이 되고 싶다지만, 막상 어른 된 입장에서야 그 생각이 별로 안 들잖아요? 정작 아무 걱정 없이 신나게 노는 아이들이 부러울 따름입니다. 정작 그 아이들은 나름의 심각한 고민들이 많이 있고요. ㅎㅎ</p>
+<p>좋은 현상인지 나쁜 현상인지 모르겠습니다만, 오랜 기간 월급을 받다 보니, 그 가치들에 대한 관점이 제 삶에 있어서 중요한 부분으로 최소화되는 것 같습니다. 예를 들어, 배우며 성장하기 같은 주제는, 한창 열 일하는 개발자분들에게는 너무도 중요하고 관심 가는 가치이겠지만, 저 같은 노인네 뒷방 개발자들에게는 거의 관심이 없는 주제입니다. "이제 와서 성장해봐야 얼마나 하겠어", "성장한다 한들 얼마나 더 개발자로 일하겠어" 같은 생각들이 더 강한 것일 수도 있고, 그냥 묵묵히 잘하다 보면 성장하는 거지, 성장을 목표로 용쓴다고 달라질 게 별로 없다는 걸 알기 때문이기도 하겠습니다. 초등학생 어린이들은 빨리 어른이 되고 싶다지만, 막상 어른 된 입장에서야 그 생각이 별로 안 들잖아요? 정작 아무 걱정 없이 신나게 노는 아이들이 부러울 따름입니다. 정작 그 아이들은 나름의 심각한 고민들이 많이 있고요. ㅎㅎ</p>
 <p>암튼, 결국 근로소득자 입장에서는, 내 지식 노동을 제공하고, 그 대가를 월급으로 받는 것이 핵심이겠습니다. 욕심을 더 부린다면, 그 지식 노동을 생산하는 과정에서, 월급 외에 다른 부산물들이 나나 회사에 더 발생하면 좋은 거죠. 예를 들면, 내 지식 노동의 품질이 더 올라가서, 잠재적으로 연봉이 오른다거나, 더 높은 급여의 회사로 이직이 쉬워진다거나 하는 등의 부산물요.</p>
-<p>뒷방 노인네답게, 오로지 &quot;돈돈돈&quot;을 적게 되었는데, 그렇다고, 월급만으로 기준을 최소화해버리면, 내 장기적인 커리어가 망가진다거나, 과도한 정신적 육체적 스트레스로 건강을 해친다거나 하는 부작용이 발생할 수도 있으니, 나름의 적절한 균형점을 찾아야 하겠습니다. 그 균형점이 정말 중요한 것 같아요. 너무 돈만 따져도 안되고, 그렇다고 너무 이상적인 목표에 대해 과도한 욕심을 부려도, 부작용이 클 테니까요.</p>
+<p>뒷방 노인네답게, 오로지 "돈돈돈"을 적게 되었는데, 그렇다고, 월급만으로 기준을 최소화해버리면, 내 장기적인 커리어가 망가진다거나, 과도한 정신적 육체적 스트레스로 건강을 해친다거나 하는 부작용이 발생할 수도 있으니, 나름의 적절한 균형점을 찾아야 하겠습니다. 그 균형점이 정말 중요한 것 같아요. 너무 돈만 따져도 안되고, 그렇다고 너무 이상적인 목표에 대해 과도한 욕심을 부려도, 부작용이 클 테니까요.</p>
 <p>이런 마인드가 어떤가 생각해봤습니다. 이러니 저리니 해도 월급날 월급은 잘 들어왔고, 난 그 이상의 추가적인 부가 가치를 나에게나 회사에 만들어 냈으면 정말 잘한 거라고요. 반드시 그래야 하는 것은 아니지만, 그게 가능하다면 바람직한 옵션 정도로 여겨보면, 적어도 일단 마음은 편하지 않나 싶습니다.</p>
-<p>어떻게 생각하시나요? 지나치게 소박한 목표일까요? 한편, 뭐 그 모든 욕심이나 이상을 한 방에 날려 보내는 현실은, &quot;왜 내 월급은 왜 텅장을 스쳐가고 늘 부족한가&quot;라는 점이 문제겠습니다. 욕심에 비해 늘 부족하지만, 그래도 입금된 월급에 감사하며 마구 적어봤습니다. 이제 뭐 욕심을 줄여야죠. ㅋ</p>
+<p>어떻게 생각하시나요? 지나치게 소박한 목표일까요? 한편, 뭐 그 모든 욕심이나 이상을 한 방에 날려 보내는 현실은, "왜 내 월급은 왜 텅장을 스쳐가고 늘 부족한가"라는 점이 문제겠습니다. 욕심에 비해 늘 부족하지만, 그래도 입금된 월급에 감사하며 마구 적어봤습니다. 이제 뭐 욕심을 줄여야죠. ㅋ</p>
 <blockquote>
 <p>작성일: 2022년 8월 25일</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="개발자-직급-체계-그리고-시니어-개발자란"><a class="header" href="#개발자-직급-체계-그리고-시니어-개발자란">개발자 직급 체계, 그리고 시니어 개발자란?</a></h1>
 <h2 id="나보고-시니어-개발자라고"><a class="header" href="#나보고-시니어-개발자라고">나보고 시니어 개발자라고?</a></h2>
-<p>한 7년 차쯤 되었을 때, 처음 시니어 개발자라고 불린 것 같습니다. 그때는 &quot;시니어 개발자&quot;라는 호칭 자체가 생소했고, 심지어 조금 불쾌하기까지 했어요. 나이도 들고 경력도 좀 되었는데, 마땅히 공식적인 직함 같은 게 없는 상황에, 애써 우대해 불러주고 싶을 때 쓰는 호칭 정도로 느껴졌습니다.</p>
+<p>한 7년 차쯤 되었을 때, 처음 시니어 개발자라고 불린 것 같습니다. 그때는 "시니어 개발자"라는 호칭 자체가 생소했고, 심지어 조금 불쾌하기까지 했어요. 나이도 들고 경력도 좀 되었는데, 마땅히 공식적인 직함 같은 게 없는 상황에, 애써 우대해 불러주고 싶을 때 쓰는 호칭 정도로 느껴졌습니다.</p>
 <p>게다가 제가 생각하는 시니어 개발자는 백발머리 성성한 그런 이미지를 떠올렸는데, 아직 30대 초반 청년(?)이었던 저한테 시니어라니?! 당시 제 주변 동료들은 팀장이 된다거나 승진을 한다거나 하는데, 저만 아직 말단 개발자니까, '뭔가 문제시되는 게 아닌가'하는 자격지심 같은 마음이 발동했나 봅니다. 삐딱하게 말이죠.</p>
 <h2 id="이젠-뭘로-보나-시니어-확정"><a class="header" href="#이젠-뭘로-보나-시니어-확정">이젠 뭘로 보나, 시니어 확정</a></h2>
-<p>그런데 요새는 왠지 시니어 개발자의 대우가 꽤 좋은 느낌입니다. 채용 시장에서는 물론이고, 개발자 커뮤니티에서도 &quot;시니어 개발자&quot;라는 부류의 사람들을 인정해주는 분위기랄까요? 이미지 자체가 좋아지니, 시니어라 불리는 것에 대해서 느꼈던 거부감이 호감으로 바뀔 지경입니다.</p>
-<p>어쨌건, 이제 누가 저보고 &quot;시니어 개발자&quot;라고 말해도, 저 스스로도 어색하지 않은 상황이 갖춰진 것 같습니다. 백발성성까지는 아니더라도, 흰머리도 많아진 건 확실하고요. 췟!</p>
+<p>그런데 요새는 왠지 시니어 개발자의 대우가 꽤 좋은 느낌입니다. 채용 시장에서는 물론이고, 개발자 커뮤니티에서도 "시니어 개발자"라는 부류의 사람들을 인정해주는 분위기랄까요? 이미지 자체가 좋아지니, 시니어라 불리는 것에 대해서 느꼈던 거부감이 호감으로 바뀔 지경입니다.</p>
+<p>어쨌건, 이제 누가 저보고 "시니어 개발자"라고 말해도, 저 스스로도 어색하지 않은 상황이 갖춰진 것 같습니다. 백발성성까지는 아니더라도, 흰머리도 많아진 건 확실하고요. 췟!</p>
 <h2 id="시니어-개발자의-기준"><a class="header" href="#시니어-개발자의-기준">시니어 개발자의 기준</a></h2>
-<p>주변에 &quot;시니어 개발자를 판단하는 기준이 무어냐?&quot;라고 물어보면, 대략 주관적으로는 판단이 가능한 것 같습니다만, 경계를 확실히 가르는 객관적 기준이 있는 것 같지는 않습니다. 각자 생각하는 기준이 다를 수 있기에, 회색 영역이 꽤 넓게 자리 잡는 것 같습니다.</p>
+<p>주변에 "시니어 개발자를 판단하는 기준이 무어냐?"라고 물어보면, 대략 주관적으로는 판단이 가능한 것 같습니다만, 경계를 확실히 가르는 객관적 기준이 있는 것 같지는 않습니다. 각자 생각하는 기준이 다를 수 있기에, 회색 영역이 꽤 넓게 자리 잡는 것 같습니다.</p>
 <p>한편, 회사들마다 개발자 공개/비공개 레벨 제도가 있다거나, 아예 직급이나 직함이 그 역할을 대신하는 경우도 있는 것 같습니다. 예를 들어, L1부터 L7까지 있는데, 대략 L4부터 시니어라고 부른다거나 하는 식인 거죠.</p>
-<p>아니면, 아예 더 주관적으로, &quot;주변 개발자들에게 일을 시킬 수 있는 영향력이 있으면 시니어&quot;라고 한다거나, 아니면 &quot;본인 밥값을 충분히 하고 주변 개발자도 도와주면 시니어&quot;라고 한다는 의견도 들었습니다.</p>
+<p>아니면, 아예 더 주관적으로, "주변 개발자들에게 일을 시킬 수 있는 영향력이 있으면 시니어"라고 한다거나, 아니면 "본인 밥값을 충분히 하고 주변 개발자도 도와주면 시니어"라고 한다는 의견도 들었습니다.</p>
 <p>이 주니어/시니어 개발자라는 기준이, 마치, 청년과 장년의 기준이 무어냐와 비슷한 느낌으로 모호한 것 같다고 생각하고 있습니다.</p>
 <h2 id="경험한-회사의-위계들"><a class="header" href="#경험한-회사의-위계들">경험한 회사의 위계들</a></h2>
 <h3 id="첫직장----사원-대리-과장-차장-부장-임원"><a class="header" href="#첫직장----사원-대리-과장-차장-부장-임원">첫직장 -- 사원, 대리, 과장, 차장, 부장, 임원...</a></h3>
 <p>오래전 처음 다녔던 회사에서는 전통적인 직급 제도가 있었습니다. 사원은 그냥 누구누구'씨'라는 호칭으로 불렀고, 대리부터 직급과 '님'자를 붙여서 불렀습니다.
-그러니까 저보고는 &quot;김대현씨&quot;라고 불렀는데, 이게 뭐, 한국어 문법적으로 따지자면 존댓말이자만, 사실상 하대죠. 그러다 대리가 되면, 윗사람은 '김대현 대리'라고 부르고, 사원들은 '김대현 대리님'이라고 부릅니다.</p>
+그러니까 저보고는 "김대현씨"라고 불렀는데, 이게 뭐, 한국어 문법적으로 따지자면 존댓말이자만, 사실상 하대죠. 그러다 대리가 되면, 윗사람은 '김대현 대리'라고 부르고, 사원들은 '김대현 대리님'이라고 부릅니다.</p>
 <p>동일 직급 내에서는 연봉 차이가 거의 없고, 다음 직급으로 승진을 하면 연봉 인상 폭이 좀 티가 나는 점이 인상적입니다. 사실 이런 회사에서는 주니어/시니어의 구분이 의미가 없고, 그냥 직급 자체가 위계를 드러냅니다.</p>
 <p>여기서 직급제는, 거의 호봉에 따라서, 3년 근속하고 나면, 내부 승진 심사를 거쳐, 다음 직급이 되는데, 3년 보다 먼저 되면, 대단히 이례적으로 우수한 경우인 거고, 그보다 늦어지면, 뭔가 안 좋은 평가를 받고 있는 거라, 보통의 경우에는 연차에 맞게 거의 정해진 직급으로 이동했던 것 같습니다.</p>
 <p>여기서는, 대략 대리에서 과장될까 말까 한 즈음이 '시니어 개발자'로 부를 수 있는 영역이 아니었을까 돌이켜봅니다.</p>
 <h3 id="daum----대표이사도-그냥-님일-뿐"><a class="header" href="#daum----대표이사도-그냥-님일-뿐">Daum -- 대표이사도 그냥 '님'일 뿐</a></h3>
-<p>Daum은 제 입사 당시 젊은 인터넷 기업으로, 서로 호칭을 누구누구'님'이라고 직급 없이 불렀습니다. 그러니까 당시 이재웅 대표이사님 시절인데, 막 입사한 신입사원도, 대표이사를 부를 때, &quot;재웅님&quot;이라고 부르는 거지요. (뭐, 다행인 점은, 대부분 부를 일이 없습니다). 지금이야 IT 업계에서 님 문화나 영어 호칭 문화가 꽤 일반적인 것 같습니다만, 당시에는 나름 파격이었죠.</p>
+<p>Daum은 제 입사 당시 젊은 인터넷 기업으로, 서로 호칭을 누구누구'님'이라고 직급 없이 불렀습니다. 그러니까 당시 이재웅 대표이사님 시절인데, 막 입사한 신입사원도, 대표이사를 부를 때, "재웅님"이라고 부르는 거지요. (뭐, 다행인 점은, 대부분 부를 일이 없습니다). 지금이야 IT 업계에서 님 문화나 영어 호칭 문화가 꽤 일반적인 것 같습니다만, 당시에는 나름 파격이었죠.</p>
 <p>호칭 자체는 '님'으로 통일하긴 했는데, 인트라넷 프로필이나, 사내 메신저에서 대화할 때에 이름 옆에 직함을 붙여 표기합니다. 팀장이라거나, 본부장이라거나 유닛장이라거나 하는 식으로요.</p>
 <p>그래도 사내에서 온/오프라인으로 서로 부를 때는 '님'자로 끝입니다. 제가 팀장이라고 하더라도, 저희 팀원들은 저를 '대현님'이라고 부릅니다. 타이틀 중에 뭐 '개발리더'라는 요망한 것도 해보았는데, 뭐 별 차이점은 없었습니다.</p>
-<p>여담으로, 다음에서 오래 근무를 하다 보니, 보통 회사 명함에 있는 흔한 직급이 없어서, 어색한 경우도 있었습니다. 예를 들면, 친척 어르신들은, &quot;아니 왜 10년이나 다녔는데 아직도 사원이냐? 우리 대현이 승진을 못해서 어떻게 하냐?&quot; 이런 걱정을 해주시는 거죠. &quot;저희 회사는 직급 제도가 없이 다 님으로 부릅니다&quot;라고 말씀드리면, &quot;회사가 무슨 동호회냐? 님으로 부르게?&quot;라고 말씀하시거나, 아니면 '승진 못한 게 민망해서 둘러대나 보다'라고 생각하시는 경우도 있었을 것 같습니다.</p>
+<p>여담으로, 다음에서 오래 근무를 하다 보니, 보통 회사 명함에 있는 흔한 직급이 없어서, 어색한 경우도 있었습니다. 예를 들면, 친척 어르신들은, "아니 왜 10년이나 다녔는데 아직도 사원이냐? 우리 대현이 승진을 못해서 어떻게 하냐?" 이런 걱정을 해주시는 거죠. "저희 회사는 직급 제도가 없이 다 님으로 부릅니다"라고 말씀드리면, "회사가 무슨 동호회냐? 님으로 부르게?"라고 말씀하시거나, 아니면 '승진 못한 게 민망해서 둘러대나 보다'라고 생각하시는 경우도 있었을 것 같습니다.</p>
 <p>사내에서는 님 문화로 충분한데, 대외적으로는 직함이라도 있는 것이 대우가 달라지는 체감이 들기도 합니다. 하다못해 은행 대출을 받을 때에도, 팀장 직함을 하나 달고 있으면, 한도가 더 나오는 식인 거죠.</p>
 <p>제가 다니던 시절의 다음에서 개발팀장들은 실무 개발은 거의 하지 않았기 때문에, (팀장 == 시니어 개발자)라고 부르기에는 연결이 좀 어렵기는 합니다. 개발자 출신 시니어인 것은 맞지만, 이제는 개발자라고 부르기 어려운 업무를 주로 했습니다.</p>
 <h3 id="다음-카카오----영어-이름을-지으라고"><a class="header" href="#다음-카카오----영어-이름을-지으라고">다음 카카오 -- 영어 이름을 지으라고?</a></h3>
-<p>Daum에서 퇴사할 즈음, 카카오와 합병되었습니다. 실제야 어쨌든, 대외적으로는 다음이 카카오를 인수한 모양새였기 때문에, 회사 이름에도 처음에 &quot;다음&quot;이 붙어있기는 했습니다만, 호칭제도는 본 카카오에서 쓰던 대로 영어 이름을 쓰기로 합니다. 카카오에서는 님 호칭으로는 부족하고, 아예 영어식으로 해야 더 수평적인 문화가 장려된다고 여겼나 봅니다.</p>
+<p>Daum에서 퇴사할 즈음, 카카오와 합병되었습니다. 실제야 어쨌든, 대외적으로는 다음이 카카오를 인수한 모양새였기 때문에, 회사 이름에도 처음에 "다음"이 붙어있기는 했습니다만, 호칭제도는 본 카카오에서 쓰던 대로 영어 이름을 쓰기로 합니다. 카카오에서는 님 호칭으로는 부족하고, 아예 영어식으로 해야 더 수평적인 문화가 장려된다고 여겼나 봅니다.</p>
 <p>지금은 어떤지 모르겠으나, 당시 카카오는, 팀장이나 파트장 등이 실무 개발을 꽤 많이 했다고 들었기 때문에, 여기서부터는 대략 타이틀 있는 사람이 시니어 개발자라고 여기면 될 것 같습니다. 물론, 타이틀 없는 사람 중에서도 시니어 개발자로 부를 만한 사람도 많이 있었겠죠.</p>
 <h3 id="nhn----호오라-직급-제도가-있네"><a class="header" href="#nhn----호오라-직급-제도가-있네">NHN -- 호오라, 직급 제도가 있네?</a></h3>
 <p>NHN의 경우에는, 의외로 직급 제도가 있었습니다. 사원, 선임, 책임, 수석, 이사 등으로요. 용어의 차이만 있을 뿐, 대략 사원-대리-과장-부장 트리와 비슷한 것 같습니다. 저는 수석으로 근무를 했는데, 이게 거기서는 나름 높은 직급이라 특혜와 대우 같은 게 적잖이 있었습니다.</p>
@@ -548,14 +573,14 @@ const halfTurn = reorderFace(halfTurnF)
 <p>이 과정은, 경력 많은 상위 직급자들 여럿이 모여 어느 정도 객관성을 부여한 합의를 바탕으로 개발적인 성과와 능력을 평가한 기준이 반영되는 거라, 사내에서 책임부터는 '시니어 개발자'다라고 여겨도 될 것 같습니다.</p>
 <p>어찌 보면, 이렇게 팀장 같은 직함보다는 이런 승진 직급체계가, 시니어 개발자를 구분할 수 있는 기준에 가까울 것 같다는 생각을 해봤습니다.</p>
 <h3 id="line----다시-복귀한-님문화"><a class="header" href="#line----다시-복귀한-님문화">LINE+ -- 다시 복귀한 '님'문화</a></h3>
-<p>LINE+도, Daum처럼 님 호칭을 씁니다. 저야, Daum에서 경험했기 때문에 익숙했죠. 팀장은 Lead라고 부르고, 차상위 조직장, 그러니까 2차 조직장도 Lead라고 부르고 있는데요, 아마 네이버도 마찬가지인 것 같습니다. &quot;책임리더&quot;라는 타이틀도 있는데, 아마 꽤 높은 타이틀인가 봅니다. 어쨌건 다음과 마찬가지로, 내부에서 서로 부를 때는 타이틀 빼고, 그냥 님이라고 부릅니다.</p>
-<p>입사 당시 나머지는 다 님이라 부르고, 일본에 자주 오가는, 대표이사님만 &quot;신상&quot;이라고 일본식 호칭으로 부르더라고요. 라인 본사는 일본에 있는데, 일본에서, 직급을 빼고 누구누구&quot;씨&quot;라고 부르는 걸 파격적으로 장려한 모양입니다. &quot;-상&quot;이라는 게, 우리로 치면 정확히 &quot;-씨&quot;랑 매칭되는 건데, 사장님을 &quot;-씨&quot;라고 부른 거죠, &quot;신씨&quot;라고. 일본에서는 공식적인 호칭에서는 이름이 아니라, 성을 부릅니다.</p>
+<p>LINE+도, Daum처럼 님 호칭을 씁니다. 저야, Daum에서 경험했기 때문에 익숙했죠. 팀장은 Lead라고 부르고, 차상위 조직장, 그러니까 2차 조직장도 Lead라고 부르고 있는데요, 아마 네이버도 마찬가지인 것 같습니다. "책임리더"라는 타이틀도 있는데, 아마 꽤 높은 타이틀인가 봅니다. 어쨌건 다음과 마찬가지로, 내부에서 서로 부를 때는 타이틀 빼고, 그냥 님이라고 부릅니다.</p>
+<p>입사 당시 나머지는 다 님이라 부르고, 일본에 자주 오가는, 대표이사님만 "신상"이라고 일본식 호칭으로 부르더라고요. 라인 본사는 일본에 있는데, 일본에서, 직급을 빼고 누구누구"씨"라고 부르는 걸 파격적으로 장려한 모양입니다. "-상"이라는 게, 우리로 치면 정확히 "-씨"랑 매칭되는 건데, 사장님을 "-씨"라고 부른 거죠, "신씨"라고. 일본에서는 공식적인 호칭에서는 이름이 아니라, 성을 부릅니다.</p>
 <p>암튼, 그러다가, 공개적으로 드러나지 않는, 내부적인 개발자 등급 제도를 만든다던데, 어떻게 진행됐는지는 모르겠습니다. 아마 미국 FAANG 같은 회사에서 한다는 개발자 레벨 제도를 도입하려는 것 같습니다.</p>
 <p>도입하려는 레벨 제도는, 레벨마다 역할과 책임, 기대사항과 만족해야 할 기준들이 객관적이고 명확하기에, 레벨에 따라 시니어 개발자의 기준을 매핑할 수 있을 것 같습니다. 저 퇴사할 때까지는 도입되지 않았기 때문에 어떻게 진행됐는지는 잘 모르겠습니다.</p>
 <p>근데, 사실 듣기에 개발자 레벨이라는 게, 전통적인 직급 제도와 뭐가 다른지 모르겠어요. 그냥 대리, 선임, 책임 등에게, 구체적인 기대 사항만 능력과 성과 중심으로 적시해도 되는 게 아닌가, 왜 굳이 Level이고 숫자로 해야 하나 하는 꼰대적 의문이 들기는 했습니다.</p>
 <p>암튼, 능력과 성과를 객관적으로 평가하려는 시도는 응원하는 마음입니다. 단지 나이나 경력 기간만으로 평가한다거나, 아니면 조직장의 주관적 감을 위주로 평가하는 건 문제가 있다고 봅니다. (요새 어디 그런 조직이 있겠나 싶습니다만...)</p>
 <h2 id="그래서-시니어-개발자의-기준은"><a class="header" href="#그래서-시니어-개발자의-기준은">그래서, 시니어 개발자의 기준은?</a></h2>
-<p>사실 &quot;시니어 개발자&quot;에 대해 명시적으로 합의된 기준이 있지는 않은 것 같습니다.</p>
+<p>사실 "시니어 개발자"에 대해 명시적으로 합의된 기준이 있지는 않은 것 같습니다.</p>
 <p>(1) 경력 기준으로 보자면, 대략 5년 차 넘어가면 주니어라고 부르면 실례가 될 것 같고, 그렇다고 시니어라고 부르기에는 애매할 수 있는 영역인 것 같습니다. 한 7년 차 넘어가면 대충 시니어라고 볼 수 있을 것 같기도 합니다.</p>
 <p>(2) 특정 회사에서, 나름의 직급이나 레벨 체계를 경험했다면, 대충 시니어 개발자 기준으로 연결지어도 될 것 같고, 이게 그나마 객관적인 기준이 될 것 같습니다.</p>
 <p>(3) 경험한 역할로 보자면, 작은 파트나 팀을 대표로 이끌어 개발을 하는 역할이라면 시니어라고 봐도 될 것 같습니다.</p>
@@ -601,7 +626,7 @@ const halfTurn = reorderFace(halfTurnF)
 <li>다만 각각의 메시지는 최대 14일간 유지됩니다. 14일 이내에 메시지를 처리(consume) 해야 합니다.</li>
 </ul>
 <h3 id="두-가지-큐-종류----표준대기열-vs-fifo-대기열"><a class="header" href="#두-가지-큐-종류----표준대기열-vs-fifo-대기열">두 가지 큐 종류 -- 표준대기열 vs. FIFO 대기열</a></h3>
-<p>보통의 메시지 큐 시스템은, 기본적으로 최소 한번 전송(at least once delivery)을 약속합니다. 혹시 문제가 생기더라도, 최소한 한 번 이상 메시지를 전송해준다는 약속인데요, 그 말은, 같은 메시지가 두 번 이상 수신될 수도 있다는 뜻입니다. 여러 번 수신될 수도 있긴 해도, 어쨌건 유실되지는 않는다는 약속을 지킵니다. 표준대기열은, 이 &quot;최소 한번 전송&quot; 약속을 해주는 큐 시스템이고, FIFO 대기열을 선택하면, 정확히 한번(exactly once) 전송을 약속해 줍니다. 최소 한번 전송 방식에서, 중복 여부를 브로커가 확인해줘서 두 번째 중복 메시지부터는 버려주는 시스템인 셈입니다.</p>
+<p>보통의 메시지 큐 시스템은, 기본적으로 최소 한번 전송(at least once delivery)을 약속합니다. 혹시 문제가 생기더라도, 최소한 한 번 이상 메시지를 전송해준다는 약속인데요, 그 말은, 같은 메시지가 두 번 이상 수신될 수도 있다는 뜻입니다. 여러 번 수신될 수도 있긴 해도, 어쨌건 유실되지는 않는다는 약속을 지킵니다. 표준대기열은, 이 "최소 한번 전송" 약속을 해주는 큐 시스템이고, FIFO 대기열을 선택하면, 정확히 한번(exactly once) 전송을 약속해 줍니다. 최소 한번 전송 방식에서, 중복 여부를 브로커가 확인해줘서 두 번째 중복 메시지부터는 버려주는 시스템인 셈입니다.</p>
 <ul>
 <li>At least once -- 최소 한 번 이상 메시지 전송을 약속</li>
 <li>Exactly once -- 정확히 딱 한 번 메시지 전송되는 것을 약속 (중복 메시지 제거해줌)</li>
@@ -663,7 +688,7 @@ import software.amazon.awssdk.services.sqs.model.*;
     System.err.println(e.awsErrorDetails().errorMessage());
     System.exit(1);
   }
-  return &quot;&quot;;
+  return "";
 }
 </code></pre>
 <p>AWS 콘솔이나, 별도 작업으로 만들어 둔 SQS 큐 이름을 기준으로, 큐 접근 URL을 구합니다.</p>
@@ -679,8 +704,8 @@ import software.amazon.awssdk.services.sqs.model.*;
 <h3 id="메시지-송신----produce"><a class="header" href="#메시지-송신----produce">메시지 송신 -- produce</a></h3>
 <pre><code class="language-java">void produce() {
   SqsClient sqsClient = buildClient();
-  String queueUrl = getQueueUrl(sqsClient, &quot;testQueue&quot;);
-  sendMessage(sqsClient, queueUrl, &quot;Hello World!&quot;);
+  String queueUrl = getQueueUrl(sqsClient, "testQueue");
+  sendMessage(sqsClient, queueUrl, "Hello World!");
   sqsClient.close();
 }
 </code></pre>
@@ -818,5 +843,6 @@ allowfullscreen></iframe>
         });
         </script>
 
+    </div>
     </body>
 </html>
