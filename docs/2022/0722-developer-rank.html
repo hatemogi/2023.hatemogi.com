@@ -10,7 +10,7 @@
         <meta property="og:title" content="개발자 직급 체계, 그리고 시니어 개발자란? - hatemogi.com" />
         <meta property="og:description" content="백엔드 개발자 김대현의 개인 웹사이트" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://hatemogi.com/2022/0722-developer-rank.html" />
+        <meta property="og:url" content="https://hatemogi.com/2022/0722-developer-rank.md" />
         <meta property="og:image" content="https://hatemogi.com/img/hatemogi.png" />
         <meta property="og:image:width" content="1024" />
         <meta property="og:image:height" content="1024" />
@@ -18,23 +18,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="shortcut icon" href="../favicon.png">
-        <link rel="stylesheet" href="../css/variables.css">
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/chrome.css">
-        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="shortcut icon" href="../favicon-d976fd8d.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../fonts/fonts.css">
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-3c24d046.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../custom.css">
+        <link rel="stylesheet" href="../custom-b0350a57.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -46,7 +45,7 @@
             const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc.js"></script>
+        <script src="../toc-06f7fd11.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -59,7 +58,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -88,35 +87,38 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
                 <!-- Google tag (gtag.js) -->
@@ -126,22 +128,22 @@
                   function gtag() { dataLayer.push(arguments); }
                   gtag('js', new Date());
                   gtag('config', 'G-DS17HTQ8PY');
-                </script>                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                </script>                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
                     </div>
 
@@ -149,7 +151,7 @@
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
                     </div>
@@ -158,58 +160,58 @@
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="개발자-직급-체계-그리고-시니어-개발자란"><a class="header" href="#개발자-직급-체계-그리고-시니어-개발자란">개발자 직급 체계, 그리고 시니어 개발자란?</a></h1>
 <h2 id="나보고-시니어-개발자라고"><a class="header" href="#나보고-시니어-개발자라고">나보고 시니어 개발자라고?</a></h2>
-<p>한 7년 차쯤 되었을 때, 처음 시니어 개발자라고 불린 것 같습니다. 그때는 "시니어 개발자"라는 호칭 자체가 생소했고, 심지어 조금 불쾌하기까지 했어요. 나이도 들고 경력도 좀 되었는데, 마땅히 공식적인 직함 같은 게 없는 상황에, 애써 우대해 불러주고 싶을 때 쓰는 호칭 정도로 느껴졌습니다.</p>
-<p>게다가 제가 생각하는 시니어 개발자는 백발머리 성성한 그런 이미지를 떠올렸는데, 아직 30대 초반 청년(?)이었던 저한테 시니어라니?! 당시 제 주변 동료들은 팀장이 된다거나 승진을 한다거나 하는데, 저만 아직 말단 개발자니까, '뭔가 문제시되는 게 아닌가'하는 자격지심 같은 마음이 발동했나 봅니다. 삐딱하게 말이죠.</p>
+<p>한 7년 차쯤 되었을 때, 처음 시니어 개발자라고 불린 것 같습니다. 그때는 “시니어 개발자“라는 호칭 자체가 생소했고, 심지어 조금 불쾌하기까지 했어요. 나이도 들고 경력도 좀 되었는데, 마땅히 공식적인 직함 같은 게 없는 상황에, 애써 우대해 불러주고 싶을 때 쓰는 호칭 정도로 느껴졌습니다.</p>
+<p>게다가 제가 생각하는 시니어 개발자는 백발머리 성성한 그런 이미지를 떠올렸는데, 아직 30대 초반 청년(?)이었던 저한테 시니어라니?! 당시 제 주변 동료들은 팀장이 된다거나 승진을 한다거나 하는데, 저만 아직 말단 개발자니까, ’뭔가 문제시되는 게 아닌가’하는 자격지심 같은 마음이 발동했나 봅니다. 삐딱하게 말이죠.</p>
 <h2 id="이젠-뭘로-보나-시니어-확정"><a class="header" href="#이젠-뭘로-보나-시니어-확정">이젠 뭘로 보나, 시니어 확정</a></h2>
-<p>그런데 요새는 왠지 시니어 개발자의 대우가 꽤 좋은 느낌입니다. 채용 시장에서는 물론이고, 개발자 커뮤니티에서도 "시니어 개발자"라는 부류의 사람들을 인정해주는 분위기랄까요? 이미지 자체가 좋아지니, 시니어라 불리는 것에 대해서 느꼈던 거부감이 호감으로 바뀔 지경입니다.</p>
-<p>어쨌건, 이제 누가 저보고 "시니어 개발자"라고 말해도, 저 스스로도 어색하지 않은 상황이 갖춰진 것 같습니다. 백발성성까지는 아니더라도, 흰머리도 많아진 건 확실하고요. 췟!</p>
+<p>그런데 요새는 왠지 시니어 개발자의 대우가 꽤 좋은 느낌입니다. 채용 시장에서는 물론이고, 개발자 커뮤니티에서도 “시니어 개발자“라는 부류의 사람들을 인정해주는 분위기랄까요? 이미지 자체가 좋아지니, 시니어라 불리는 것에 대해서 느꼈던 거부감이 호감으로 바뀔 지경입니다.</p>
+<p>어쨌건, 이제 누가 저보고 “시니어 개발자“라고 말해도, 저 스스로도 어색하지 않은 상황이 갖춰진 것 같습니다. 백발성성까지는 아니더라도, 흰머리도 많아진 건 확실하고요. 췟!</p>
 <h2 id="시니어-개발자의-기준"><a class="header" href="#시니어-개발자의-기준">시니어 개발자의 기준</a></h2>
-<p>주변에 "시니어 개발자를 판단하는 기준이 무어냐?"라고 물어보면, 대략 주관적으로는 판단이 가능한 것 같습니다만, 경계를 확실히 가르는 객관적 기준이 있는 것 같지는 않습니다. 각자 생각하는 기준이 다를 수 있기에, 회색 영역이 꽤 넓게 자리 잡는 것 같습니다.</p>
+<p>주변에 “시니어 개발자를 판단하는 기준이 무어냐?“라고 물어보면, 대략 주관적으로는 판단이 가능한 것 같습니다만, 경계를 확실히 가르는 객관적 기준이 있는 것 같지는 않습니다. 각자 생각하는 기준이 다를 수 있기에, 회색 영역이 꽤 넓게 자리 잡는 것 같습니다.</p>
 <p>한편, 회사들마다 개발자 공개/비공개 레벨 제도가 있다거나, 아예 직급이나 직함이 그 역할을 대신하는 경우도 있는 것 같습니다. 예를 들어, L1부터 L7까지 있는데, 대략 L4부터 시니어라고 부른다거나 하는 식인 거죠.</p>
-<p>아니면, 아예 더 주관적으로, "주변 개발자들에게 일을 시킬 수 있는 영향력이 있으면 시니어"라고 한다거나, 아니면 "본인 밥값을 충분히 하고 주변 개발자도 도와주면 시니어"라고 한다는 의견도 들었습니다.</p>
+<p>아니면, 아예 더 주관적으로, “주변 개발자들에게 일을 시킬 수 있는 영향력이 있으면 시니어“라고 한다거나, 아니면 “본인 밥값을 충분히 하고 주변 개발자도 도와주면 시니어“라고 한다는 의견도 들었습니다.</p>
 <p>이 주니어/시니어 개발자라는 기준이, 마치, 청년과 장년의 기준이 무어냐와 비슷한 느낌으로 모호한 것 같다고 생각하고 있습니다.</p>
 <h2 id="경험한-회사의-위계들"><a class="header" href="#경험한-회사의-위계들">경험한 회사의 위계들</a></h2>
-<h3 id="첫직장----사원-대리-과장-차장-부장-임원"><a class="header" href="#첫직장----사원-대리-과장-차장-부장-임원">첫직장 -- 사원, 대리, 과장, 차장, 부장, 임원...</a></h3>
-<p>오래전 처음 다녔던 회사에서는 전통적인 직급 제도가 있었습니다. 사원은 그냥 누구누구'씨'라는 호칭으로 불렀고, 대리부터 직급과 '님'자를 붙여서 불렀습니다.
-그러니까 저보고는 "김대현씨"라고 불렀는데, 이게 뭐, 한국어 문법적으로 따지자면 존댓말이자만, 사실상 하대죠. 그러다 대리가 되면, 윗사람은 '김대현 대리'라고 부르고, 사원들은 '김대현 대리님'이라고 부릅니다.</p>
+<h3 id="첫직장--사원-대리-과장-차장-부장-임원"><a class="header" href="#첫직장--사원-대리-과장-차장-부장-임원">첫직장 – 사원, 대리, 과장, 차장, 부장, 임원…</a></h3>
+<p>오래전 처음 다녔던 회사에서는 전통적인 직급 제도가 있었습니다. 사원은 그냥 누구누구’씨’라는 호칭으로 불렀고, 대리부터 직급과 ’님’자를 붙여서 불렀습니다.
+그러니까 저보고는 “김대현씨“라고 불렀는데, 이게 뭐, 한국어 문법적으로 따지자면 존댓말이자만, 사실상 하대죠. 그러다 대리가 되면, 윗사람은 ’김대현 대리’라고 부르고, 사원들은 ’김대현 대리님’이라고 부릅니다.</p>
 <p>동일 직급 내에서는 연봉 차이가 거의 없고, 다음 직급으로 승진을 하면 연봉 인상 폭이 좀 티가 나는 점이 인상적입니다. 사실 이런 회사에서는 주니어/시니어의 구분이 의미가 없고, 그냥 직급 자체가 위계를 드러냅니다.</p>
 <p>여기서 직급제는, 거의 호봉에 따라서, 3년 근속하고 나면, 내부 승진 심사를 거쳐, 다음 직급이 되는데, 3년 보다 먼저 되면, 대단히 이례적으로 우수한 경우인 거고, 그보다 늦어지면, 뭔가 안 좋은 평가를 받고 있는 거라, 보통의 경우에는 연차에 맞게 거의 정해진 직급으로 이동했던 것 같습니다.</p>
-<p>여기서는, 대략 대리에서 과장될까 말까 한 즈음이 '시니어 개발자'로 부를 수 있는 영역이 아니었을까 돌이켜봅니다.</p>
-<h3 id="daum----대표이사도-그냥-님일-뿐"><a class="header" href="#daum----대표이사도-그냥-님일-뿐">Daum -- 대표이사도 그냥 '님'일 뿐</a></h3>
-<p>Daum은 제 입사 당시 젊은 인터넷 기업으로, 서로 호칭을 누구누구'님'이라고 직급 없이 불렀습니다. 그러니까 당시 이재웅 대표이사님 시절인데, 막 입사한 신입사원도, 대표이사를 부를 때, "재웅님"이라고 부르는 거지요. (뭐, 다행인 점은, 대부분 부를 일이 없습니다). 지금이야 IT 업계에서 님 문화나 영어 호칭 문화가 꽤 일반적인 것 같습니다만, 당시에는 나름 파격이었죠.</p>
-<p>호칭 자체는 '님'으로 통일하긴 했는데, 인트라넷 프로필이나, 사내 메신저에서 대화할 때에 이름 옆에 직함을 붙여 표기합니다. 팀장이라거나, 본부장이라거나 유닛장이라거나 하는 식으로요.</p>
-<p>그래도 사내에서 온/오프라인으로 서로 부를 때는 '님'자로 끝입니다. 제가 팀장이라고 하더라도, 저희 팀원들은 저를 '대현님'이라고 부릅니다. 타이틀 중에 뭐 '개발리더'라는 요망한 것도 해보았는데, 뭐 별 차이점은 없었습니다.</p>
-<p>여담으로, 다음에서 오래 근무를 하다 보니, 보통 회사 명함에 있는 흔한 직급이 없어서, 어색한 경우도 있었습니다. 예를 들면, 친척 어르신들은, "아니 왜 10년이나 다녔는데 아직도 사원이냐? 우리 대현이 승진을 못해서 어떻게 하냐?" 이런 걱정을 해주시는 거죠. "저희 회사는 직급 제도가 없이 다 님으로 부릅니다"라고 말씀드리면, "회사가 무슨 동호회냐? 님으로 부르게?"라고 말씀하시거나, 아니면 '승진 못한 게 민망해서 둘러대나 보다'라고 생각하시는 경우도 있었을 것 같습니다.</p>
+<p>여기서는, 대략 대리에서 과장될까 말까 한 즈음이 ’시니어 개발자’로 부를 수 있는 영역이 아니었을까 돌이켜봅니다.</p>
+<h3 id="daum--대표이사도-그냥-님일-뿐"><a class="header" href="#daum--대표이사도-그냥-님일-뿐">Daum – 대표이사도 그냥 ’님’일 뿐</a></h3>
+<p>Daum은 제 입사 당시 젊은 인터넷 기업으로, 서로 호칭을 누구누구’님’이라고 직급 없이 불렀습니다. 그러니까 당시 이재웅 대표이사님 시절인데, 막 입사한 신입사원도, 대표이사를 부를 때, “재웅님“이라고 부르는 거지요. (뭐, 다행인 점은, 대부분 부를 일이 없습니다). 지금이야 IT 업계에서 님 문화나 영어 호칭 문화가 꽤 일반적인 것 같습니다만, 당시에는 나름 파격이었죠.</p>
+<p>호칭 자체는 ’님’으로 통일하긴 했는데, 인트라넷 프로필이나, 사내 메신저에서 대화할 때에 이름 옆에 직함을 붙여 표기합니다. 팀장이라거나, 본부장이라거나 유닛장이라거나 하는 식으로요.</p>
+<p>그래도 사내에서 온/오프라인으로 서로 부를 때는 ’님’자로 끝입니다. 제가 팀장이라고 하더라도, 저희 팀원들은 저를 ’대현님’이라고 부릅니다. 타이틀 중에 뭐 ’개발리더’라는 요망한 것도 해보았는데, 뭐 별 차이점은 없었습니다.</p>
+<p>여담으로, 다음에서 오래 근무를 하다 보니, 보통 회사 명함에 있는 흔한 직급이 없어서, 어색한 경우도 있었습니다. 예를 들면, 친척 어르신들은, “아니 왜 10년이나 다녔는데 아직도 사원이냐? 우리 대현이 승진을 못해서 어떻게 하냐?” 이런 걱정을 해주시는 거죠. “저희 회사는 직급 제도가 없이 다 님으로 부릅니다“라고 말씀드리면, “회사가 무슨 동호회냐? 님으로 부르게?“라고 말씀하시거나, 아니면 ’승진 못한 게 민망해서 둘러대나 보다’라고 생각하시는 경우도 있었을 것 같습니다.</p>
 <p>사내에서는 님 문화로 충분한데, 대외적으로는 직함이라도 있는 것이 대우가 달라지는 체감이 들기도 합니다. 하다못해 은행 대출을 받을 때에도, 팀장 직함을 하나 달고 있으면, 한도가 더 나오는 식인 거죠.</p>
 <p>제가 다니던 시절의 다음에서 개발팀장들은 실무 개발은 거의 하지 않았기 때문에, (팀장 == 시니어 개발자)라고 부르기에는 연결이 좀 어렵기는 합니다. 개발자 출신 시니어인 것은 맞지만, 이제는 개발자라고 부르기 어려운 업무를 주로 했습니다.</p>
-<h3 id="다음-카카오----영어-이름을-지으라고"><a class="header" href="#다음-카카오----영어-이름을-지으라고">다음 카카오 -- 영어 이름을 지으라고?</a></h3>
-<p>Daum에서 퇴사할 즈음, 카카오와 합병되었습니다. 실제야 어쨌든, 대외적으로는 다음이 카카오를 인수한 모양새였기 때문에, 회사 이름에도 처음에 "다음"이 붙어있기는 했습니다만, 호칭제도는 본 카카오에서 쓰던 대로 영어 이름을 쓰기로 합니다. 카카오에서는 님 호칭으로는 부족하고, 아예 영어식으로 해야 더 수평적인 문화가 장려된다고 여겼나 봅니다.</p>
+<h3 id="다음-카카오--영어-이름을-지으라고"><a class="header" href="#다음-카카오--영어-이름을-지으라고">다음 카카오 – 영어 이름을 지으라고?</a></h3>
+<p>Daum에서 퇴사할 즈음, 카카오와 합병되었습니다. 실제야 어쨌든, 대외적으로는 다음이 카카오를 인수한 모양새였기 때문에, 회사 이름에도 처음에 “다음“이 붙어있기는 했습니다만, 호칭제도는 본 카카오에서 쓰던 대로 영어 이름을 쓰기로 합니다. 카카오에서는 님 호칭으로는 부족하고, 아예 영어식으로 해야 더 수평적인 문화가 장려된다고 여겼나 봅니다.</p>
 <p>지금은 어떤지 모르겠으나, 당시 카카오는, 팀장이나 파트장 등이 실무 개발을 꽤 많이 했다고 들었기 때문에, 여기서부터는 대략 타이틀 있는 사람이 시니어 개발자라고 여기면 될 것 같습니다. 물론, 타이틀 없는 사람 중에서도 시니어 개발자로 부를 만한 사람도 많이 있었겠죠.</p>
-<h3 id="nhn----호오라-직급-제도가-있네"><a class="header" href="#nhn----호오라-직급-제도가-있네">NHN -- 호오라, 직급 제도가 있네?</a></h3>
+<h3 id="nhn--호오라-직급-제도가-있네"><a class="header" href="#nhn--호오라-직급-제도가-있네">NHN – 호오라, 직급 제도가 있네?</a></h3>
 <p>NHN의 경우에는, 의외로 직급 제도가 있었습니다. 사원, 선임, 책임, 수석, 이사 등으로요. 용어의 차이만 있을 뿐, 대략 사원-대리-과장-부장 트리와 비슷한 것 같습니다. 저는 수석으로 근무를 했는데, 이게 거기서는 나름 높은 직급이라 특혜와 대우 같은 게 적잖이 있었습니다.</p>
 <p>그래도 NHN은, 경력 연차를 기반으로 하기는 하지만, 능력 평가와 업적 평가를 통해, 연차와 딱 매칭시키지는 않는, 나름 유연한 평가를 했던 점이 인상적이었습니다. 승진 심사위원회 같은 걸 열어서, 추천 대상자의 업적을 여러 상위자가 모여서 평가를 합니다. 심지어 대상자의 최근 몇 년 간 산출 결과 문서와, 사내 깃헙 저장소 소스 코드 커밋 내역까지 다 보고 평가를 합니다.</p>
-<p>이 과정은, 경력 많은 상위 직급자들 여럿이 모여 어느 정도 객관성을 부여한 합의를 바탕으로 개발적인 성과와 능력을 평가한 기준이 반영되는 거라, 사내에서 책임부터는 '시니어 개발자'다라고 여겨도 될 것 같습니다.</p>
+<p>이 과정은, 경력 많은 상위 직급자들 여럿이 모여 어느 정도 객관성을 부여한 합의를 바탕으로 개발적인 성과와 능력을 평가한 기준이 반영되는 거라, 사내에서 책임부터는 ’시니어 개발자’다라고 여겨도 될 것 같습니다.</p>
 <p>어찌 보면, 이렇게 팀장 같은 직함보다는 이런 승진 직급체계가, 시니어 개발자를 구분할 수 있는 기준에 가까울 것 같다는 생각을 해봤습니다.</p>
-<h3 id="line----다시-복귀한-님문화"><a class="header" href="#line----다시-복귀한-님문화">LINE+ -- 다시 복귀한 '님'문화</a></h3>
-<p>LINE+도, Daum처럼 님 호칭을 씁니다. 저야, Daum에서 경험했기 때문에 익숙했죠. 팀장은 Lead라고 부르고, 차상위 조직장, 그러니까 2차 조직장도 Lead라고 부르고 있는데요, 아마 네이버도 마찬가지인 것 같습니다. "책임리더"라는 타이틀도 있는데, 아마 꽤 높은 타이틀인가 봅니다. 어쨌건 다음과 마찬가지로, 내부에서 서로 부를 때는 타이틀 빼고, 그냥 님이라고 부릅니다.</p>
-<p>입사 당시 나머지는 다 님이라 부르고, 일본에 자주 오가는, 대표이사님만 "신상"이라고 일본식 호칭으로 부르더라고요. 라인 본사는 일본에 있는데, 일본에서, 직급을 빼고 누구누구"씨"라고 부르는 걸 파격적으로 장려한 모양입니다. "-상"이라는 게, 우리로 치면 정확히 "-씨"랑 매칭되는 건데, 사장님을 "-씨"라고 부른 거죠, "신씨"라고. 일본에서는 공식적인 호칭에서는 이름이 아니라, 성을 부릅니다.</p>
+<h3 id="line--다시-복귀한-님문화"><a class="header" href="#line--다시-복귀한-님문화">LINE+ – 다시 복귀한 ’님’문화</a></h3>
+<p>LINE+도, Daum처럼 님 호칭을 씁니다. 저야, Daum에서 경험했기 때문에 익숙했죠. 팀장은 Lead라고 부르고, 차상위 조직장, 그러니까 2차 조직장도 Lead라고 부르고 있는데요, 아마 네이버도 마찬가지인 것 같습니다. “책임리더“라는 타이틀도 있는데, 아마 꽤 높은 타이틀인가 봅니다. 어쨌건 다음과 마찬가지로, 내부에서 서로 부를 때는 타이틀 빼고, 그냥 님이라고 부릅니다.</p>
+<p>입사 당시 나머지는 다 님이라 부르고, 일본에 자주 오가는, 대표이사님만 “신상“이라고 일본식 호칭으로 부르더라고요. 라인 본사는 일본에 있는데, 일본에서, 직급을 빼고 누구누구“씨“라고 부르는 걸 파격적으로 장려한 모양입니다. “-상“이라는 게, 우리로 치면 정확히 “-씨“랑 매칭되는 건데, 사장님을 “-씨“라고 부른 거죠, “신씨“라고. 일본에서는 공식적인 호칭에서는 이름이 아니라, 성을 부릅니다.</p>
 <p>암튼, 그러다가, 공개적으로 드러나지 않는, 내부적인 개발자 등급 제도를 만든다던데, 어떻게 진행됐는지는 모르겠습니다. 아마 미국 FAANG 같은 회사에서 한다는 개발자 레벨 제도를 도입하려는 것 같습니다.</p>
 <p>도입하려는 레벨 제도는, 레벨마다 역할과 책임, 기대사항과 만족해야 할 기준들이 객관적이고 명확하기에, 레벨에 따라 시니어 개발자의 기준을 매핑할 수 있을 것 같습니다. 저 퇴사할 때까지는 도입되지 않았기 때문에 어떻게 진행됐는지는 잘 모르겠습니다.</p>
 <p>근데, 사실 듣기에 개발자 레벨이라는 게, 전통적인 직급 제도와 뭐가 다른지 모르겠어요. 그냥 대리, 선임, 책임 등에게, 구체적인 기대 사항만 능력과 성과 중심으로 적시해도 되는 게 아닌가, 왜 굳이 Level이고 숫자로 해야 하나 하는 꼰대적 의문이 들기는 했습니다.</p>
-<p>암튼, 능력과 성과를 객관적으로 평가하려는 시도는 응원하는 마음입니다. 단지 나이나 경력 기간만으로 평가한다거나, 아니면 조직장의 주관적 감을 위주로 평가하는 건 문제가 있다고 봅니다. (요새 어디 그런 조직이 있겠나 싶습니다만...)</p>
+<p>암튼, 능력과 성과를 객관적으로 평가하려는 시도는 응원하는 마음입니다. 단지 나이나 경력 기간만으로 평가한다거나, 아니면 조직장의 주관적 감을 위주로 평가하는 건 문제가 있다고 봅니다. (요새 어디 그런 조직이 있겠나 싶습니다만…)</p>
 <h2 id="그래서-시니어-개발자의-기준은"><a class="header" href="#그래서-시니어-개발자의-기준은">그래서, 시니어 개발자의 기준은?</a></h2>
-<p>사실 "시니어 개발자"에 대해 명시적으로 합의된 기준이 있지는 않은 것 같습니다.</p>
+<p>사실 “시니어 개발자“에 대해 명시적으로 합의된 기준이 있지는 않은 것 같습니다.</p>
 <p>(1) 경력 기준으로 보자면, 대략 5년 차 넘어가면 주니어라고 부르면 실례가 될 것 같고, 그렇다고 시니어라고 부르기에는 애매할 수 있는 영역인 것 같습니다. 한 7년 차 넘어가면 대충 시니어라고 볼 수 있을 것 같기도 합니다.</p>
 <p>(2) 특정 회사에서, 나름의 직급이나 레벨 체계를 경험했다면, 대충 시니어 개발자 기준으로 연결지어도 될 것 같고, 이게 그나마 객관적인 기준이 될 것 같습니다.</p>
 <p>(3) 경험한 역할로 보자면, 작은 파트나 팀을 대표로 이끌어 개발을 하는 역할이라면 시니어라고 봐도 될 것 같습니다.</p>
@@ -226,11 +228,11 @@
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="../2022/0825-salary-developer.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="../2022/0801-amazon-sqs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -240,17 +242,38 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="../2022/0825-salary-developer.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="../2022/0801-amazon-sqs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
@@ -259,11 +282,12 @@
 
 
 
-        <script src="../clipboard.min.js"></script>
-        <script src="../highlight.js"></script>
-        <script src="../book.js"></script>
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-0f8ffa1a.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
+
 
 
     </div>

@@ -10,7 +10,7 @@
         <meta property="og:title" content="행복한 개발자가 되는 길 (1) - hatemogi.com" />
         <meta property="og:description" content="백엔드 개발자 김대현의 개인 웹사이트" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://hatemogi.com/2024/0120-acceptance.html" />
+        <meta property="og:url" content="https://hatemogi.com/2024/0120-acceptance.md" />
         <meta property="og:image" content="https://hatemogi.com/img/hatemogi.png" />
         <meta property="og:image:width" content="1024" />
         <meta property="og:image:height" content="1024" />
@@ -18,23 +18,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="shortcut icon" href="../favicon.png">
-        <link rel="stylesheet" href="../css/variables.css">
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/chrome.css">
-        <link rel="stylesheet" href="../css/print.css" media="print">
+        <link rel="shortcut icon" href="../favicon-d976fd8d.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="../fonts/fonts.css">
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-3c24d046.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../custom.css">
+        <link rel="stylesheet" href="../custom-b0350a57.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -46,7 +45,7 @@
             const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc.js"></script>
+        <script src="../toc-06f7fd11.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -59,7 +58,7 @@
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -88,35 +87,38 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
                 <!-- Google tag (gtag.js) -->
@@ -126,22 +128,22 @@
                   function gtag() { dataLayer.push(arguments); }
                   gtag('js', new Date());
                   gtag('config', 'G-DS17HTQ8PY');
-                </script>                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                </script>                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
                     </div>
 
@@ -149,7 +151,7 @@
 
                     <div class="right-buttons">
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
 
                     </div>
@@ -158,14 +160,14 @@
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="행복한-개발자가-되는-길-1--breathwork"><a class="header" href="#행복한-개발자가-되는-길-1--breathwork">행복한 개발자가 되는 길 (1) — Breathwork</a></h1>
 <p>이건 제가 감히 명쾌히 다룰 수 없는 주제이겠습니다만, 요새 주된 관심사이다 보니 한 번쯤 글로 적어보면 좋겠다는 생각이 들었습니다. 저 스스로 정리해보고 모종의 다짐을 하는 목적이 크고, 어쩌면 누군가에게도 공감이 되는 내용이 있을 수 있겠다는 기대를 (아주 조금) 해봅니다.</p>
@@ -177,30 +179,30 @@
 <p>개발자로 취업하면 행복한가요? 취준생 입장에서는 그렇게 기대하겠지만, 안타깝게도 막상 취업하면 이 회사가 괜찮은 건지 내 커리어는 어떻게 될 건지, 다음 직장은 어디로 노려야 하는지, 연봉이 적으면 적은 대로 많으면 많은 대로 또 다른 문제를 일으킵니다.</p>
 <p>대기업에 입사한다거나, 네카라쿠배 취업해서 억대연봉받으면 행복할 것 같고, 아예 미국 FAANG으로 해외취업에 성공해서 해외파 개발자 인증을 받으면 행복할 것 같습니다. 내가 그렇게 된다는 생각만으로도 입가가 올라가고 행복할 것 같은 기대감이 일어납니다만, 정작 그런 입장이 현실인 사람들이 스스로 행복하다고 말하거나, 행복한 모습이 느껴지지는 않는다는 점이 흥미롭습니다. 그들의 조건은 당연한 것이 되고, 또 다른 불만이 그 자리를 대체합니다.</p>
 <h2 id="숨쉬기-운동으로-시작한-사소하지만-신기한-경험"><a class="header" href="#숨쉬기-운동으로-시작한-사소하지만-신기한-경험">숨쉬기 운동으로 시작한, 사소하지만 신기한 경험</a></h2>
-<p>작년 말 즈음부터, 숨쉬기 운동(breathwork)를 기반으로 명상을 하고 있습니다. 숨쉬기 운동은 '윔 호프 호흡법' 같은 숨쉬기 방법을 가이드에 맞춰 따라하는 운동입니다. 유튜브에 'breathwork'로 검색하면 수많은 가이드 영상을 찾을 수 있습니다. 대략 15분 정도 따라 하기에 적당해요. (사람에 따라서는 안맞을 수도 있다고 하니, 처음에는 가벼이 실험적으로 접근해 보시는 정도가 좋을 것 같습니다.)</p>
+<p>작년 말 즈음부터, 숨쉬기 운동(breathwork)를 기반으로 명상을 하고 있습니다. 숨쉬기 운동은 ‘윔 호프 호흡법’ 같은 숨쉬기 방법을 가이드에 맞춰 따라하는 운동입니다. 유튜브에 ’breathwork’로 검색하면 수많은 가이드 영상을 찾을 수 있습니다. 대략 15분 정도 따라 하기에 적당해요. (사람에 따라서는 안맞을 수도 있다고 하니, 처음에는 가벼이 실험적으로 접근해 보시는 정도가 좋을 것 같습니다.)</p>
 <p>명상이 여러모로 좋다는 것은 익히 들어왔지만, 꾸준히 하기 힘들었는데, 숨쉬기 운동을 하고 나면, 명상 집중도가 높아져서 숨쉬기 운동 후에 명상을 이어서 할 수 있고, 명상이 잘 되고 나면 그 효과가 체감되어서 매일 지속적인 명상을 할 수 있게 됐습니다. 예전엔 명상이라면 5분도 하기 힘들었는데, 요즈음은 하루 서너 번 20분~40분씩 할 수 있어서 총 한두 시간씩 할애하고 있는 것 같습니다. 억지로 하려면 안되고, 효과가 체감되면서부터 좋아졌습니다. 사소하게는 시야가 밝아지고 머리가 맑아지는 체감이 즐겁습니다.</p>
-<p>두어 달 밖에 안 됐는데, 몇 가지 사소하지만 신기한 체험을 몇 가지 경험했습니다. 공개적으로 적기에는 애매한 것들이지만, 그중에 하나는, '진정한 자아는 기본적으로 무한히 행복한 상태이다'라는 걸 아주 찰나의 순간에 느껴본 것 같다는 점이 있습니다. 그렇게 긴 순간도 아니었고, 명확하게 설명할 수 없는 경험이라서 확실하게 기술할 수 없어서 아쉽습니다.</p>
-<p>암튼, 다양한 명상 서적이나 종교에서 이야기하는 인간의 기본은 행복한 상태인데 너 스스로가 고통을 감싸 쥐고 있다는 점을 더 경험으로 깨닫게 되면 좋겠다는 기대와 함께, 이런 생각이 들었습니다. '어쩌면 어떤 경험으로 더 잘 알게 될 수도 있겠지만, 일단 그 사람들이 얘기하는 걸 무작정 믿어본다면 어떨까?'</p>
+<p>두어 달 밖에 안 됐는데, 몇 가지 사소하지만 신기한 체험을 몇 가지 경험했습니다. 공개적으로 적기에는 애매한 것들이지만, 그중에 하나는, ’진정한 자아는 기본적으로 무한히 행복한 상태이다’라는 걸 아주 찰나의 순간에 느껴본 것 같다는 점이 있습니다. 그렇게 긴 순간도 아니었고, 명확하게 설명할 수 없는 경험이라서 확실하게 기술할 수 없어서 아쉽습니다.</p>
+<p>암튼, 다양한 명상 서적이나 종교에서 이야기하는 인간의 기본은 행복한 상태인데 너 스스로가 고통을 감싸 쥐고 있다는 점을 더 경험으로 깨닫게 되면 좋겠다는 기대와 함께, 이런 생각이 들었습니다. ‘어쩌면 어떤 경험으로 더 잘 알게 될 수도 있겠지만, 일단 그 사람들이 얘기하는 걸 무작정 믿어본다면 어떨까?’</p>
 <h2 id="모두가-본디-평안한-상태라면"><a class="header" href="#모두가-본디-평안한-상태라면">모두가 본디 평안한 상태라면</a></h2>
-<p>만약 그 참자아(true self)가 본디 더 할 것 없는 평안한 상태라면 '행복 추구'가 무의미해집니다. 지금 이미 덧붙일 수 없는 행복 상태인데 뭘 애써 더해서 행복을 추구하나요. 이미 모든 것을 이뤘으니, 더 이뤄야 할 무언가가 없다는 얘기인 거죠. 본능적 에고는, 지금 이럴 때가 아니라며 이런저런 걸 해야 하고, 그러려면 또 그에 앞서서 뭐뭐뭐를 해야 한다고 압박하고 들겠지만, 사실 그럴 필요가 전혀 없다는 얘기인 거죠.</p>
-<p>그렇다고 현실적으로 아무것도 안 해도 되니까 가만있어라, 이런 뜻은 아닐 테고(그래도 상관은 없지만) 정말 무언가 하고 싶거나 해야 하니까 하는 거지, 미래의 행복을 위해서 억지로 해야 하는 상황이 아니게 된다는 뜻으로 이해해 보았습니다. 그런데 이게 참 편안해져요. 내가 뭔가 해야 했어야 하는 일들이 되게 많았는데, 해도 되지만 안 해도 된다는 사실만으로도 해방감이 느껴진달까요. 정말 꼭 해야 하는 일이 아니었던 거죠. 그중에 꼭 해야 하는 일들은 하고, 하고 싶은 건 하되, '막연히 행복해지기 위해 하려고 했던 별 쓸데없는 일들'을 버려버리는 겁니다.</p>
+<p>만약 그 참자아(true self)가 본디 더 할 것 없는 평안한 상태라면 ’행복 추구’가 무의미해집니다. 지금 이미 덧붙일 수 없는 행복 상태인데 뭘 애써 더해서 행복을 추구하나요. 이미 모든 것을 이뤘으니, 더 이뤄야 할 무언가가 없다는 얘기인 거죠. 본능적 에고는, 지금 이럴 때가 아니라며 이런저런 걸 해야 하고, 그러려면 또 그에 앞서서 뭐뭐뭐를 해야 한다고 압박하고 들겠지만, 사실 그럴 필요가 전혀 없다는 얘기인 거죠.</p>
+<p>그렇다고 현실적으로 아무것도 안 해도 되니까 가만있어라, 이런 뜻은 아닐 테고(그래도 상관은 없지만) 정말 무언가 하고 싶거나 해야 하니까 하는 거지, 미래의 행복을 위해서 억지로 해야 하는 상황이 아니게 된다는 뜻으로 이해해 보았습니다. 그런데 이게 참 편안해져요. 내가 뭔가 해야 했어야 하는 일들이 되게 많았는데, 해도 되지만 안 해도 된다는 사실만으로도 해방감이 느껴진달까요. 정말 꼭 해야 하는 일이 아니었던 거죠. 그중에 꼭 해야 하는 일들은 하고, 하고 싶은 건 하되, ’막연히 행복해지기 위해 하려고 했던 별 쓸데없는 일들’을 버려버리는 겁니다.</p>
 <h2 id="개발자-뿐-아니라"><a class="header" href="#개발자-뿐-아니라">개발자 뿐 아니라</a></h2>
-<p>이 관심사가 새삼 흥미로운 게, 삶의 모든 분야에서 다양하게 내가 뭘 (쓸데없이) 바라고 있었다는 점을 인식하게 된다는 점입니다. '쓸데없이 바라고 있었다'는 사실조차 인식하지 못했어요. 아까 잠깐 언급한 신기한 찰나에서 그 사실이 잠시 인식되자, 아 그게 무거운 마음이었다는 생각이 들고, 다시 그 찰나에서 빠져나오자 무거운 마음 상태가 기본이 되었습니다.</p>
+<p>이 관심사가 새삼 흥미로운 게, 삶의 모든 분야에서 다양하게 내가 뭘 (쓸데없이) 바라고 있었다는 점을 인식하게 된다는 점입니다. ’쓸데없이 바라고 있었다’는 사실조차 인식하지 못했어요. 아까 잠깐 언급한 신기한 찰나에서 그 사실이 잠시 인식되자, 아 그게 무거운 마음이었다는 생각이 들고, 다시 그 찰나에서 빠져나오자 무거운 마음 상태가 기본이 되었습니다.</p>
 <p>암튼, 행복해지려면 돈을 얼만큼 벌어야 하고, 건강은 어떻게 되어야 하고, 내 몸무게는 어떻게 되어야 하며, 아이 공부는 어떻게 했으면 좋겠고, 이런 지극히 정상적인 고민들의 관점이 대폭 흔들리는 상황입니다.</p>
 <p>스스로는 어떻게 바뀌어갈지 흥미로운 상황입니다. 이미 뭔가 많이 바뀐 것 같아서 재밌고요. 그게 뭔지 모르겠습니다만 말이죠. 헛헛.</p>
 <h2 id="그래서-뭘-하라는-거야"><a class="header" href="#그래서-뭘-하라는-거야">그래서 뭘 하라는 거야?</a></h2>
-<p>굳이 말해보자면, 꼭 그래야 하는 것은 아니지만 "숨쉬기 운동" 경험 추천드려 봅니다! 이미 명상이 잘 되시는 분들은 불필요할 것 같지만, 평소 명상에 관심이 있었는데 잡생각이 많이 끼어들어서 집중하기 힘들었던 분들에게 좋다고 생각해요.</p>
+<p>굳이 말해보자면, 꼭 그래야 하는 것은 아니지만 “숨쉬기 운동” 경험 추천드려 봅니다! 이미 명상이 잘 되시는 분들은 불필요할 것 같지만, 평소 명상에 관심이 있었는데 잡생각이 많이 끼어들어서 집중하기 힘들었던 분들에게 좋다고 생각해요.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="../2024/0323-i-maybe-wrong.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="../2023/1207-running-developer.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -210,17 +212,38 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="../2024/0323-i-maybe-wrong.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="../2023/1207-running-developer.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
         <script>
@@ -229,11 +252,12 @@
 
 
 
-        <script src="../clipboard.min.js"></script>
-        <script src="../highlight.js"></script>
-        <script src="../book.js"></script>
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-0f8ffa1a.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
+
 
 
     </div>
