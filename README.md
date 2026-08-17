@@ -11,19 +11,18 @@
 
 
 ```bash
-> mdbook build
+> make build
 ```
 
 ## mdBook 서빙
 
 
 ```bash
-> mdbook serve
+> make serve
 ```
 
 ## S3 배포
 
 ```bash
-> ./deploy.sh
+> make deploy
 ```
-
