@@ -1,8 +1,9 @@
 
-# hatemogi.com 개인블로그
+# hatemogi.com 개인홈
 
-# 소개
-  - [김대현 소개](intro/intro.md)
+# 김대현 소개
+  - [소개 2026](intro/2026.md)
+  - [소개 2022](intro/intro.md)
   <!-- - [온라인 강의](intro/courses.md) -->
 
 # 2024년 글

@@ -8,7 +8,7 @@
 
 제주도🏝 바닷가에서 한적하게 쉬며 커피☕️ 마시는 것을 좋아합니다.
 
-[Medium](https://hatemogi.medium.com)에 개발 관련한 글을 적기도 하고, [YouTube](https://youtube.com/c/hatemogi101)에도 개발 관련 영상을 올리고 있어요.
+[Medium](https://hatemogi.medium.com)에 개발 관련한 글을 적기도 하고, [YouTube](https://youtube.com/c/hatemogi)에도 개발 관련 영상을 올리고 있어요.
 
 제 관심 분야를 적으면, 앞으로 공유할 글들에 대한 방향성을 가늠하시기 좋을 것 같습니다.
 

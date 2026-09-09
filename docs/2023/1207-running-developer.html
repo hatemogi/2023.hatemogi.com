@@ -14,14 +14,22 @@
         <meta property="og:image" content="https://hatemogi.com/img/hatemogi.png" />
         <meta property="og:image:width" content="1024" />
         <meta property="og:image:height" content="1024" />
+        <script>
+          try {
+            if (localStorage.getItem('mdbook-theme') === null) {
+              localStorage.setItem('mdbook-theme', 'halcyon');
+            }
+          } catch (_) {}
+        </script>
+
         <meta name="description" content="백엔드 개발자 김대현의 개인 웹사이트">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
         <link rel="shortcut icon" href="../favicon-d976fd8d.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-0392ca55.css">
-        <link rel="stylesheet" href="../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -33,7 +41,8 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../custom-b0350a57.css">
+        <link rel="stylesheet" href="../custom-3cb82a08.css">
+        <link rel="stylesheet" href="../halcyon-4c2b5086.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -45,7 +54,7 @@
             const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-06f7fd11.js"></script>
+        <script src="../toc-8fc6c286.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -204,7 +213,7 @@
 <p>달리기 시작할 때는, 제가 그래도 어려서 육상 선수였는데 조금만 하면 잘 할 줄 알았습니다. 근데 뭐 당연하게도 한참 못 뛰더라구요. 오래달리기는 그야말로 마일리지가 깡패입니다. 많이 뛰면 뛴 만큼 잘하게 되어있습니다. 마일리지를 일단 채워두고 거기서 실력이 나누어지기야 하겠지만, 일단 초보된 입장에서는 오로지 달리기 마일리지만이 핵심입니다. 평소 다른 운동을 잘했건 어려서 육상선수였건 말건 이딴 건 아무런 도움이 되지 않습니다. 그저 초보된 입장에서 차근차근 쌓아 올려야 합니다.</p>
 <p>개발도 그렇습니다. 우리가 어떤 다른 분야에서 날고 기었다 한들, 새로 시작했으면 생초보입니다. 겸손하게 난 아무것도 아니라는 시작점에서 차근히 여유롭게 나아가면 됩니다. 지나치게 기죽을 필요도 없지만, 그렇다고 강한 에고를 내세워서 좋을 것도 없겠습니다.</p>
 <p>이상, 달리기와 개발을 좀 억지로 엮어서 팁을 적어보았습니다. 뛰어난 러너도 아니고 훌륭한 개발자도 아니면서 이렇다저렇다 적으니 부끄럽습니다만, 공감되는 부분이 있으셨으면 좋겠습니다. 긴 글 읽어주셔서 고맙습니다.</p>
-<p><img src="/2023/running-developer.jpeg" alt=""></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="/2023/running-developer.jpeg" alt=""><span class="img-wrapper"><img src="/2023/running-developer.jpeg" alt=""></span></label></p>
 
                     </main>
 
@@ -250,10 +259,11 @@
 
 
         <script src="../clipboard-1626706a.min.js"></script>
-        <script src="../highlight-0f8ffa1a.js"></script>
-        <script src="../book-c22b7243.js"></script>
+        <script src="../highlight-cf739202.js"></script>
+        <script src="../book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="../halcyon-2398fc9a.js"></script>
 
 
 

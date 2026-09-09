@@ -14,14 +14,22 @@
         <meta property="og:image" content="https://hatemogi.com/img/hatemogi.png" />
         <meta property="og:image:width" content="1024" />
         <meta property="og:image:height" content="1024" />
+        <script>
+          try {
+            if (localStorage.getItem('mdbook-theme') === null) {
+              localStorage.setItem('mdbook-theme', 'halcyon');
+            }
+          } catch (_) {}
+        </script>
+
         <meta name="description" content="백엔드 개발자 김대현의 개인 웹사이트">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
         <link rel="shortcut icon" href="../favicon-d976fd8d.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-0392ca55.css">
-        <link rel="stylesheet" href="../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -33,7 +41,8 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../custom-b0350a57.css">
+        <link rel="stylesheet" href="../custom-3cb82a08.css">
+        <link rel="stylesheet" href="../halcyon-4c2b5086.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -45,7 +54,7 @@
             const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-06f7fd11.js"></script>
+        <script src="../toc-8fc6c286.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -170,7 +179,7 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="스칼라-미니북-공개"><a class="header" href="#스칼라-미니북-공개">스칼라 미니북 공개</a></h1>
-<p><img src="https://scalabook.hatemogi.com/img/scalabook.png" alt=""></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="https://scalabook.hatemogi.com/img/scalabook.png" alt=""><span class="img-wrapper"><img src="https://scalabook.hatemogi.com/img/scalabook.png" alt=""></span></label></p>
 <p>함수형 프로그래밍에 관심을 두다, 클로저, 스칼라, 하스켈을 차례로 업무에 활용하고 있습니다. 셋 다 널리 쓰이는 함수형 프로그래밍 언어인데, 셋이 생각보다 많이 다릅니다.</p>
 <p>다 매력적이지만, 현대 백엔드 개발에서는 그중 가장 스칼라가 실용적이라는 생각을 하고 있습니다. 하스켈은 too much인 것 같습니다.</p>
 <p>스칼라 정도면 함수형 프로그래밍도 꽤 본격적으로 할 수 있으면서, 현업 환경을 떠나지 않고도 실제 활용이 가능하다고 봅니다.</p>
@@ -229,10 +238,11 @@
 
 
         <script src="../clipboard-1626706a.min.js"></script>
-        <script src="../highlight-0f8ffa1a.js"></script>
-        <script src="../book-c22b7243.js"></script>
+        <script src="../highlight-cf739202.js"></script>
+        <script src="../book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="../halcyon-2398fc9a.js"></script>
 
 
 

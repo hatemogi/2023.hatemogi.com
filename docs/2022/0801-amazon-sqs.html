@@ -14,14 +14,22 @@
         <meta property="og:image" content="https://hatemogi.com/img/hatemogi.png" />
         <meta property="og:image:width" content="1024" />
         <meta property="og:image:height" content="1024" />
+        <script>
+          try {
+            if (localStorage.getItem('mdbook-theme') === null) {
+              localStorage.setItem('mdbook-theme', 'halcyon');
+            }
+          } catch (_) {}
+        </script>
+
         <meta name="description" content="백엔드 개발자 김대현의 개인 웹사이트">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
         <link rel="shortcut icon" href="../favicon-d976fd8d.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-0392ca55.css">
-        <link rel="stylesheet" href="../css/chrome-fc474251.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -33,7 +41,8 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../custom-b0350a57.css">
+        <link rel="stylesheet" href="../custom-3cb82a08.css">
+        <link rel="stylesheet" href="../halcyon-4c2b5086.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -45,7 +54,7 @@
             const default_dark_theme = "navy";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-06f7fd11.js"></script>
+        <script src="../toc-8fc6c286.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -181,19 +190,19 @@
 <p>카카오톡 메시지의 경우에는, 한 명이 운전 중이거나 하는 이유로 잠시 연결이 되지 않더라도, 메시지를 보낸 사람이 메시지를 보내고 다른 일을 하고 있을 수 있고, 받은 사람은 운전을 다 하고 나서, 메시지를 확인한 다음 응답할 수 있습니다.</p>
 <p>마이크로 서비스 사이에 메시지 전달을 이어주는 카카오톡이 메시지 큐라고 보면 이해하기 쉬울 것 같습니다. 메시지 큐는 일반적으로 장애에 대한 내성이 (대단히) 높고, 메시지를 안전하게 저장해서 유실되지 않게 보장해 주곤 합니다. 일단 성공적으로 메시지를 큐에 넣었다면, (거의) 반드시 수신자에게 전달된다고 믿을 수 있습니다.</p>
 <h2 id="마이크로-서비스끼리-직접-통신"><a class="header" href="#마이크로-서비스끼리-직접-통신">마이크로 서비스끼리 직접 통신</a></h2>
-<p><img src="img/sqs-direct-message.png" alt=""></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="img/sqs-direct-message.png" alt=""><span class="img-wrapper"><img src="img/sqs-direct-message.png" alt=""></span></label></p>
 <p>백엔드 마이크로 서비스 A와 B가 통신을 해야 하는 상황에, 보통의 네트워크 통신을 한다면, 즉각적으로 결과를 확인해가며 동기식(synchronous)으로 통신할 수 있습니다만, 대신 A나 B 둘 중 하나만 문제 상황을 만나더라도 전체 시스템이 실패하는 문제가 있습니다.</p>
 <p>위 그림에서 보자면, 서비스 B에 장애가 발생하면, 해당 메시지를 주고받아야 했던 상황 전체가, 시스템 차원에서 실패한 꼴이 됩니다. 서비스 A는 문제없이 정상이었는데도 말이죠. A 입장에서는 억울한 상황입니다.</p>
 <h2 id="메시지-큐를-활용한-간접-통신"><a class="header" href="#메시지-큐를-활용한-간접-통신">메시지 큐를 활용한 간접 통신</a></h2>
-<p><img src="img/sqs-queue-message.png" alt=""></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="img/sqs-queue-message.png" alt=""><span class="img-wrapper"><img src="img/sqs-queue-message.png" alt=""></span></label></p>
 <p>마이크로 서비스 사이 중간에 메시지 큐 서비스를 활용해 통신하면, 메시지 송수신 채널을 유연하게 연결할 수 있습니다. 중간에 메시지 브로커가 <strong>안전하고 유연한 버퍼</strong> 역할을 해주어서, 메시지를 발송하는 쪽에서는 메시지 수신부가 정상적인지 아닌지 큰 걱정 없이 메시지를 보내고 다른 일을 할 수 있습니다.</p>
 <p>마이크로 서비스 B에서 일시적인 문제가 발생했다고 하더라도, 마이크로 서비스 A에서는 정상적으로 메시지를 브로커에 보낼 수 있고, B입장에서는, 다시 정상 작동하는 시점에 메시지를 가져올 수 있습니다. 잠깐의 장애 상황에 대해서 대응할 수 있는 여력이 생긴 거죠.</p>
 <p>참고로, 메시지 브로커 서비스는, 다중화 구성을 기본으로 장애 걱정 없이 믿을 만한 시스템으로 구축합니다. 브로커 시스템 일부에 장애가 발생하더라도, 브로커 시스템 전체로 보자면 정상 작동하도록 믿을 수 있는 높은 신뢰도를 바탕으로 운영됩니다. 각자 갖고 있는 스마트폰이 물에 빠지거나 문제가 생길지언정, 카카오톡 서버가 메시지를 유실했다고 생각하기 쉽지 않은 것처럼요.</p>
 <p>메시지를 보내는 쪽을 프로듀서(producer)라고 부르고, 받아서 사용하는 쪽을 컨슈머(consumer)라고 부릅니다.</p>
 <h2 id="amazon-sqs"><a class="header" href="#amazon-sqs">Amazon SQS</a></h2>
-<p><img src="img/sqs-banner.png" alt=""></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="img/sqs-banner.png" alt=""><span class="img-wrapper"><img src="img/sqs-banner.png" alt=""></span></label></p>
 <p>메시지 큐 시스템을 자체 인프라에 운영하던 시절에는 오픈 소스 프로젝트로 <a href="https://www.rabbitmq.com">RabbitMQ</a>가 널리 활용됐었는데요, 클라우드 환경으로 넘어가고, 게다가 AWS에서 책임지고 운영해주는 SQS 같은 브로커 시스템이 등장하면서, 훨씬 더 편리해진 것 같습니다. AWS에서 책임지고 믿을만하게 운영해주기 때문에, 우리는 브로커 운영 부담은 전혀 없이, 각자 개발하는 시스템에서 메시지만 보내고 받아도 되게 된 거죠.</p>
-<p><img src="img/sqs-example.png" alt=""></p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="img/sqs-example.png" alt=""><span class="img-wrapper"><img src="img/sqs-example.png" alt=""></span></label></p>
 <p>SQS 시스템은 확장성이 매우 뛰어난 브로커 역할을 합니다. 예를 들어, 고객의 요청을 받은 ELB 로드밸런서가, 웹 서비스들로 부하를 분산시켜주고, 각각의 웹 서비스 인스턴스들이 각자 맘 편히 SQS 큐에 메시지를 쌓고, 뒷 단에서 메시지를 처리하는 마이크로 서비스가 묵묵히 자기 일을 하는 식으로 시스템을 구성 할 수 있습니다. DB값을 바꾸는 일처럼, 당장 즉각적인 처리를 반드시 해야 하는 일만 앞단에서 처리하고, 이어서 관련한 시간이 오래 걸리는 일들을 분리해서, 큐 뒷단에서 처리할 수 있겠습니다.</p>
 <h2 id="amazon-sqs의-상세-특징"><a class="header" href="#amazon-sqs의-상세-특징">Amazon SQS의 상세 특징</a></h2>
 <p>SQS가 메시지 브로커 시스템을 본격 활용하기에 앞서, 구체적인 특징들을 미리 살펴보겠습니다.</p>
@@ -360,10 +369,11 @@ import software.amazon.awssdk.services.sqs.model.*;
 
 
         <script src="../clipboard-1626706a.min.js"></script>
-        <script src="../highlight-0f8ffa1a.js"></script>
-        <script src="../book-c22b7243.js"></script>
+        <script src="../highlight-cf739202.js"></script>
+        <script src="../book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="../halcyon-2398fc9a.js"></script>
 
 
 
